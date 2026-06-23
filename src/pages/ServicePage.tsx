@@ -10,7 +10,6 @@ import {
   MessageCircle, Heart, Eye, Play, FileText, Palette,
   LineChart, Users, DollarSign, Percent, ArrowUpRight,
 } from 'lucide-react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const iconMap: Record<string, React.ElementType> = {
@@ -375,10 +374,9 @@ export default function ServicePage() {
 
   return (
     <div className="min-h-screen bg-black-950 text-white overflow-x-hidden">
-      <Navbar />
 
       {/* ── HERO ───────────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
         {/* Animated background layers */}
         <div className="absolute inset-0 bg-black-950" />
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(0,102,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,102,255,0.04) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -397,15 +395,19 @@ export default function ServicePage() {
           ))}
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 w-full">
+          {/* Back button - clearly separated from content */}
+          <div className="mb-8">
+            <button onClick={() => navigate(-1)} className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors text-sm group">
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Services
+            </button>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Content */}
             <div>
-              <button onClick={() => navigate(-1)} className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-8 text-sm group">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back
-              </button>
-
-              <div className="inline-flex items-center gap-3 mb-6">
+              {/* Service icon and label - clearly below back button */}
+              <div className="inline-flex items-center gap-3 mb-8">
                 <div className="w-14 h-14 rounded-2xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center shadow-lg shadow-blue-500/20">
                   <Icon className="w-7 h-7 text-electric" />
                 </div>
@@ -426,7 +428,7 @@ export default function ServicePage() {
                     Start Your Project <ArrowRight className="w-5 h-5" />
                   </span>
                 </a>
-                <a href="/#contact" className="btn-outline text-base px-8 py-3.5">
+                <a href="mailto:info.astranexora@gmail.com" className="btn-outline text-base px-8 py-3.5">
                   Book Free Consultation
                 </a>
               </div>
