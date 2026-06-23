@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { projects } from '../data/portfolio';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, ExternalLink } from 'lucide-react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function CaseStudyPage() {
@@ -27,9 +26,8 @@ export default function CaseStudyPage() {
 
   return (
     <div className="min-h-screen bg-black-950 text-white">
-      <Navbar />
 
-      <section className="relative pt-32 pb-0 overflow-hidden">
+      <section className="relative pt-40 pb-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black-950 via-black-900 to-black-950" />
         <div className="absolute inset-0 mesh-bg opacity-15" />
 
