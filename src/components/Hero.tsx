@@ -1,112 +1,106 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ChevronDown, Sparkles } from 'lucide-react';
-import useScrollReveal from '../hooks/useScrollReveal';
+import { ArrowRight, ChevronDown, Sparkles, TrendingUp, Users, BarChart3, Globe, Zap, Star } from 'lucide-react';
 
 interface Node {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
+  x: number; y: number; vx: number; vy: number;
 }
 
+const metrics = [
+  { label: 'Website Traffic', value: '+284%', color: '#0066FF', icon: Globe },
+  { label: 'Conversion Rate', value: '+68%', color: '#00CFFF', icon: TrendingUp },
+  { label: 'Brand Reach', value: '+412%', color: '#60a5fa', icon: Users },
+];
+
+const floatingCards = [
+  { title: 'SEO Ranking', value: '#1', sub: 'Keywords on Page 1', icon: Star, delay: '0s' },
+  { title: 'ROI Delivered', value: '4.2x', sub: 'Average return', icon: BarChart3, delay: '2s' },
+  { title: 'Projects Done', value: '150+', sub: 'Across industries', icon: Zap, delay: '4s' },
+];
+
 export default function Hero() {
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
+  const [mouseX, setMouseX] = useState(50);
+  const [mouseY, setMouseY] = useState(50);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [barProgress, setBarProgress] = useState([0, 0, 0]);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef = useRef<Node[]>([]);
-  const animationFrameRef = useRef<number>();
-
-  const { ref: contentRef, visible: isVisible } = useScrollReveal();
+  const animFrameRef = useRef<number>();
 
   const typedWords = ['Digital Success', 'Brand Identity', 'Growth Stories', 'Online Impact'];
 
-  // Mouse tracking for reactive gradient
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setIsVisible(true);
+      setTimeout(() => setBarProgress([78, 92, 65]), 800);
+    }, 100);
+    return () => clearTimeout(t);
+  }, []);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      setMouseX(x);
-      setMouseY(y);
+      setMouseX((e.clientX / window.innerWidth) * 100);
+      setMouseY((e.clientY / window.innerHeight) * 100);
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Canvas network animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
+    resize();
+    window.addEventListener('resize', resize);
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Initialize nodes
     if (nodesRef.current.length === 0) {
-      for (let i = 0; i < 60; i++) {
+      for (let i = 0; i < 50; i++) {
         nodesRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 1,
-          vy: (Math.random() - 0.5) * 1,
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          vx: (Math.random() - 0.5) * 0.6,
+          vy: (Math.random() - 0.5) * 0.6,
         });
       }
     }
 
-    // Animation loop
     const animate = () => {
-      // Clear canvas
-      ctx.fillStyle = 'rgba(10, 10, 30, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       const nodes = nodesRef.current;
-      const connectionDistance = 150;
+      const dist = 160;
 
-      // Update and draw nodes
-      nodes.forEach((node) => {
-        // Update position
-        node.x += node.vx;
-        node.y += node.vy;
+      nodes.forEach(n => {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x <= 0 || n.x >= canvas.width) n.vx *= -1;
+        if (n.y <= 0 || n.y >= canvas.height) n.vy *= -1;
+        n.x = Math.max(0, Math.min(canvas.width, n.x));
+        n.y = Math.max(0, Math.min(canvas.height, n.y));
 
-        // Bounce off edges
-        if (node.x <= 0 || node.x >= canvas.width) node.vx *= -1;
-        if (node.y <= 0 || node.y >= canvas.height) node.vy *= -1;
-
-        // Keep within bounds
-        node.x = Math.max(0, Math.min(canvas.width, node.x));
-        node.y = Math.max(0, Math.min(canvas.height, node.y));
-
-        // Draw node
-        ctx.fillStyle = 'rgba(0, 102, 255, 0.6)';
+        ctx.fillStyle = 'rgba(0,102,255,0.5)';
         ctx.beginPath();
-        ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, 1.5, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      // Draw connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            const opacity = (1 - distance / connectionDistance) * 0.3;
-            ctx.strokeStyle = `rgba(0, 102, 255, ${opacity})`;
-            ctx.lineWidth = 1;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < dist) {
+            const opacity = (1 - d / dist) * 0.25;
+            ctx.strokeStyle = `rgba(0,102,255,${opacity})`;
+            ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -115,153 +109,256 @@ export default function Hero() {
         }
       }
 
-      animationFrameRef.current = requestAnimationFrame(animate);
+      animFrameRef.current = requestAnimationFrame(animate);
     };
-
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      window.removeEventListener('resize', resize);
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
   }, []);
 
-  // Typing animation
   useEffect(() => {
-    const currentWord = typedWords[currentWordIndex];
-    let timeout: NodeJS.Timeout;
-
+    const word = typedWords[currentWordIndex];
+    let t: ReturnType<typeof setTimeout>;
     if (!isDeleting) {
-      // Typing
-      if (displayedText.length < currentWord.length) {
-        timeout = setTimeout(() => {
-          setDisplayedText(currentWord.substring(0, displayedText.length + 1));
-        }, 80);
+      if (displayedText.length < word.length) {
+        t = setTimeout(() => setDisplayedText(word.slice(0, displayedText.length + 1)), 80);
       } else {
-        // Pause at end of word
-        timeout = setTimeout(() => {
-          setIsDeleting(true);
-        }, 2000);
+        t = setTimeout(() => setIsDeleting(true), 2200);
       }
     } else {
-      // Deleting
       if (displayedText.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayedText(displayedText.substring(0, displayedText.length - 1));
-        }, 40);
+        t = setTimeout(() => setDisplayedText(displayedText.slice(0, -1)), 40);
       } else {
-        // Move to next word
         setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % typedWords.length);
+        setCurrentWordIndex(p => (p + 1) % typedWords.length);
       }
     }
-
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentWordIndex, typedWords]);
+    return () => clearTimeout(t);
+  }, [displayedText, isDeleting, currentWordIndex]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black-950">
-      {/* Background Layers */}
+    <section className="relative min-h-screen overflow-hidden bg-black-950 flex items-center">
+      {/* Network canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 opacity-30 pointer-events-none" />
 
-      {/* 1. Aurora background */}
-      <div className="aurora-bg absolute inset-0" />
+      {/* Aurora BG */}
+      <div className="absolute inset-0 aurora-bg" />
+      <div className="absolute inset-0 dot-grid opacity-[0.06]" />
 
-      {/* 2. Dot grid */}
-      <div className="dot-grid absolute inset-0 opacity-10" />
-
-      {/* 3. Mouse-reactive radial gradient */}
+      {/* Mouse reactive glow */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
         style={{
-          background: `radial-gradient(ellipse at ${mouseX}% ${mouseY}%, rgba(0, 102, 255, 0.15), transparent 60%)`,
+          background: `radial-gradient(ellipse 60% 50% at ${mouseX}% ${mouseY}%, rgba(0,102,255,0.12), transparent 70%)`,
         }}
       />
 
-      {/* 4. Network canvas animation */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 opacity-40"
-      />
+      {/* Scan line */}
+      <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent animate-scan" />
 
-      {/* 5. Rotating scan line */}
-      <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent animate-scan" />
+      {/* Ambient orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none animate-pulse-slow"
+        style={{ background: 'radial-gradient(circle, rgba(0,60,200,0.08), transparent)' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full blur-3xl pointer-events-none animate-float-slow"
+        style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.06), transparent)' }} />
 
       {/* Content */}
-      <div
-        ref={contentRef}
-        className={`relative z-10 flex min-h-screen flex-col items-center justify-center px-6 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-      >
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Section Label */}
-          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30">
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-sm font-medium text-blue-300">Astra Nexora</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* LEFT: Content */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-blue border border-blue-500/20 mb-8">
+              <Sparkles className="w-3.5 h-3.5 text-electric animate-pulse" />
+              <span className="text-xs font-display font-semibold text-electric tracking-wider">ASTRA NEXORA</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-electric/60" />
+              <span className="text-xs text-white/50">Premium Digital Agency</span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="font-display font-bold text-5xl md:text-6xl xl:text-7xl text-white leading-[1.05] mb-6">
+              Transforming
+              <br />
+              <span className="text-gradient-blue">Brands Into</span>
+              <br />
+              <span className="relative inline-block min-h-[1.1em]">
+                <span className="shimmer-text">{displayedText}</span>
+                <span className="inline-block w-0.5 h-[0.9em] bg-electric ml-1 animate-pulse align-middle" />
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p
+              className={`text-white/50 text-lg max-w-lg leading-relaxed mb-10 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            >
+              A premium digital marketing agency helping businesses build powerful digital
+              identities through creativity, strategy and measurable growth.
+            </p>
+
+            {/* CTAs */}
+            <div
+              className={`flex flex-col sm:flex-row gap-4 mb-14 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            >
+              <a href="#contact" className="btn-primary inline-flex items-center gap-2">
+                Start Your Project
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a href="#services" className="btn-outline inline-flex items-center gap-2">
+                Explore Services
+              </a>
+            </div>
+
+            {/* Stats row */}
+            <div
+              className={`flex flex-wrap gap-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            >
+              {[
+                { value: '150+', label: 'Projects Delivered' },
+                { value: '98%', label: 'Client Satisfaction' },
+                { value: '5+', label: 'Years Experience' },
+              ].map(stat => (
+                <div key={stat.label} className="relative">
+                  <div className="font-display font-bold text-3xl text-gradient-blue">{stat.value}</div>
+                  <div className="text-xs text-white/35 mt-0.5 tracking-wide">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="font-display font-bold text-5xl md:text-7xl text-white leading-tight mb-6">
-            Transforming Brands Into
-            <br />
-            <span className="text-gradient-blue inline-block">
-              {displayedText}
-              <span className="ml-1 inline-block w-1 h-12 md:h-20 bg-blue-500 animate-pulse" />
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-white/50 text-lg max-w-xl mx-auto mb-8">
-            A premium digital marketing agency helping businesses build powerful digital identities
-            through creativity, strategy and measurable growth.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <a
-              href="#contact"
-              className="btn-primary inline-flex items-center justify-center gap-2"
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <a
-              href="#services"
-              className="btn-outline"
-            >
-              Explore Services
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <div>
-              <div className="font-display font-bold text-2xl text-gradient-blue mb-2">
-                150+
-              </div>
-              <div className="text-xs text-white/40">Projects Delivered</div>
+          {/* RIGHT: Holographic Dashboard */}
+          <div
+            className={`relative transition-all duration-1200 delay-300 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-12 scale-95'}`}
+          >
+            {/* Central glow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-72 h-72 rounded-full blur-3xl"
+                style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.2), rgba(0,207,255,0.08), transparent)' }} />
             </div>
-            <div>
-              <div className="font-display font-bold text-2xl text-gradient-blue mb-2">
-                98%
+
+            {/* Main dashboard card */}
+            <div className="relative glass-strong rounded-3xl p-6 border border-blue-500/15 shadow-[0_0_80px_rgba(0,102,255,0.15)]">
+              {/* Top bar */}
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <div className="text-xs text-white/30 uppercase tracking-widest mb-0.5">Campaign Overview</div>
+                  <div className="font-display font-bold text-white">Q4 Performance</div>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-blue">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                  <span className="text-xs text-white/60 font-display">Live</span>
+                </div>
               </div>
-              <div className="text-xs text-white/40">Client Satisfaction</div>
-            </div>
-            <div>
-              <div className="font-display font-bold text-2xl text-gradient-blue mb-2">
-                5+
+
+              {/* Metric bars */}
+              <div className="space-y-4 mb-6">
+                {metrics.map((m, i) => {
+                  const Icon = m.icon;
+                  return (
+                    <div key={m.label}>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <div className="flex items-center gap-2">
+                          <Icon className="w-3.5 h-3.5" style={{ color: m.color }} />
+                          <span className="text-xs text-white/50">{m.label}</span>
+                        </div>
+                        <span className="text-xs font-display font-bold" style={{ color: m.color }}>{m.value}</span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div
+                          className="h-full rounded-full transition-all duration-[1500ms] ease-out"
+                          style={{
+                            width: `${barProgress[i]}%`,
+                            background: `linear-gradient(90deg, ${m.color}, ${m.color}99)`,
+                            boxShadow: `0 0 8px ${m.color}60`,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <div className="text-xs text-white/40">Years Experience</div>
+
+              {/* Mini chart */}
+              <div className="glass rounded-2xl p-4 mb-4">
+                <div className="flex items-end justify-between gap-1.5 h-20">
+                  {[35, 52, 41, 68, 55, 72, 58, 84, 71, 92, 78, 96].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-t-sm transition-all duration-[1200ms] ease-out"
+                      style={{
+                        height: isVisible ? `${h}%` : '0%',
+                        transitionDelay: `${600 + i * 60}ms`,
+                        background: i >= 9
+                          ? 'linear-gradient(to top, #0066FF, #00CFFF)'
+                          : 'rgba(0,102,255,0.3)',
+                        boxShadow: i >= 9 ? '0 0 8px rgba(0,102,255,0.4)' : 'none',
+                      }}
+                    />
+                  ))}
+                </div>
+                <div className="flex justify-between mt-2">
+                  <span className="text-[10px] text-white/20">Jan</span>
+                  <span className="text-[10px] text-white/20">Dec</span>
+                </div>
+              </div>
+
+              {/* Bottom row */}
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { label: 'Leads', value: '1,284', change: '+32%' },
+                  { label: 'Revenue', value: '₹4.2L', change: '+68%' },
+                  { label: 'ROAS', value: '4.2x', change: '+19%' },
+                ].map(item => (
+                  <div key={item.label} className="glass-blue rounded-xl p-3 text-center">
+                    <div className="font-display font-bold text-sm text-white mb-0.5">{item.value}</div>
+                    <div className="text-[10px] text-white/30 mb-1">{item.label}</div>
+                    <div className="text-[10px] text-green-400 font-display font-semibold">{item.change}</div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Floating cards */}
+            {floatingCards.map((card, i) => {
+              const Icon = card.icon;
+              const positions = [
+                '-top-4 -left-6',
+                '-bottom-4 -right-6',
+                'top-1/2 -right-12 -translate-y-1/2',
+              ];
+              return (
+                <div
+                  key={card.title}
+                  className={`absolute ${positions[i]} glass-blue rounded-xl px-4 py-3 border border-blue-500/20 shadow-[0_0_20px_rgba(0,102,255,0.15)] animate-float`}
+                  style={{ animationDelay: card.delay }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-3.5 h-3.5 text-electric" />
+                    </div>
+                    <div>
+                      <div className="font-display font-bold text-sm text-white">{card.value}</div>
+                      <div className="text-[10px] text-white/35">{card.sub}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Rotating outer ring */}
+            <div className="absolute -inset-8 rounded-full border border-blue-500/5 animate-spin-slow pointer-events-none" />
+            <div className="absolute -inset-16 rounded-full border border-blue-500/[0.03] animate-spin-reverse pointer-events-none" />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <ChevronDown className="w-6 h-6 text-white/30 animate-bounce" />
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+        <span className="text-[10px] text-white/20 uppercase tracking-widest font-display">Scroll</span>
+        <ChevronDown className="w-5 h-5 text-white/20 animate-bounce" />
       </div>
     </section>
   );
