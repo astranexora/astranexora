@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from 'react';
-import { Award, Rocket, Globe, TrendingUp } from 'lucide-react';
 
 const expertise = [
   { label: 'Digital Marketing', level: 95, color: '#0066FF' },
@@ -10,12 +9,6 @@ const expertise = [
   { label: 'Content Creation', level: 88, color: '#0099DD' },
 ];
 
-const timeline = [
-  { year: '2019', event: 'Began digital marketing journey, building expertise in SEO and web development.', icon: Rocket },
-  { year: '2021', event: 'Expanded into branding and content strategy, serving startups and SMEs.', icon: TrendingUp },
-  { year: '2023', event: 'Founded Astra Nexora with a vision to deliver premium digital experiences.', icon: Award },
-  { year: '2024', event: 'Scaled operations, serving businesses across multiple industries globally.', icon: Globe },
-];
 
 export default function About() {
   const [visible, setVisible] = useState(false);
@@ -42,7 +35,7 @@ export default function About() {
         style={{ background: 'radial-gradient(circle, rgba(0,100,255,0.08), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left: Story */}
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
@@ -95,8 +88,8 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: Expertise + Timeline */}
-          <div className={`space-y-6 transition-all duration-1000 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+          {/* Right: Expertise */}
+          <div className={`transition-all duration-1000 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
             {/* Expertise bars */}
             <div className="glass-blue rounded-2xl p-8 border border-blue-500/10">
               <h3 className="font-display font-semibold text-white text-lg mb-7">Core Expertise</h3>
@@ -127,38 +120,6 @@ export default function About() {
               </div>
             </div>
 
-            {/* Timeline */}
-            <div className="glass rounded-2xl p-8 border border-white/5">
-              <h3 className="font-display font-semibold text-white text-lg mb-7">Our Journey</h3>
-              <div className="relative">
-                {/* Vertical line */}
-                <div className="absolute left-5 top-2 bottom-0 w-px">
-                  <div
-                    className="h-full bg-gradient-to-b from-blue-500 via-electric/40 to-transparent transition-all duration-[2000ms] ease-out"
-                    style={{ transform: visible ? 'scaleY(1)' : 'scaleY(0)', transformOrigin: 'top' }}
-                  />
-                </div>
-
-                {timeline.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={item.year}
-                      className={`relative pl-14 pb-8 last:pb-0 group transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
-                      style={{ transitionDelay: `${500 + i * 120}ms` }}
-                    >
-                      {/* Icon dot */}
-                      <div className="absolute left-0 top-0 w-10 h-10 rounded-full border border-blue-500/30 bg-black-900 flex items-center justify-center group-hover:border-blue-500/80 group-hover:bg-blue-500/10 group-hover:shadow-[0_0_14px_rgba(0,102,255,0.3)] transition-all duration-300">
-                        <Icon className="w-4 h-4 text-blue-400/60 group-hover:text-electric transition-colors duration-300" />
-                      </div>
-
-                      <div className="font-display font-bold text-sm text-gradient-blue mb-1">{item.year}</div>
-                      <div className="text-sm text-white/40 leading-relaxed">{item.event}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         </div>
       </div>
