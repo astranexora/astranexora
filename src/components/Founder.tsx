@@ -41,13 +41,16 @@ export default function Founder() {
               </div>
 
               {/* Portrait frame */}
-              <div className="relative z-10 glass-blue rounded-2xl overflow-hidden p-1">
-                <div className="rounded-xl overflow-hidden">
+              <div className="relative z-10 rounded-2xl p-[2px]" style={{ background: 'linear-gradient(135deg, rgba(0,102,255,0.6), rgba(6,182,212,0.3), rgba(0,102,255,0.2))' }}>
+                <div className="relative rounded-2xl overflow-hidden bg-gray-950" style={{ boxShadow: '0 0 40px rgba(0,102,255,0.25), 0 0 80px rgba(0,102,255,0.1), inset 0 0 20px rgba(0,102,255,0.05)' }}>
                   <img
-                    src="/WhatsApp_Image_2026-05-01_at_4.21.17_PM copy.jpeg"
-                    alt="S. Saktheeswaran"
-                    className="w-full h-full object-cover object-top"
+                    src="/image copy.png"
+                    alt="S. Saktheeswaran — Founder & Managing Director, Astra Nexora"
+                    className="w-full object-cover object-top"
+                    style={{ aspectRatio: '3/4', objectPosition: 'center top' }}
                   />
+                  {/* Subtle bottom gradient fade */}
+                  <div className="absolute bottom-0 left-0 right-0 h-16 rounded-b-2xl" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }} />
                 </div>
               </div>
 
