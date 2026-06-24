@@ -18,10 +18,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 10);
 
       const sections = ['about', 'services', 'portfolio', 'founder', 'contact'];
-      for (const id of sections.reverse()) {
+      for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
           setActiveSection(id);
@@ -39,22 +39,19 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-display ${
+        className={`fixed top-0 left-0 right-0 z-50 font-display bg-white transition-all duration-300 ${
           isScrolled
-            ? 'py-2 bg-black-950/80 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-            : 'py-4 bg-transparent'
+            ? 'shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-b border-gray-100'
+            : 'border-b border-gray-100'
         }`}
       >
-        {/* Top glow line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
-
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity group">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-85 transition-opacity">
             <img
               src="/WhatsApp_Image_2026-04-30_at_1.07.24_PM copy copy.jpeg"
               alt="Astra Nexora"
-              className="h-11 w-auto drop-shadow-[0_0_8px_rgba(0,102,255,0.4)] group-hover:drop-shadow-[0_0_14px_rgba(0,102,255,0.6)] transition-all duration-300"
+              className="h-11 w-auto"
             />
           </Link>
 
@@ -67,16 +64,15 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 group ${
-                    isActive ? 'text-white' : 'text-white/50 hover:text-white'
+                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 group ${
+                    isActive
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50/60'
                   }`}
                 >
+                  {link.label}
                   {isActive && (
-                    <span className="absolute inset-0 rounded-lg bg-blue-500/10 border border-blue-500/20" />
-                  )}
-                  <span className="relative z-10">{link.label}</span>
-                  {!isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-gradient-to-r from-blue-500 to-electric group-hover:w-3/4 transition-all duration-300" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-blue-500" />
                   )}
                 </a>
               );
@@ -95,7 +91,7 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="md:hidden w-10 h-10 rounded-lg glass flex items-center justify-center text-white/70 hover:text-white transition-colors"
+            className="md:hidden w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
           >
             <Menu size={20} />
           </button>
@@ -107,50 +103,53 @@ export default function Navbar() {
         <div className="fixed inset-0 z-[60] flex flex-col">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black-950/95 backdrop-blur-2xl"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setIsMenuOpen(false)}
           />
 
-          {/* Panel */}
-          <div className="relative flex flex-col h-full p-8 pt-24">
+          {/* Panel — slides in from right */}
+          <div className="relative ml-auto w-80 h-full bg-white shadow-2xl flex flex-col p-6 pt-16">
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 rounded-lg glass flex items-center justify-center text-white/70 hover:text-white"
+              className="absolute top-5 right-5 w-9 h-9 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-900 transition-colors"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
-            {/* Glow orb */}
-            <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-20 blur-3xl pointer-events-none"
-              style={{ background: 'radial-gradient(circle, #0066FF, transparent)' }} />
+            {/* Logo in mobile panel */}
+            <div className="mb-8">
+              <img
+                src="/WhatsApp_Image_2026-04-30_at_1.07.24_PM copy copy.jpeg"
+                alt="Astra Nexora"
+                className="h-9 w-auto"
+              />
+            </div>
 
-            <div className="flex flex-col gap-2 mt-4">
-              {navLinks.map((link, i) => (
+            <div className="flex flex-col gap-1">
+              {navLinks.map(link => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-4 px-5 py-4 rounded-xl glass-blue text-white/70 hover:text-white hover:border-blue-500/30 transition-all duration-300 group"
-                  style={{ animationDelay: `${i * 60}ms` }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 font-medium"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-electric transition-colors" />
-                  <span className="font-display font-medium text-lg">{link.label}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500/40" />
+                  {link.label}
                 </a>
               ))}
 
               <Link
                 to="/#contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="btn-primary mt-6 justify-center gap-2"
+                className="btn-primary mt-5 justify-center gap-2"
               >
                 Start Project
-                <ArrowRight size={16} />
+                <ArrowRight size={14} />
               </Link>
             </div>
 
-            {/* Bottom email */}
-            <div className="mt-auto pt-8 border-t border-white/5">
-              <a href="mailto:info.astranexora@gmail.com" className="text-sm text-white/30 hover:text-white/60 transition-colors">
+            <div className="mt-auto pt-6 border-t border-gray-100">
+              <a href="mailto:info.astranexora@gmail.com" className="text-sm text-gray-400 hover:text-blue-600 transition-colors">
                 info.astranexora@gmail.com
               </a>
             </div>

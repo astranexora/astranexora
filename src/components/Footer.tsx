@@ -6,33 +6,28 @@ export default function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="relative bg-black-950 overflow-hidden">
-      {/* Top glow line */}
+    <footer className="relative bg-white overflow-hidden">
+      {/* Top border */}
       <div className="h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
 
-      {/* Background FX */}
-      <div className="absolute inset-0 dot-grid opacity-[0.04]" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,40,120,0.25), transparent)' }} />
+      {/* Subtle background tint */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(239,246,255,0.8), transparent)' }} />
 
       {/* CTA Banner */}
-      <div className="relative border-b border-white/[0.05]">
-        <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-10">
-          {/* Glow orb */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.12), transparent)' }} />
-
+      <div className="relative border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="relative z-10">
-            <div className="section-label mb-4">
-              <span className="w-6 h-px bg-electric" />
-              <span>Let's Build Together</span>
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-6 h-px bg-blue-500" />
+              <span className="text-xs font-display font-semibold tracking-[0.2em] uppercase text-blue-500">Let's Build Together</span>
             </div>
-            <h3 className="font-display font-bold text-3xl md:text-4xl text-white mb-3 leading-tight">
+            <h3 className="font-display font-bold text-3xl md:text-4xl text-gray-900 mb-2 leading-tight">
               Ready to transform your
               <br />
               <span className="text-gradient-blue">digital presence?</span>
             </h3>
-            <p className="text-white/40 text-sm">Let's build something extraordinary together.</p>
+            <p className="text-gray-500 text-sm">Let's build something extraordinary together.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 relative z-10">
@@ -42,7 +37,10 @@ export default function Footer() {
                 <ArrowRight className="w-4 h-4" />
               </span>
             </a>
-            <a href="mailto:info.astranexora@gmail.com" className="btn-outline whitespace-nowrap">
+            <a
+              href="mailto:info.astranexora@gmail.com"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-display font-semibold text-sm border border-gray-200 text-gray-700 hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 whitespace-nowrap"
+            >
               <Mail className="w-4 h-4" />
               Email Us
             </a>
@@ -51,18 +49,18 @@ export default function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex mb-6 hover:opacity-80 transition-opacity">
+            <Link to="/" className="inline-flex mb-5 hover:opacity-80 transition-opacity">
               <img
                 src="/WhatsApp_Image_2026-04-30_at_1.07.24_PM copy copy.jpeg"
                 alt="Astra Nexora"
-                className="h-11 w-auto drop-shadow-[0_0_8px_rgba(0,102,255,0.35)]"
+                className="h-11 w-auto"
               />
             </Link>
-            <p className="text-sm text-white/35 leading-relaxed mb-6 max-w-xs">
+            <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-xs">
               A premium digital marketing agency helping businesses build powerful digital identities through creativity, strategy and measurable growth.
             </p>
             <div className="flex gap-2.5">
@@ -76,7 +74,7 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg glass-blue flex items-center justify-center text-white/40 hover:text-electric hover:border-blue-500/40 transition-all duration-300"
+                  className="w-9 h-9 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300"
                 >
                   <s.icon className="w-4 h-4" />
                 </a>
@@ -86,15 +84,15 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-semibold text-white/60 text-xs uppercase tracking-[0.2em] mb-6">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-semibold text-gray-900 text-xs uppercase tracking-[0.2em] mb-5">Services</h4>
+            <ul className="space-y-2.5">
               {services.slice(0, 6).map(s => (
                 <li key={s.id}>
                   <Link
                     to={`/services/${s.id}`}
-                    className="text-sm text-white/35 hover:text-white/80 transition-colors duration-200 flex items-center gap-2.5 group"
+                    className="text-sm text-gray-500 hover:text-blue-600 transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-blue-500/40 group-hover:bg-electric transition-colors duration-200" />
+                    <span className="w-1 h-1 rounded-full bg-blue-400/60 group-hover:bg-blue-500 transition-colors" />
                     {s.title}
                   </Link>
                 </li>
@@ -103,15 +101,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-semibold text-white/60 text-xs uppercase tracking-[0.2em] mb-6">More Services</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display font-semibold text-gray-900 text-xs uppercase tracking-[0.2em] mb-5">More Services</h4>
+            <ul className="space-y-2.5">
               {services.slice(6).map(s => (
                 <li key={s.id}>
                   <Link
                     to={`/services/${s.id}`}
-                    className="text-sm text-white/35 hover:text-white/80 transition-colors duration-200 flex items-center gap-2.5 group"
+                    className="text-sm text-gray-500 hover:text-blue-600 transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-blue-500/40 group-hover:bg-electric transition-colors duration-200" />
+                    <span className="w-1 h-1 rounded-full bg-blue-400/60 group-hover:bg-blue-500 transition-colors" />
                     {s.title}
                   </Link>
                 </li>
@@ -121,23 +119,23 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold text-white/60 text-xs uppercase tracking-[0.2em] mb-6">Contact</h4>
+            <h4 className="font-display font-semibold text-gray-900 text-xs uppercase tracking-[0.2em] mb-5">Contact</h4>
             <div className="space-y-5">
               <a href="mailto:info.astranexora@gmail.com" className="flex items-start gap-3 group">
-                <div className="w-8 h-8 rounded-lg glass-blue flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Mail className="w-3.5 h-3.5 text-electric" />
+                <div className="w-8 h-8 rounded-lg border border-gray-200 bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:border-blue-300 group-hover:bg-blue-100 transition-all duration-300">
+                  <Mail className="w-3.5 h-3.5 text-blue-500" />
                 </div>
-                <span className="text-sm text-white/35 group-hover:text-white/70 transition-colors duration-200 leading-relaxed">
+                <span className="text-sm text-gray-500 group-hover:text-blue-600 transition-colors duration-200 leading-relaxed">
                   info.astranexora@gmail.com
                 </span>
               </a>
 
-              <div className="pt-5 border-t border-white/[0.05]">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-blue mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs text-white/50 font-display">Available for projects</span>
+              <div className="pt-4 border-t border-gray-100">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 mb-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs text-green-700 font-display font-medium">Available for projects</span>
                 </div>
-                <p className="text-sm text-white/50 font-display font-medium">Creative. Strategic. Growth Driven.</p>
+                <p className="text-sm text-gray-700 font-display font-semibold">Creative. Strategic. Growth Driven.</p>
               </div>
             </div>
           </div>
@@ -145,17 +143,17 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/[0.04]">
+      <div className="border-t border-gray-100 relative z-10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/20 flex items-center gap-2">
-            <Zap className="w-3 h-3 text-electric" />
+          <p className="text-xs text-gray-400 flex items-center gap-2">
+            <Zap className="w-3 h-3 text-blue-500" />
             &copy; {new Date().getFullYear()} Astra Nexora. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <span className="text-xs text-white/20">Crafted with precision & passion</span>
+            <span className="text-xs text-gray-400">Crafted with precision & passion</span>
             <button
               onClick={scrollTop}
-              className="w-8 h-8 rounded-lg glass-blue flex items-center justify-center text-white/30 hover:text-white/80 hover:border-blue-500/30 transition-all duration-300 group"
+              className="w-8 h-8 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:text-blue-600 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 group"
             >
               <ChevronUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
             </button>
