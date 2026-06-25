@@ -1,29 +1,12 @@
 import { useRef, useEffect, useState, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/portfolio';
-import {
-  ArrowUpRight, Layers,
-  Shirt, Sparkles, UtensilsCrossed, Briefcase, Home, Leaf,
-  Dumbbell, GraduationCap, Crown, Store,
-  LucideIcon
-} from 'lucide-react';
-
-const iconMap: Record<string, LucideIcon> = {
-  Shirt,
-  Sparkles,
-  UtensilsCrossed,
-  Briefcase,
-  Home,
-  Leaf,
-  Dumbbell,
-  GraduationCap,
-  Crown,
-  Store,
-};
+import { ArrowUpRight, Layers } from 'lucide-react';
 
 function ProjectCard({ project, index, visible }: { project: typeof projects[0]; index: number; visible: boolean }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
-  const Icon = iconMap[project.icon] || Layers;
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
     const card = cardRef.current;
@@ -59,37 +42,32 @@ function ProjectCard({ project, index, visible }: { project: typeof projects[0];
         willChange: 'transform',
       }}
     >
-      {/* Icon placeholder area */}
+      {/* Image area */}
       <div className="relative h-56 overflow-hidden">
-        {/* Gradient background */}
+        {/* Loading skeleton / fallback gradient */}
         <div
-          className="absolute inset-0 transition-all duration-500"
+          className="absolute inset-0 transition-opacity duration-500"
           style={{
             background: `linear-gradient(135deg, ${project.color}15, ${project.color}08, transparent)`,
+            opacity: imageLoaded && !imageError ? 0 : 1,
           }}
         />
 
-        {/* Centered icon */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div
-            className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110"
-            style={{
-              background: `linear-gradient(135deg, ${project.color}25, ${project.color}15)`,
-              boxShadow: `0 0 30px ${project.color}20`,
-            }}
-          >
-            <Icon
-              className="w-9 h-9 transition-all duration-500"
-              style={{ color: project.color }}
-            />
-          </div>
-        </div>
-
-        {/* Subtle grid overlay */}
-        <div className="absolute inset-0 dot-grid-blue opacity-30" />
+        {/* Project image */}
+        {project.image && !imageError && (
+          <img
+            src={project.image}
+            alt={project.title}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageError(true)}
+          />
+        )}
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent" />
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 group-hover:from-blue-600/10 to-transparent transition-all duration-500" />
@@ -104,8 +82,8 @@ function ProjectCard({ project, index, visible }: { project: typeof projects[0];
           <span
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-semibold backdrop-blur-sm border"
             style={{
-              background: `${project.color}15`,
-              borderColor: `${project.color}30`,
+              background: `${project.color}20`,
+              borderColor: `${project.color}40`,
               color: project.color,
             }}
           >

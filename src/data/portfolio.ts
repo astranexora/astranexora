@@ -8,6 +8,7 @@ export const projects = [
     shortDesc: 'A modern e-commerce website for a local fashion boutique, featuring an elegant product showcase and seamless shopping experience.',
     overview: 'Bloom Boutique, a growing fashion boutique, needed a professional online presence to showcase their curated collection. We designed and developed a clean, elegant website that reflects their brand aesthetic and makes it easy for customers to browse and purchase their products.',
     tags: ['Website Design', 'Branding', 'Product Showcase'],
+    image: 'https://images.pexels.com/photos/33327425/pexels-photo-33327425/free-photo-of-modern-fashion-boutique-with-stylish-clothing.png?auto=compress&cs=tinysrgb&w=800',
     icon: 'Shirt',
     color: '#ec4899',
     objectives: [
@@ -43,6 +44,7 @@ export const projects = [
     shortDesc: 'Website and local SEO for a beauty studio, helping them attract more local customers through online visibility.',
     overview: 'Glow Beauty Studio wanted to establish a strong online presence to attract new customers in their area. We built a professional website showcasing their services and implemented local SEO to improve their visibility in local searches.',
     tags: ['Website Development', 'Local SEO', 'Service Showcase'],
+    image: 'https://images.pexels.com/photos/16120490/pexels-photo-16120490.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Sparkles',
     color: '#f472b6',
     objectives: [
@@ -78,6 +80,7 @@ export const projects = [
     shortDesc: 'A modern restaurant website with online menu, table reservation, and mobile-friendly design for Urban Spice.',
     overview: 'Urban Spice, a local restaurant, needed a modern website to showcase their menu and accept table reservations. We created an appetizing website that makes it easy for customers to explore their dishes and book tables online.',
     tags: ['Website Design', 'Menu Integration', 'Mobile Optimized'],
+    image: 'https://images.pexels.com/photos/17294776/pexels-photo-17294776/free-photo-of-elegant-setting-in-restaurant.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'UtensilsCrossed',
     color: '#f97316',
     objectives: [
@@ -113,6 +116,7 @@ export const projects = [
     shortDesc: 'Professional branding and website for a startup consulting firm, establishing their credibility online.',
     overview: 'NexStart Consulting, a new consulting firm, needed a professional brand identity and website to establish credibility with potential clients. We created a corporate brand and website that positions them as a trustworthy partner for startups.',
     tags: ['Branding', 'Website Development', 'Corporate Identity'],
+    image: 'https://images.pexels.com/photos/36733363/pexels-photo-36733363.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Briefcase',
     color: '#3b82f6',
     objectives: [
@@ -148,6 +152,7 @@ export const projects = [
     shortDesc: 'A portfolio website for an interior design firm, showcasing their work and attracting new residential clients.',
     overview: 'Sri Lakshmi Interiors needed a portfolio website to showcase their interior design projects and attract new clients. We created an elegant gallery-based website that highlights their work beautifully and makes it easy for potential clients to connect.',
     tags: ['Portfolio Website', 'SEO', 'Project Gallery'],
+    image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Home',
     color: '#8b5cf6',
     objectives: [
@@ -183,6 +188,7 @@ export const projects = [
     shortDesc: 'Branding and website for an organic store, creating a fresh identity and online presence for healthier living.',
     overview: 'Green Leaf Organics wanted a fresh brand identity and website for their organic products store. We designed a nature-inspired brand and created an informative website that introduces customers to their products and values.',
     tags: ['Website Development', 'Branding', 'Product Showcase'],
+    image: 'https://images.pexels.com/photos/5965655/pexels-photo-5965655.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Leaf',
     color: '#22c55e',
     objectives: [
@@ -218,6 +224,7 @@ export const projects = [
     shortDesc: 'A dynamic fitness studio website with class schedules, trainer profiles, and lead capture for memberships.',
     overview: 'Elite Fitness Studio needed a website that reflects the energy of their fitness programs and converts visitors into members. We created a dynamic website with class information, trainer profiles, and easy contact for membership inquiries.',
     tags: ['Website Design', 'Lead Capture', 'Class Schedule'],
+    image: 'https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Dumbbell',
     color: '#ef4444',
     objectives: [
@@ -253,6 +260,7 @@ export const projects = [
     shortDesc: 'Educational website for a digital skills training institute, featuring courses and enrollment system.',
     overview: 'Vision Digital Academy offers digital skills training to students and professionals. We created an informative website that showcases their courses, highlights their instructors, and simplifies the enrollment process for prospective students.',
     tags: ['Website Development', 'Branding', 'Course Showcase'],
+    image: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'GraduationCap',
     color: '#06b6d4',
     objectives: [
@@ -288,6 +296,7 @@ export const projects = [
     shortDesc: 'Portfolio website for an event planning company, showcasing their events and easy contact for bookings.',
     overview: 'Royal Event Planners needed a portfolio website to showcase their event planning work and attract new clients. We created an elegant website with gallery showcases and a simple inquiry system for booking consultations.',
     tags: ['Portfolio Website', 'Contact System', 'Event Gallery'],
+    image: 'https://images.pexels.com/photos/35985205/pexels-photo-35985205/free-photo-of-elegant-wedding-reception-decor-with-floral-arrangements.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Crown',
     color: '#a855f7',
     objectives: [
@@ -323,6 +332,7 @@ export const projects = [
     shortDesc: 'A mobile-first business website for a local trading company, making it easy for customers to connect.',
     overview: 'Arun Traders, a local trading business, needed a simple yet effective online presence. We created a clean, mobile-optimized website that helps customers learn about their products and contact them easily.',
     tags: ['Website Development', 'Mobile Optimization', 'Contact'],
+    image: 'https://images.pexels.com/photos/30848031/pexels-photo-30848031/free-photo-of-small-shop-interior-with-local-shopkeeper.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Store',
     color: '#64748b',
     objectives: [

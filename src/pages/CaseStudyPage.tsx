@@ -1,31 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { projects } from '../data/portfolio';
-import {
-  ArrowLeft, ArrowRight, Calendar, Clock, Tag,
-  Shirt, Sparkles, UtensilsCrossed, Briefcase, Home, Leaf,
-  Dumbbell, GraduationCap, Crown, Store, Layers,
-  LucideIcon
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Tag } from 'lucide-react';
 import Footer from '../components/Footer';
-
-const iconMap: Record<string, LucideIcon> = {
-  Shirt,
-  Sparkles,
-  UtensilsCrossed,
-  Briefcase,
-  Home,
-  Leaf,
-  Dumbbell,
-  GraduationCap,
-  Crown,
-  Store,
-};
 
 export default function CaseStudyPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const project = projects.find(p => p.id === id);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,9 +25,6 @@ export default function CaseStudyPage() {
     );
   }
 
-  const Icon = iconMap[project.icon] || Layers;
-  const projectColor = project.color || '#0066FF';
-
   return (
     <div className="min-h-screen bg-black-950 text-white">
 
@@ -54,7 +34,7 @@ export default function CaseStudyPage() {
 
         {/* Ambient glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-          style={{ background: `radial-gradient(circle, ${projectColor}15, transparent)` }} />
+          style={{ background: `radial-gradient(circle, ${project.color}15, transparent)` }} />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <button onClick={() => navigate(-1)} className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-8 text-sm">
@@ -65,9 +45,9 @@ export default function CaseStudyPage() {
             <span
               className="px-3 py-1 rounded-full text-xs font-semibold border"
               style={{
-                background: `${projectColor}15`,
-                borderColor: `${projectColor}30`,
-                color: projectColor,
+                background: `${project.color}15`,
+                borderColor: `${project.color}30`,
+                color: project.color,
               }}
             >
               {project.tag}
@@ -88,33 +68,33 @@ export default function CaseStudyPage() {
           </div>
         </div>
 
-        {/* Icon-based hero visual */}
+        {/* Hero visual */}
         <div className="relative max-w-6xl mx-auto px-6">
           <div className="relative rounded-2xl overflow-hidden aspect-video border border-white/5">
-            {/* Gradient background */}
+            {/* Loading gradient background */}
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 transition-opacity duration-500"
               style={{
-                background: `linear-gradient(135deg, ${projectColor}12, ${projectColor}06, #060609)`,
+                background: `linear-gradient(135deg, ${project.color}12, ${project.color}06, #060609)`,
+                opacity: imageLoaded ? 0 : 1,
               }}
             />
-            <div className="absolute inset-0 dot-grid-blue opacity-20" />
 
-            {/* Centered icon */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="w-32 h-32 rounded-3xl flex items-center justify-center"
-                style={{
-                  background: `linear-gradient(135deg, ${projectColor}25, ${projectColor}12)`,
-                  boxShadow: `0 0 60px ${projectColor}25, 0 0 120px ${projectColor}10`,
-                }}
-              >
-                <Icon className="w-14 h-14" style={{ color: projectColor }} />
-              </div>
-            </div>
+            {/* Project image */}
+            {project.image && (
+              <img
+                src={project.image}
+                alt={project.title}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setImageLoaded(true)}
+              />
+            )}
+
+            {/* Gradient overlay at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black-950/80 via-transparent to-transparent" />
 
             {/* Border accent */}
-            <div className="absolute inset-0 rounded-2xl" style={{ boxShadow: `inset 0 0 0 1px ${projectColor}20` }} />
+            <div className="absolute inset-0 rounded-2xl" style={{ boxShadow: `inset 0 0 0 1px ${project.color}20` }} />
           </div>
         </div>
       </section>
