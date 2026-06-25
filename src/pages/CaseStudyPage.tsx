@@ -1,8 +1,26 @@
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { projects } from '../data/portfolio';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, ExternalLink } from 'lucide-react';
+import {
+  ArrowLeft, ArrowRight, Calendar, Clock, Tag,
+  Shirt, Sparkles, UtensilsCrossed, Briefcase, Home, Leaf,
+  Dumbbell, GraduationCap, Crown, Store, Layers,
+  LucideIcon
+} from 'lucide-react';
 import Footer from '../components/Footer';
+
+const iconMap: Record<string, LucideIcon> = {
+  Shirt,
+  Sparkles,
+  UtensilsCrossed,
+  Briefcase,
+  Home,
+  Leaf,
+  Dumbbell,
+  GraduationCap,
+  Crown,
+  Store,
+};
 
 export default function CaseStudyPage() {
   const { id } = useParams<{ id: string }>();
@@ -24,6 +42,9 @@ export default function CaseStudyPage() {
     );
   }
 
+  const Icon = iconMap[project.icon] || Layers;
+  const projectColor = project.color || '#0066FF';
+
   return (
     <div className="min-h-screen bg-black-950 text-white">
 
@@ -31,13 +52,26 @@ export default function CaseStudyPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black-950 via-black-900 to-black-950" />
         <div className="absolute inset-0 mesh-bg opacity-15" />
 
+        {/* Ambient glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+          style={{ background: `radial-gradient(circle, ${projectColor}15, transparent)` }} />
+
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <button onClick={() => navigate(-1)} className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-8 text-sm">
             <ArrowLeft className="w-4 h-4" /> Back to Portfolio
           </button>
 
           <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-electric border border-blue-500/30">{project.tag}</span>
+            <span
+              className="px-3 py-1 rounded-full text-xs font-semibold border"
+              style={{
+                background: `${projectColor}15`,
+                borderColor: `${projectColor}30`,
+                color: projectColor,
+              }}
+            >
+              {project.tag}
+            </span>
             <span className="flex items-center gap-1.5 text-xs text-white/40"><Calendar className="w-3 h-3" /> {project.year}</span>
             <span className="flex items-center gap-1.5 text-xs text-white/40"><Clock className="w-3 h-3" /> {project.duration}</span>
           </div>
@@ -54,10 +88,33 @@ export default function CaseStudyPage() {
           </div>
         </div>
 
+        {/* Icon-based hero visual */}
         <div className="relative max-w-6xl mx-auto px-6">
-          <div className="rounded-2xl overflow-hidden aspect-video">
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black-950/60 to-transparent" />
+          <div className="relative rounded-2xl overflow-hidden aspect-video border border-white/5">
+            {/* Gradient background */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, ${projectColor}12, ${projectColor}06, #060609)`,
+              }}
+            />
+            <div className="absolute inset-0 dot-grid-blue opacity-20" />
+
+            {/* Centered icon */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div
+                className="w-32 h-32 rounded-3xl flex items-center justify-center"
+                style={{
+                  background: `linear-gradient(135deg, ${projectColor}25, ${projectColor}12)`,
+                  boxShadow: `0 0 60px ${projectColor}25, 0 0 120px ${projectColor}10`,
+                }}
+              >
+                <Icon className="w-14 h-14" style={{ color: projectColor }} />
+              </div>
+            </div>
+
+            {/* Border accent */}
+            <div className="absolute inset-0 rounded-2xl" style={{ boxShadow: `inset 0 0 0 1px ${projectColor}20` }} />
           </div>
         </div>
       </section>
@@ -142,25 +199,30 @@ export default function CaseStudyPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-black-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="section-label mb-8"><span className="w-6 h-px bg-electric" /><span>Project Gallery</span></div>
-          <h2 className="font-display font-bold text-3xl text-white mb-10">Visual <span className="text-gradient-blue">Highlights</span></h2>
-          <div className="grid md:grid-cols-3 gap-4">
-            {project.gallery.map((img, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden group">
-                <img src={img} alt={`${project.title} - ${i + 1}`} className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500" />
+      <section className="py-20 bg-black-900 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="section-label mb-6"><span className="w-6 h-px bg-electric" /><span>Services Provided</span></div>
+          <h2 className="font-display font-bold text-3xl text-white mb-8">What We <span className="text-gradient-blue">Delivered</span></h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {project.tags.map((tag, i) => (
+              <div
+                key={tag}
+                className="glass-blue rounded-xl p-4 text-center border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
+                <span className="text-sm text-white/70 font-display font-medium">{tag}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-black-950 relative overflow-hidden">
+      <section className="py-20 bg-black-950 relative overflow-hidden border-t border-white/5">
         <div className="absolute inset-0 aurora-bg opacity-30" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-display font-bold text-4xl text-white mb-5">Want Results Like<br /><span className="text-gradient-blue">These?</span></h2>
-          <p className="text-white/50 mb-8">Let's discuss how we can create similar — or better — results for your business.</p>
+          <h2 className="font-display font-bold text-4xl text-white mb-5">Ready to Build<br /><span className="text-gradient-blue">Something Great?</span></h2>
+          <p className="text-white/50 mb-8">Let's discuss how we can help your business with similar results.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/#contact" className="btn-primary"><span className="relative z-10 flex items-center gap-2">Start Your Project <ArrowRight className="w-4 h-4" /></span></a>
             <Link to="/#portfolio" className="btn-outline">View More Work</Link>

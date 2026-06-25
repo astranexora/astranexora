@@ -1,10 +1,29 @@
 import { useRef, useEffect, useState, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/portfolio';
-import { ArrowUpRight, Layers } from 'lucide-react';
+import {
+  ArrowUpRight, Layers,
+  Shirt, Sparkles, UtensilsCrossed, Briefcase, Home, Leaf,
+  Dumbbell, GraduationCap, Crown, Store,
+  LucideIcon
+} from 'lucide-react';
+
+const iconMap: Record<string, LucideIcon> = {
+  Shirt,
+  Sparkles,
+  UtensilsCrossed,
+  Briefcase,
+  Home,
+  Leaf,
+  Dumbbell,
+  GraduationCap,
+  Crown,
+  Store,
+};
 
 function ProjectCard({ project, index, visible }: { project: typeof projects[0]; index: number; visible: boolean }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
+  const Icon = iconMap[project.icon] || Layers;
 
   const handleMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
     const card = cardRef.current;
@@ -40,19 +59,37 @@ function ProjectCard({ project, index, visible }: { project: typeof projects[0];
         willChange: 'transform',
       }}
     >
-      {/* Image area */}
+      {/* Icon placeholder area */}
       <div className="relative h-56 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
-          style={{ transform: 'scale(1)', transition: 'transform 700ms cubic-bezier(0.23, 1, 0.32, 1)' }}
-          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
-          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+        {/* Gradient background */}
+        <div
+          className="absolute inset-0 transition-all duration-500"
+          style={{
+            background: `linear-gradient(135deg, ${project.color}15, ${project.color}08, transparent)`,
+          }}
         />
 
+        {/* Centered icon */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div
+            className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110"
+            style={{
+              background: `linear-gradient(135deg, ${project.color}25, ${project.color}15)`,
+              boxShadow: `0 0 30px ${project.color}20`,
+            }}
+          >
+            <Icon
+              className="w-9 h-9 transition-all duration-500"
+              style={{ color: project.color }}
+            />
+          </div>
+        </div>
+
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 dot-grid-blue opacity-30" />
+
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/30 to-transparent" />
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 group-hover:from-blue-600/10 to-transparent transition-all duration-500" />
@@ -64,7 +101,14 @@ function ProjectCard({ project, index, visible }: { project: typeof projects[0];
 
         {/* Tag badge */}
         <div className="absolute top-4 left-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-semibold bg-blue-500/20 text-electric border border-blue-500/25 backdrop-blur-sm">
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-semibold backdrop-blur-sm border"
+            style={{
+              background: `${project.color}15`,
+              borderColor: `${project.color}30`,
+              color: project.color,
+            }}
+          >
             <Layers className="w-3 h-3" />
             {project.tag}
           </span>
@@ -135,12 +179,12 @@ export default function Portfolio() {
             Projects That <span className="text-gradient-blue">Deliver</span>
           </h2>
           <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
-            Real results from real strategy. Every project built to create measurable impact.
+            Genuine client work from local businesses and startups. Each project built with care and delivered on time.
           </p>
         </div>
 
         {/* Filter pills */}
-        <div className={`flex flex-wrap justify-center gap-2.5 mb-12 transition-all duration-800 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div className={`flex flex-wrap justify-center gap-2 mb-12 transition-all duration-800 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           {tags.map(tag => (
             <button
               key={tag}
@@ -161,6 +205,13 @@ export default function Portfolio() {
           {filtered.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} visible={visible} />
           ))}
+        </div>
+
+        {/* Projects count */}
+        <div className={`text-center mt-12 transition-all duration-800 delay-500 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="text-sm text-white/30 font-display">
+            Showing {filtered.length} of {projects.length} projects
+          </p>
         </div>
       </div>
     </section>
