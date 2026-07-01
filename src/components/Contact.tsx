@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Instagram, Linkedin, Facebook, Send, ArrowRight, CheckCircle, Phone, MessageCircle } from 'lucide-react';
+import { Mail, Instagram, Linkedin, Facebook, Send, ArrowRight, CheckCircle, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const socialLinks = [
@@ -33,7 +33,6 @@ export default function Contact() {
     fullName: '',
     businessName: '',
     email: '',
-    phone: '',
     whatsapp: '',
     website: '',
     service: '',
@@ -75,7 +74,7 @@ export default function Contact() {
 
       setSubmitted(true);
       setFormData({
-        fullName: '', businessName: '', email: '', phone: '', whatsapp: '',
+        fullName: '', businessName: '', email: '', whatsapp: '',
         website: '', service: '', projectDetails: '', contactMethod: '', bestTime: '',
       });
 
@@ -139,7 +138,7 @@ export default function Contact() {
           >
             {/* Email card */}
             <a
-              href="mailto:astranexoraofficial@gmail.com"
+              href="mailto:info.astranexora@gmail.com"
               className="flex items-center gap-5 glass-blue rounded-2xl p-5 border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(0,102,255,0.1)]"
             >
               <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/25 group-hover:shadow-[0_0_16px_rgba(0,102,255,0.3)] transition-all duration-300">
@@ -148,23 +147,8 @@ export default function Contact() {
               <div>
                 <div className="text-xs text-white/30 uppercase tracking-widest mb-0.5">Email Us</div>
                 <span className="font-display font-semibold text-white group-hover:text-electric transition-colors duration-300">
-                  astranexoraofficial@gmail.com
+                  info.astranexora@gmail.com
                 </span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-white/50 ml-auto transition-all duration-300 group-hover:translate-x-1" />
-            </a>
-
-            {/* Phone card */}
-            <a
-              href="tel:+918838417707"
-              className="flex items-center gap-5 glass rounded-xl p-4 border border-white/5 hover:border-white/15 transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 rounded-lg bg-green-500/15 flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(34,197,94,0.3)] transition-shadow duration-300">
-                <Phone className="w-4 h-4 text-green-400" />
-              </div>
-              <div>
-                <div className="text-sm font-display font-semibold text-white">+91 8838417707</div>
-                <div className="text-xs text-white/30">Call us directly</div>
               </div>
               <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-white/50 ml-auto transition-all duration-300 group-hover:translate-x-1" />
             </a>
@@ -323,22 +307,6 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Phone *</label>
-                        <input
-                          type="tel"
-                          value={formData.phone}
-                          onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                          onFocus={() => setFocused('phone')}
-                          onBlur={() => setFocused('')}
-                          required
-                          placeholder="+91 98765 43210"
-                          className={inputClass('phone')}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
                         <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">WhatsApp *</label>
                         <input
                           type="tel"
@@ -351,18 +319,19 @@ export default function Contact() {
                           className={inputClass('whatsapp')}
                         />
                       </div>
-                      <div>
-                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Website (Optional)</label>
-                        <input
-                          type="url"
-                          value={formData.website}
-                          onChange={e => setFormData({ ...formData, website: e.target.value })}
-                          onFocus={() => setFocused('website')}
-                          onBlur={() => setFocused('')}
-                          placeholder="https://yourwebsite.com"
-                          className={inputClass('website')}
-                        />
-                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Website (Optional)</label>
+                      <input
+                        type="url"
+                        value={formData.website}
+                        onChange={e => setFormData({ ...formData, website: e.target.value })}
+                        onFocus={() => setFocused('website')}
+                        onBlur={() => setFocused('')}
+                        placeholder="https://yourwebsite.com"
+                        className={inputClass('website')}
+                      />
                     </div>
 
                     <div>
@@ -409,7 +378,6 @@ export default function Contact() {
                         >
                           <option value="" className="bg-[#0a0a1a]">Select method</option>
                           <option value="whatsapp" className="bg-[#0a0a1a]">WhatsApp</option>
-                          <option value="phone" className="bg-[#0a0a1a]">Phone Call</option>
                           <option value="email" className="bg-[#0a0a1a]">Email</option>
                         </select>
                       </div>

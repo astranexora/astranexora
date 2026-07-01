@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Instagram, Linkedin, Facebook, ArrowRight, ChevronUp, Zap } from 'lucide-react';
+import { Mail, Instagram, Linkedin, Facebook, ArrowRight, ChevronUp, Zap, MessageCircle } from 'lucide-react';
 import { services } from '../data/services';
 
 export default function Footer() {
@@ -68,6 +68,7 @@ export default function Footer() {
                 { icon: Instagram, href: 'https://www.instagram.com/astranexora2025/' },
                 { icon: Linkedin, href: 'https://www.linkedin.com/company/astra-nexora/' },
                 { icon: Facebook, href: 'https://www.facebook.com/share/18aqEXcEde/' },
+                { icon: MessageCircle, href: 'https://wa.me/918838417707' },
               ].map((s, i) => (
                 <a
                   key={i}

@@ -2,29 +2,11 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Award, Star, MapPin, Calendar, Target, Heart, Lightbulb, X, ArrowRight, Zap, Globe } from 'lucide-react';
 
-const expertise = [
-  { label: 'Digital Marketing', level: 95 },
-  { label: 'SEO Optimization', level: 92 },
-  { label: 'Website Development', level: 90 },
-  { label: 'WordPress & Wix', level: 87 },
-  { label: 'Branding', level: 93 },
-  { label: 'Content Creation', level: 88 },
-];
-
-const timeline = [
-  { year: '2019', title: 'Started Digital Marketing Journey', desc: 'Began freelancing and learning the fundamentals of digital marketing.' },
-  { year: '2020', title: 'First Major Client', desc: 'Delivered successful SEO campaign for a local business, gaining recognition.' },
-  { year: '2021', title: 'Expanded Services', desc: 'Added website development and branding to the service portfolio.' },
-  { year: '2022', title: 'Founded Astra Nexora', desc: 'Officially launched Astra Nexora as a digital marketing agency.' },
-  { year: '2023', title: 'Team Growth', desc: 'Built a team of specialists to deliver comprehensive digital solutions.' },
-  { year: '2024', title: '150+ Projects Milestone', desc: 'Successfully delivered over 150 projects with 98% client satisfaction.' },
-];
-
 const values = [
-  { icon: Target, title: 'Results-Driven', desc: 'Every strategy is designed to deliver measurable outcomes and real growth.' },
-  { icon: Heart, title: 'Client-Centric', desc: 'Your success is our success. We treat every project as our own.' },
-  { icon: Lightbulb, title: 'Innovation First', desc: 'We embrace new technologies and creative approaches to stay ahead.' },
-  { icon: Zap, title: 'Speed & Quality', desc: 'Fast delivery without compromising on the premium quality you deserve.' },
+  { icon: Lightbulb, title: 'Innovation', desc: 'Embracing new technologies and creative approaches to stay ahead of the curve.' },
+  { icon: Star, title: 'Creative Thinking', desc: 'Transforming ideas into compelling digital experiences that captivate audiences.' },
+  { icon: Target, title: 'Business Growth', desc: 'Delivering measurable outcomes and real growth for every client.' },
+  { icon: Globe, title: 'Digital Strategy', desc: 'Data-driven strategies that ensure every project delivers exceptional results.' },
 ];
 
 interface FounderModalProps {
@@ -80,10 +62,10 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                     <span className="text-xs font-display font-semibold text-electric">MEET THE FOUNDER</span>
                   </div>
                   <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-4">
-                    Know My <span className="text-gradient-blue">Journey</span>
+                    Meet <span className="text-gradient-blue">The Founder</span>
                   </h2>
                   <p className="text-white/40 max-w-xl mx-auto">
-                    The story, mission, and vision behind Astra Nexora
+                    Vision, mission, and values that drive Astra Nexora
                   </p>
                 </motion.div>
 
@@ -125,11 +107,10 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                     className="space-y-6"
                   >
                     <div>
-                      <h3 className="font-display font-bold text-2xl text-white mb-4">The Journey</h3>
+                      <h3 className="font-display font-bold text-2xl text-white mb-4">Introduction</h3>
                       <p className="text-white/50 leading-relaxed mb-4">
-                        S. Saktheeswaran founded Astra Nexora with a clear vision: to help businesses build powerful digital
-                        identities that drive real growth. With expertise spanning digital marketing, SEO, website development,
-                        and branding, he has helped over 150+ businesses establish their online presence.
+                        S. Saktheeswaran is the Founder & Managing Director of Astra Nexora, specializing in
+                        Digital Marketing, SEO Optimization, Website Development, and Brand Identity Creation.
                       </p>
                       <p className="text-white/50 leading-relaxed">
                         His approach combines creative innovation with data-driven strategies, ensuring every project delivers
@@ -207,65 +188,6 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                         </div>
                         <h4 className="font-display font-semibold text-white text-sm mb-2">{value.title}</h4>
                         <p className="text-white/40 text-xs leading-relaxed">{value.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Timeline */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="mb-16"
-                >
-                  <h3 className="font-display font-bold text-2xl text-white mb-8 text-center">The Journey</h3>
-                  <div className="relative">
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/20 to-transparent" />
-                    <div className="space-y-6">
-                      {timeline.map((item, i) => (
-                        <div key={item.year} className={`relative flex items-center gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                          <div className="hidden md:block flex-1" />
-                          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-electric border-2 border-blue-500/30 z-10" />
-                          <div className={`ml-10 md:ml-0 flex-1 glass rounded-xl p-5 border border-white/5 ${i % 2 === 0 ? 'md:text-right' : ''}`}>
-                            <div className="text-xs text-electric font-display font-semibold mb-1">{item.year}</div>
-                            <h4 className="font-display font-semibold text-white text-sm mb-1">{item.title}</h4>
-                            <p className="text-white/40 text-xs">{item.desc}</p>
-                          </div>
-                          <div className="hidden md:block flex-1" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Skills */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="glass-blue rounded-2xl p-8 border border-blue-500/10"
-                >
-                  <h3 className="font-display font-bold text-xl text-white mb-6">Core Expertise</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {expertise.map((skill, i) => (
-                      <div key={skill.label}>
-                        <div className="flex justify-between text-xs mb-1.5">
-                          <span className="text-white/55">{skill.label}</span>
-                          <span className="text-electric font-display font-bold">{skill.level}%</span>
-                        </div>
-                        <div className="h-2 rounded-full bg-white/[0.04] overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: 0.8 + i * 0.1 }}
-                            className="h-full rounded-full"
-                            style={{
-                              background: 'linear-gradient(90deg, #0066FF, #00CFFF)',
-                              boxShadow: '0 0 8px rgba(0,207,255,0.4)',
-                            }}
-                          />
-                        </div>
                       </div>
                     ))}
                   </div>
