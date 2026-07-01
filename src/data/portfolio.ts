@@ -332,9 +332,9 @@ export const projects = [
     shortDesc: 'A mobile-first business website for a local trading company, making it easy for customers to connect.',
     overview: 'Arun Traders, a local trading business, needed a simple yet effective online presence. We created a clean, mobile-optimized website that helps customers learn about their products and contact them easily.',
     tags: ['Website Development', 'Mobile Optimization', 'Contact'],
-    image: 'https://images.pexels.com/photos/30848031/pexels-photo-30848031/free-photo-of-small-shop-interior-with-local-shopkeeper.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.pexels.com/photos/35638668/pexels-photo-35638668/free-photo-of-investor-analyzing-charts-on-tablet-and-laptop-screens.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Store',
-    color: '#64748b',
+    color: '#475569',
     objectives: [
       'Establish online presence for the local trading business',
       'Make it easy for customers to find and contact them',

@@ -11,6 +11,7 @@ import {
   LineChart, Users, DollarSign, Percent, ArrowUpRight,
 } from 'lucide-react';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const iconMap: Record<string, React.ElementType> = {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
@@ -692,6 +693,7 @@ export default function ServicePage() {
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
