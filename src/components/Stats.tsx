@@ -45,7 +45,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section className="relative py-28 overflow-hidden bg-black-950">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-black-950">
       {/* Ambient glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[700px] h-[300px] rounded-full blur-3xl"
@@ -62,7 +62,7 @@ export default function Stats() {
             <span>By The Numbers</span>
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white tracking-tight">
             Results That <span className="text-gradient-blue">Speak</span>
           </h2>
         </div>
@@ -72,7 +72,7 @@ export default function Stats() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`group relative text-center p-6 glass-blue rounded-2xl border border-blue-500/10 overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-[0_16px_40px_rgba(0,102,255,0.15)] ${
+              className={`group relative text-center p-7 glass-blue rounded-2xl border border-blue-500/10 overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-[0_16px_40px_rgba(0,102,255,0.15)] ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{ transitionDelay: `${i * 100}ms` }}
@@ -87,8 +87,8 @@ export default function Stats() {
                 <div className={`font-display font-bold text-3xl md:text-4xl mb-2 bg-gradient-to-br ${stat.gradient} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 inline-block`}>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} active={visible} />
                 </div>
-                <div className="font-display font-semibold text-white text-xs mb-1 leading-tight">{stat.label}</div>
-                <div className="text-[10px] text-white/25 leading-relaxed">{stat.desc}</div>
+                <div className="font-display font-semibold text-white text-xs mb-1.5 leading-tight">{stat.label}</div>
+                <div className="text-[10px] text-white/30 leading-relaxed">{stat.desc}</div>
               </div>
             </div>
           ))}

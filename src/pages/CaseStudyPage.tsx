@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { projects } from '../data/portfolio';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Tag } from 'lucide-react';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function CaseStudyPage() {
   const { id } = useParams<{ id: string }>();
@@ -211,6 +212,7 @@ export default function CaseStudyPage() {
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
+import ClientLogos from '../components/ClientLogos';
 import About from '../components/About';
 import WhyUs from '../components/WhyUs';
 import Services from '../components/Services';
@@ -10,6 +11,7 @@ import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function HomePage() {
   useEffect(() => {
@@ -17,8 +19,9 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <div className="page-enter">
       <Hero />
+      <ClientLogos />
       <About />
       <WhyUs />
       <Services />
@@ -29,6 +32,7 @@ export default function HomePage() {
       <FAQ />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

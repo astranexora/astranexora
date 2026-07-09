@@ -25,7 +25,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden bg-black-900">
+    <section id="about" className="relative py-28 md:py-36 overflow-hidden bg-black-900">
       <div className="absolute inset-0 aurora-bg-2 opacity-50" />
       <div className="absolute inset-0 dot-grid opacity-[0.06]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
@@ -35,7 +35,7 @@ export default function About() {
         style={{ background: 'radial-gradient(circle, rgba(0,100,255,0.08), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-14 xl:gap-20 items-center">
 
           {/* Left: Story */}
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
@@ -43,12 +43,12 @@ export default function About() {
               <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
               <span>About Astra Nexora</span>
             </div>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-8 leading-tight">
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-7 leading-[1.1] tracking-tight">
               Digital Powerhouse
               <br />
               <span className="text-gradient-blue">Built For Growth</span>
             </h2>
-            <div className="space-y-4 text-white/50 leading-relaxed mb-10">
+            <div className="space-y-5 text-white/50 leading-[1.7] mb-10">
               <p>
                 Astra Nexora is a modern digital marketing agency helping businesses, startups and creators build
                 powerful digital identities through branding, website development, SEO optimization, content
@@ -69,7 +69,7 @@ export default function About() {
             </div>
 
             {/* Stats 2x2 */}
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Projects Delivered', value: '150+' },
                 { label: 'Industries Served', value: '20+' },
@@ -78,11 +78,11 @@ export default function About() {
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`glass-blue rounded-xl p-5 border border-blue-500/10 hover:border-blue-500/25 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+                  className={`glass-blue rounded-2xl p-6 border border-blue-500/10 hover:border-blue-500/25 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                   style={{ transitionDelay: `${400 + i * 80}ms` }}
                 >
-                  <div className="font-display font-bold text-3xl text-gradient-blue mb-1 group-hover:scale-105 transition-transform duration-300 inline-block">{stat.value}</div>
-                  <div className="text-xs text-white/35 uppercase tracking-widest">{stat.label}</div>
+                  <div className="font-display font-bold text-3xl text-gradient-blue mb-1.5 group-hover:scale-105 transition-transform duration-300 inline-block">{stat.value}</div>
+                  <div className="text-xs text-white/35 uppercase tracking-wider">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -91,9 +91,9 @@ export default function About() {
           {/* Right: Expertise */}
           <div className={`transition-all duration-1000 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
             {/* Expertise bars */}
-            <div className="glass-blue rounded-2xl p-8 border border-blue-500/10">
+            <div className="glass-blue rounded-3xl p-8 border border-blue-500/10">
               <h3 className="font-display font-semibold text-white text-lg mb-7">Core Expertise</h3>
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {expertise.map((skill, i) => (
                   <div
                     key={skill.label}

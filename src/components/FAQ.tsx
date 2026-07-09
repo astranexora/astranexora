@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
-import { Plus, Minus, ChevronRight } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
     q: 'What services does Astra Nexora offer?',
-    a: 'We offer a comprehensive suite of digital services including website development, WordPress & Wix development, website revamp, SEO optimization, social media marketing, email marketing, content creation, brand identity design, personal branding, presentation design and end-to-end digital marketing solutions.',
+    a: 'We offer a comprehensive suite of digital services including website development, WordPress & Wix development, website revamp, SEO optimization, social media marketing, email marketing, content creation, brand identity design, personal branding, AI-based solutions including custom chatbot development and workflow automation, and end-to-end digital marketing solutions.',
   },
   {
     q: 'How long does a typical project take?',
@@ -52,22 +52,24 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section id="faq" className="relative py-32 overflow-hidden bg-black-950">
+    <section id="faq" className="relative py-28 md:py-36 overflow-hidden bg-black-950">
       <div className="absolute inset-0 mesh-bg opacity-20" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-3xl pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.08), transparent)' }} />
 
       <div ref={ref} className="max-w-4xl mx-auto px-6">
-        <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-14 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
             <span className="w-6 h-px bg-electric" />
             <span>FAQ</span>
             <span className="w-6 h-px bg-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-4">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
             Frequently Asked
             <br />
             <span className="text-gradient-blue">Questions</span>
           </h2>
-          <p className="text-white/50">Everything you need to know before we start building together.</p>
+          <p className="text-white/45 leading-relaxed">Everything you need to know before we start building together.</p>
         </div>
 
         <div className="space-y-3">
@@ -100,9 +102,9 @@ export default function FAQ() {
 
               <div
                 className="overflow-hidden transition-all duration-500 ease-in-out"
-                style={{ maxHeight: openIndex === i ? '300px' : '0px' }}
+                style={{ maxHeight: openIndex === i ? '400px' : '0px' }}
               >
-                <div className="px-6 pb-6 text-white/60 text-sm leading-relaxed border-t border-white/5 pt-4">
+                <div className="px-6 pb-6 text-white/55 text-sm leading-[1.7] border-t border-white/5 pt-4">
                   {faq.a}
                 </div>
               </div>

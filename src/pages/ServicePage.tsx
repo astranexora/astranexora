@@ -5,16 +5,17 @@ import {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
   Mail, PenTool, Layers, User, Presentation, Zap,
   ArrowRight, ArrowLeft, CheckCircle, ChevronRight,
-  Star, BarChart2, Search, Target, Rocket, Shield,
-  Activity, Cpu, MousePointer, Award, Clock, TrendingDown,
+  Star, Search, Target, Rocket, Shield,
+  Activity, Cpu, Award, Clock, TrendingDown,
   MessageCircle, Heart, Eye, Play, FileText, Palette,
-  LineChart, Users, DollarSign, Percent, ArrowUpRight,
+  Users, DollarSign, Percent,
 } from 'lucide-react';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const iconMap: Record<string, React.ElementType> = {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
-  Mail, PenTool, Layers, User, Presentation, Zap,
+  Mail, PenTool, Layers, User, Cpu, Zap,
 };
 
 /* ── Service-specific hero visual mockups ─────────────────────── */
@@ -692,6 +693,7 @@ export default function ServicePage() {
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

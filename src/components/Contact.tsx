@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
-import { Mail, Instagram, Linkedin, Facebook, Send, ArrowRight, CheckCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Instagram, Linkedin, Facebook, Send, ArrowRight, CheckCircle, MessageCircle } from 'lucide-react';
 
 const socialLinks = [
   { icon: Instagram, label: 'Instagram', handle: '@astranexora2025', href: 'https://www.instagram.com/astranexora2025/', gradient: 'from-pink-500 to-orange-400' },
@@ -7,11 +8,39 @@ const socialLinks = [
   { icon: Facebook, label: 'Facebook', handle: 'Astra Nexora', href: 'https://www.facebook.com/share/18aqEXcEde/', gradient: 'from-blue-500 to-blue-700' },
 ];
 
+const services = [
+  { value: 'website', label: 'Website Development' },
+  { value: 'wordpress', label: 'WordPress Development' },
+  { value: 'wix', label: 'Wix Website Development' },
+  { value: 'revamp', label: 'Website Revamp' },
+  { value: 'seo', label: 'SEO Optimization' },
+  { value: 'local-seo', label: 'Local SEO' },
+  { value: 'social', label: 'Social Media Marketing' },
+  { value: 'content', label: 'Content Creation' },
+  { value: 'branding', label: 'Brand Identity Design' },
+  { value: 'personal-branding', label: 'Personal Branding' },
+  { value: 'email-marketing', label: 'Email Marketing' },
+  { value: 'ai-solutions', label: 'AI-Based Solutions' },
+  { value: 'complete', label: 'Complete Digital Marketing Solution' },
+];
+
 export default function Contact() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const [formData, setFormData] = useState({ name: '', email: '', service: '', message: '' });
+  const formRef = useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    businessName: '',
+    email: '',
+    whatsapp: '',
+    website: '',
+    service: '',
+    projectDetails: '',
+    contactMethod: '',
+    bestTime: '',
+  });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState('');
 
   useEffect(() => {
@@ -24,22 +53,47 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: '', email: '', service: '', message: '' });
+    setLoading(true);
+
+    try {
+      // EmailJS integration
+      // Note: You'll need to set up EmailJS with your service ID, template ID, and public key
+      // For now, we'll simulate the submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // TODO: Replace with actual EmailJS configuration
+      // await emailjs.sendForm(
+      //   'YOUR_SERVICE_ID',
+      //   'YOUR_TEMPLATE_ID',
+      //   formRef.current!,
+      //   'YOUR_PUBLIC_KEY'
+      // );
+
+      setSubmitted(true);
+      setFormData({
+        fullName: '', businessName: '', email: '', whatsapp: '',
+        website: '', service: '', projectDetails: '', contactMethod: '', bestTime: '',
+      });
+
+      setTimeout(() => setSubmitted(false), 6000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass = (field: string) =>
-    `w-full bg-white/[0.04] border rounded-xl px-4 py-3.5 text-white placeholder-white/20 outline-none text-sm transition-all duration-300 ${
+    `w-full bg-white/[0.04] border rounded-xl px-4 py-3.5 text-white placeholder-white/25 outline-none text-sm transition-all duration-300 ${
       focused === field
-        ? 'border-blue-500/60 bg-blue-500/[0.04] shadow-[0_0_0_2px_rgba(0,102,255,0.12),0_0_20px_rgba(0,102,255,0.08)]'
+        ? 'border-blue-500/50 bg-blue-500/[0.04] shadow-[0_0_0_3px_rgba(0,102,255,0.12),0_0_20px_rgba(0,102,255,0.08)]'
         : 'border-white/8 hover:border-white/15'
     }`;
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden bg-black-900">
+    <section id="contact" className="relative py-28 md:py-36 overflow-hidden bg-black-900">
       <div className="absolute inset-0 aurora-bg opacity-30" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
@@ -52,25 +106,35 @@ export default function Contact() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={visible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <div className="section-label justify-center mb-4">
             <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
             <span>Get In Touch</span>
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
             Ready to Build Something
             <br />
             <span className="text-gradient-blue">Remarkable?</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-xl mx-auto">
+          <p className="text-white/45 text-lg max-w-xl mx-auto leading-relaxed">
             Tell us about your project and let's create something extraordinary together.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left: Info */}
-          <div className={`space-y-5 transition-all duration-1000 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
+          {/* Left: Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={visible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-5"
+          >
             {/* Email card */}
             <a
               href="mailto:info.astranexora@gmail.com"
@@ -86,6 +150,23 @@ export default function Contact() {
                 </span>
               </div>
               <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-white/50 ml-auto transition-all duration-300 group-hover:translate-x-1" />
+            </a>
+
+            {/* WhatsApp card */}
+            <a
+              href="https://wa.me/918838417707"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-5 glass rounded-xl p-4 border border-white/5 hover:border-green-500/20 transition-all duration-300 group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-green-500/15 flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(34,197,94,0.3)] transition-shadow duration-300">
+                <MessageCircle className="w-4 h-4 text-green-400" />
+              </div>
+              <div>
+                <div className="text-sm font-display font-semibold text-white">WhatsApp</div>
+                <div className="text-xs text-white/30">Quick response</div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-green-400/50 ml-auto transition-all duration-300 group-hover:translate-x-1" />
             </a>
 
             {/* Social links */}
@@ -126,103 +207,222 @@ export default function Contact() {
                 We're available for new projects. Typical response time is within 24 hours.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Form */}
-          <div className={`transition-all duration-1000 delay-300 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={visible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <div className="relative glass-blue rounded-3xl p-8 border border-blue-500/12 shadow-[0_0_80px_rgba(0,102,255,0.08)] overflow-hidden">
               {/* Corner glow */}
               <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-3xl pointer-events-none"
                 style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.15), transparent)' }} />
 
-              {submitted ? (
-                <div className="relative z-10 text-center py-14">
-                  <div className="w-16 h-16 rounded-2xl bg-green-500/15 flex items-center justify-center mx-auto mb-5 shadow-[0_0_24px_rgba(34,197,94,0.25)]">
-                    <CheckCircle className="w-8 h-8 text-green-400" />
-                  </div>
-                  <h3 className="font-display font-bold text-white text-2xl mb-3">Message Sent!</h3>
-                  <p className="text-white/40 text-sm leading-relaxed">We'll get back to you within 24 hours.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
-                  <div className="mb-7">
-                    <h3 className="font-display font-bold text-white text-xl mb-1">Start a Conversation</h3>
-                    <p className="text-sm text-white/30">Tell us about your project</p>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Name</label>
-                      <input
-                        type="text"
-                        value={formData.name}
-                        onChange={e => setFormData({ ...formData, name: e.target.value })}
-                        onFocus={() => setFocused('name')}
-                        onBlur={() => setFocused('')}
-                        required
-                        placeholder="Your name"
-                        className={inputClass('name')}
-                      />
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="relative z-10 text-center py-14"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-green-500/15 flex items-center justify-center mx-auto mb-5 shadow-[0_0_24px_rgba(34,197,94,0.25)]">
+                      <CheckCircle className="w-8 h-8 text-green-400" />
                     </div>
-                    <div>
-                      <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Email</label>
-                      <input
-                        type="email"
-                        value={formData.email}
-                        onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        onFocus={() => setFocused('email')}
-                        onBlur={() => setFocused('')}
-                        required
-                        placeholder="your@email.com"
-                        className={inputClass('email')}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Service</label>
-                    <select
-                      value={formData.service}
-                      onChange={e => setFormData({ ...formData, service: e.target.value })}
-                      onFocus={() => setFocused('service')}
-                      onBlur={() => setFocused('')}
-                      className={`${inputClass('service')} appearance-none cursor-pointer`}
+                    <h3 className="font-display font-bold text-white text-2xl mb-3">Message Sent!</h3>
+                    <p className="text-white/40 text-sm leading-relaxed max-w-sm mx-auto mb-6">
+                      Thank you for contacting Astra Nexora. Our team will review your requirements and reach out within 24 hours via your preferred contact method.
+                    </p>
+                    <p className="text-white/30 text-sm mb-4">Need a faster response?</p>
+                    <a
+                      href="https://wa.me/918838417707?text=Hello%20Astra%20Nexora%2C%0A%0AMy%20Name%3A%0ABusiness%20Name%3A%0A%0AI%20would%20like%20to%20discuss%3A%0A%0A%E2%98%90%20Website%20Development%0A%E2%98%90%20SEO%0A%E2%98%90%20Branding%0A%E2%98%90%20Social%20Media%20Marketing%0A%E2%98%90%20Other%0A%0APlease%20contact%20me%20regarding%20my%20project."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-green-500/15 text-green-400 border border-green-500/25 hover:bg-green-500/25 transition-all duration-300 text-sm font-display font-medium"
                     >
-                      <option value="" className="bg-[#0a0a1a]">Select a service</option>
-                      <option value="website" className="bg-[#0a0a1a]">Website Development</option>
-                      <option value="wordpress" className="bg-[#0a0a1a]">WordPress Development</option>
-                      <option value="seo" className="bg-[#0a0a1a]">SEO Optimization</option>
-                      <option value="branding" className="bg-[#0a0a1a]">Brand Identity</option>
-                      <option value="social" className="bg-[#0a0a1a]">Social Media Marketing</option>
-                      <option value="content" className="bg-[#0a0a1a]">Content Creation</option>
-                      <option value="other" className="bg-[#0a0a1a]">Other</option>
-                    </select>
-                  </div>
+                      <MessageCircle className="w-4 h-4" />
+                      Chat on WhatsApp
+                    </a>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    ref={formRef}
+                    onSubmit={handleSubmit}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="relative z-10 space-y-5"
+                  >
+                    <div className="mb-7">
+                      <h3 className="font-display font-bold text-white text-xl mb-1">Start a Conversation</h3>
+                      <p className="text-sm text-white/30">Fill out the form below</p>
+                    </div>
 
-                  <div>
-                    <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Message</label>
-                    <textarea
-                      value={formData.message}
-                      onChange={e => setFormData({ ...formData, message: e.target.value })}
-                      onFocus={() => setFocused('message')}
-                      onBlur={() => setFocused('')}
-                      required
-                      rows={4}
-                      placeholder="Tell us about your project..."
-                      className={`${inputClass('message')} resize-none`}
-                    />
-                  </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Full Name *</label>
+                        <input
+                          type="text"
+                          value={formData.fullName}
+                          onChange={e => setFormData({ ...formData, fullName: e.target.value })}
+                          onFocus={() => setFocused('fullName')}
+                          onBlur={() => setFocused('')}
+                          required
+                          placeholder="John Doe"
+                          className={inputClass('fullName')}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Business Name *</label>
+                        <input
+                          type="text"
+                          value={formData.businessName}
+                          onChange={e => setFormData({ ...formData, businessName: e.target.value })}
+                          onFocus={() => setFocused('businessName')}
+                          onBlur={() => setFocused('')}
+                          required
+                          placeholder="Your Company"
+                          className={inputClass('businessName')}
+                        />
+                      </div>
+                    </div>
 
-                  <button type="submit" className="btn-primary w-full justify-center group">
-                    <span className="relative z-10 flex items-center gap-2">
-                      Send Message
-                      <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
-                  </button>
-                </form>
-              )}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Email *</label>
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={e => setFormData({ ...formData, email: e.target.value })}
+                          onFocus={() => setFocused('email')}
+                          onBlur={() => setFocused('')}
+                          required
+                          placeholder="john@company.com"
+                          className={inputClass('email')}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">WhatsApp *</label>
+                        <input
+                          type="tel"
+                          value={formData.whatsapp}
+                          onChange={e => setFormData({ ...formData, whatsapp: e.target.value })}
+                          onFocus={() => setFocused('whatsapp')}
+                          onBlur={() => setFocused('')}
+                          required
+                          placeholder="+91 98765 43210"
+                          className={inputClass('whatsapp')}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Website (Optional)</label>
+                      <input
+                        type="url"
+                        value={formData.website}
+                        onChange={e => setFormData({ ...formData, website: e.target.value })}
+                        onFocus={() => setFocused('website')}
+                        onBlur={() => setFocused('')}
+                        placeholder="https://yourwebsite.com"
+                        className={inputClass('website')}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Service Required *</label>
+                      <select
+                        value={formData.service}
+                        onChange={e => setFormData({ ...formData, service: e.target.value })}
+                        onFocus={() => setFocused('service')}
+                        onBlur={() => setFocused('')}
+                        required
+                        className={`${inputClass('service')} appearance-none cursor-pointer`}
+                      >
+                        <option value="" className="bg-[#0a0a1a]">Select a service</option>
+                        {services.map(s => (
+                          <option key={s.value} value={s.value} className="bg-[#0a0a1a]">{s.label}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Project Details *</label>
+                      <textarea
+                        value={formData.projectDetails}
+                        onChange={e => setFormData({ ...formData, projectDetails: e.target.value })}
+                        onFocus={() => setFocused('projectDetails')}
+                        onBlur={() => setFocused('')}
+                        required
+                        rows={4}
+                        placeholder="Tell us about your project, goals, and requirements..."
+                        className={`${inputClass('projectDetails')} resize-none`}
+                      />
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Preferred Contact *</label>
+                        <select
+                          value={formData.contactMethod}
+                          onChange={e => setFormData({ ...formData, contactMethod: e.target.value })}
+                          onFocus={() => setFocused('contactMethod')}
+                          onBlur={() => setFocused('')}
+                          required
+                          className={`${inputClass('contactMethod')} appearance-none cursor-pointer`}
+                        >
+                          <option value="" className="bg-[#0a0a1a]">Select method</option>
+                          <option value="whatsapp" className="bg-[#0a0a1a]">WhatsApp</option>
+                          <option value="email" className="bg-[#0a0a1a]">Email</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs text-white/35 uppercase tracking-widest mb-2 font-display">Best Time to Contact *</label>
+                        <select
+                          value={formData.bestTime}
+                          onChange={e => setFormData({ ...formData, bestTime: e.target.value })}
+                          onFocus={() => setFocused('bestTime')}
+                          onBlur={() => setFocused('')}
+                          required
+                          className={`${inputClass('bestTime')} appearance-none cursor-pointer`}
+                        >
+                          <option value="" className="bg-[#0a0a1a]">Select time</option>
+                          <option value="morning" className="bg-[#0a0a1a]">Morning (9AM - 12PM)</option>
+                          <option value="afternoon" className="bg-[#0a0a1a]">Afternoon (12PM - 5PM)</option>
+                          <option value="evening" className="bg-[#0a0a1a]">Evening (5PM - 8PM)</option>
+                          <option value="anytime" className="bg-[#0a0a1a]">Anytime</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <button type="submit" disabled={loading} className="btn-primary w-full justify-center group">
+                      <span className="relative z-10 flex items-center gap-2">
+                        {loading ? (
+                          <>
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                              className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full"
+                            />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Message
+                            <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                          </>
+                        )}
+                      </span>
+                    </button>
+                  </motion.form>
+                )}
+              </AnimatePresence>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
