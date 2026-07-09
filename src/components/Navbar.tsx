@@ -23,7 +23,7 @@ const services = [
   { value: 'branding', label: 'Brand Identity Design' },
   { value: 'personal-branding', label: 'Personal Branding' },
   { value: 'email', label: 'Email Marketing' },
-  { value: 'presentation', label: 'Presentation Design' },
+  { value: 'ai-solutions', label: 'AI-Based Solutions' },
   { value: 'complete', label: 'Complete Digital Marketing Solution' },
 ];
 

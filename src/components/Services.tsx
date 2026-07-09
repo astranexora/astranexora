@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { services } from '../data/services';
 import {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
-  Mail, PenTool, Layers, User, Presentation, Zap, ArrowRight
+  Mail, PenTool, Layers, User, Cpu, Zap, ArrowRight
 } from 'lucide-react';
 
 const iconMap: Record<string, ElementType> = {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
-  Mail, PenTool, Layers, User, Presentation, Zap,
+  Mail, PenTool, Layers, User, Cpu, Zap,
 };
 
 function ServiceCard({ service, index, visible }: { service: typeof services[0]; index: number; visible: boolean }) {

@@ -15,7 +15,7 @@ import WhatsAppButton from '../components/WhatsAppButton';
 
 const iconMap: Record<string, React.ElementType> = {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
-  Mail, PenTool, Layers, User, Presentation, Zap,
+  Mail, PenTool, Layers, User, Cpu, Zap,
 };
 
 /* ── Service-specific hero visual mockups ─────────────────────── */

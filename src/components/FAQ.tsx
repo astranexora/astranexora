@@ -4,7 +4,7 @@ import { Plus, Minus } from 'lucide-react';
 const faqs = [
   {
     q: 'What services does Astra Nexora offer?',
-    a: 'We offer a comprehensive suite of digital services including website development, WordPress & Wix development, website revamp, SEO optimization, social media marketing, email marketing, content creation, brand identity design, personal branding, presentation design and end-to-end digital marketing solutions.',
+    a: 'We offer a comprehensive suite of digital services including website development, WordPress & Wix development, website revamp, SEO optimization, social media marketing, email marketing, content creation, brand identity design, personal branding, AI-based solutions including custom chatbot development and workflow automation, and end-to-end digital marketing solutions.',
   },
   {
     q: 'How long does a typical project take?',

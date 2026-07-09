@@ -264,3 +264,63 @@ input:focus, textarea:focus, select:focus {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* ── Page transition ── */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: pageEnter 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── Scroll reveal base ── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Magnetic button hover glow ── */
+.magnetic-btn {
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── Premium card sheen ── */
+.card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.card-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.04) 45%, rgba(0,207,255,0.06) 50%, rgba(255,255,255,0.04) 55%, transparent);
+  transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+.card-sheen:hover::after {
+  left: 110%;
+}
+
+/* ── Parallax helper ── */
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
