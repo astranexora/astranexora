@@ -52,7 +52,7 @@ export default function Portfolio() {
           <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-white mb-5">
             Crafting Digital <span className="text-gradient-blue">Masterpieces</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/45 text-lg max-w-2xl mx-auto leading-relaxed">
             Each project is a unique story of transformation. Explore our curated portfolio of premium digital experiences.
           </p>
         </motion.div>
@@ -126,21 +126,21 @@ export default function Portfolio() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 lg:p-10 flex flex-col justify-center relative">
+                <div className="p-8 lg:p-12 flex flex-col justify-center relative">
                   <div className="mb-2 text-sm text-indigo-300 font-display font-medium">{featured.tag}</div>
-                  <h3 className="font-display font-bold text-3xl md:text-4xl text-white mb-4 group-hover:text-gradient-blue transition-all duration-300">
+                  <h3 className="font-display font-bold text-3xl md:text-4xl text-white mb-5 group-hover:text-gradient-blue transition-all duration-300 leading-tight">
                     {featured.title}
                   </h3>
-                  <p className="text-white/50 leading-relaxed mb-6 max-w-md">
+                  <p className="text-white/55 leading-[1.7] mb-8 max-w-md">
                     {featured.shortDesc}
                   </p>
 
                   {/* Results */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-7">
                     {featured.results?.slice(0, 4).map((result, i) => (
-                      <div key={i} className="glass rounded-xl p-3 border border-white/5">
-                        <div className="text-lg font-display font-bold text-gradient-blue">{result.value}</div>
-                        <div className="text-xs text-white/40">{result.metric}</div>
+                      <div key={i} className="glass rounded-xl p-3.5 border border-white/5">
+                        <div className="text-xl font-display font-bold text-gradient-blue">{result.value}</div>
+                        <div className="text-xs text-white/40 mt-0.5">{result.metric}</div>
                       </div>
                     ))}
                   </div>
@@ -317,11 +317,11 @@ function ProjectCard({ project, index, visible }: { project: typeof projects[0];
         </div>
 
         {/* Content */}
-        <div className="p-5 relative">
-          <h3 className="font-display font-semibold text-white text-sm mb-2 group-hover:text-electric transition-colors duration-300">
+        <div className="p-6 relative">
+          <h3 className="font-display font-semibold text-white text-base mb-2.5 group-hover:text-electric transition-colors duration-300 leading-snug">
             {project.title}
           </h3>
-          <p className="text-white/35 text-xs leading-relaxed mb-4 line-clamp-2">
+          <p className="text-white/40 text-xs leading-[1.7] mb-4 line-clamp-2">
             {project.shortDesc}
           </p>
 

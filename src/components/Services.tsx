@@ -44,7 +44,7 @@ function ServiceCard({ service, index, visible }: { service: typeof services[0];
       to={`/services/${service.id}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative glass-blue rounded-2xl p-6 border border-blue-500/10 overflow-hidden flex flex-col transition-all duration-700 ${
+      className={`group relative glass-blue rounded-2xl p-7 border border-blue-500/10 overflow-hidden flex flex-col transition-all duration-700 hover:border-blue-500/25 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{
@@ -72,7 +72,7 @@ function ServiceCard({ service, index, visible }: { service: typeof services[0];
 
       <div className="relative z-10 flex flex-col flex-1">
         {/* Icon */}
-        <div className="relative w-11 h-11 mb-5">
+        <div className="relative w-12 h-12 mb-6">
           <div className="absolute inset-0 rounded-xl bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors duration-300" />
           <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/0 group-hover:from-blue-500/10 to-transparent transition-all duration-500" />
           <div className="relative w-full h-full rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -81,18 +81,20 @@ function ServiceCard({ service, index, visible }: { service: typeof services[0];
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-semibold text-white text-sm mb-2 group-hover:text-electric transition-colors duration-300 leading-tight">
+        <h3 className="font-display font-semibold text-white text-base mb-2.5 group-hover:text-electric transition-colors duration-300 leading-snug">
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-white/35 text-xs leading-relaxed mb-5 flex-1">
-          {service.description.slice(0, 90)}...
+        <p className="text-white/40 text-sm leading-relaxed mb-6 flex-1">
+          {service.description.length > 95
+            ? service.description.slice(0, 92) + '...'
+            : service.description}
         </p>
 
         {/* Arrow CTA */}
         <div className="flex items-center gap-1.5 text-xs text-electric font-display font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0">
-          Learn More <ArrowRight className="w-3 h-3" />
+          Learn More <ArrowRight className="w-3.5 h-3.5" />
         </div>
       </div>
     </Link>
@@ -133,13 +135,13 @@ export default function Services() {
           <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
             Premium Digital <span className="text-gradient-blue">Solutions</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/45 text-lg max-w-2xl mx-auto leading-relaxed">
             End-to-end digital services designed to build, grow and dominate your online presence.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} visible={visible} />
           ))}

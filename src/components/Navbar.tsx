@@ -288,9 +288,9 @@ export default function Navbar() {
                   {link.label}
                   {isActive && (
                     <motion.span layoutId="activeNavUnderline"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-blue-500"
-                      style={{ width: '70%' }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      className="absolute bottom-0 left-0 right-0 mx-auto h-0.5 rounded-full bg-blue-500"
+                      style={{ width: '60%' }}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                 </motion.a>

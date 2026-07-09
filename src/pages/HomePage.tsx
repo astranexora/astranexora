@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Hero from '../components/Hero';
+import ClientLogos from '../components/ClientLogos';
 import About from '../components/About';
 import WhyUs from '../components/WhyUs';
 import Services from '../components/Services';
@@ -20,6 +21,7 @@ export default function HomePage() {
   return (
     <div>
       <Hero />
+      <ClientLogos />
       <About />
       <WhyUs />
       <Services />

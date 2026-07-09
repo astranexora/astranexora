@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Award, Star, MapPin, Calendar, Target, Heart, Lightbulb, X, ArrowRight, Zap, Globe } from 'lucide-react';
+import { Linkedin, Award, Star, MapPin, Calendar, Target, Lightbulb, X, ArrowRight, Globe } from 'lucide-react';
 
 const values = [
   { icon: Lightbulb, title: 'Innovation', desc: 'Embracing new technologies and creative approaches to stay ahead of the curve.' },
@@ -71,7 +71,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
 
                 {/* Photo and Bio Grid */}
                 <div className="grid lg:grid-cols-2 gap-10 mb-16">
-                  {/* Photo placeholder */}
+                  {/* Founder photo */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -79,15 +79,12 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                     className="relative"
                   >
                     <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: '3/4' }}>
-                      {/* Placeholder for founder photo 1 */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 glass flex items-center justify-center">
-                        <div className="text-center">
-                          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/30 mx-auto mb-4 flex items-center justify-center border border-white/10">
-                            <span className="text-4xl font-display font-bold text-white/60">SS</span>
-                          </div>
-                          <p className="text-white/40 text-sm">Photo coming soon</p>
-                        </div>
-                      </div>
+                      <img
+                        src="/images/image.png"
+                        alt="S. Saktheeswaran — Founder & Managing Director of Astra Nexora"
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                      />
                       {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                     </div>
@@ -108,11 +105,11 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                   >
                     <div>
                       <h3 className="font-display font-bold text-2xl text-white mb-4">Introduction</h3>
-                      <p className="text-white/50 leading-relaxed mb-4">
+                      <p className="text-white/55 leading-[1.7] mb-4">
                         S. Saktheeswaran is the Founder & Managing Director of Astra Nexora, specializing in
                         Digital Marketing, SEO Optimization, Website Development, and Brand Identity Creation.
                       </p>
-                      <p className="text-white/50 leading-relaxed">
+                      <p className="text-white/55 leading-[1.7]">
                         His approach combines creative innovation with data-driven strategies, ensuring every project delivers
                         measurable results. He believes in transparent communication, premium quality, and building long-term
                         partnerships with clients.
@@ -181,7 +178,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                 >
                   <h3 className="font-display font-bold text-2xl text-white mb-6 text-center">Core Values</h3>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {values.map((value, i) => (
+                    {values.map((value) => (
                       <div key={value.title} className="glass rounded-xl p-5 border border-white/5 text-center">
                         <div className="w-10 h-10 rounded-lg bg-blue-500/15 mx-auto mb-3 flex items-center justify-center">
                           <value.icon className="w-5 h-5 text-electric" />
@@ -231,7 +228,7 @@ export default function Founder() {
 
   return (
     <>
-      <section id="founder" className="relative py-32 overflow-hidden bg-black-900">
+      <section id="founder" className="relative py-28 md:py-36 overflow-hidden bg-black-900">
         {/* BG effects */}
         <div className="absolute inset-0 aurora-bg opacity-40" />
         <div className="absolute inset-0 dot-grid opacity-[0.06]" />
@@ -267,7 +264,7 @@ export default function Founder() {
           style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.1), transparent)' }} />
 
         <div ref={ref} className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-14 xl:gap-20 items-center">
             {/* LEFT: Photo */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -286,7 +283,7 @@ export default function Founder() {
               <div className="absolute inset-12 rounded-full blur-3xl pointer-events-none"
                 style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.3), rgba(139,92,246,0.1), transparent)' }} />
 
-              {/* Photo frame placeholder */}
+              {/* Photo frame */}
               <div className="relative z-10 max-w-sm mx-auto">
                 <div
                   className="relative rounded-3xl overflow-hidden"
@@ -297,15 +294,14 @@ export default function Founder() {
                   }}
                 >
                   <div className="relative rounded-3xl overflow-hidden bg-black-950 aspect-[3/4]">
-                    {/* Placeholder - ready for photo */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-28 h-28 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/20 mx-auto mb-4 flex items-center justify-center border border-white/20">
-                          <span className="text-5xl font-display font-bold text-white/50">SS</span>
-                        </div>
-                        <p className="text-white/30 text-sm font-display">Founder Photo</p>
-                      </div>
-                    </div>
+                    <img
+                      src="/images/image.png"
+                      alt="S. Saktheeswaran — Founder & Managing Director of Astra Nexora"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* Gradient overlay for depth */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   </div>
                 </div>
 
@@ -355,13 +351,13 @@ export default function Founder() {
                 <span>Meet The Founder</span>
               </div>
 
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-6 leading-tight">
+              <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-7 leading-[1.1] tracking-tight">
                 The Vision
                 <br />
                 <span className="text-gradient-blue">Behind Astra Nexora</span>
               </h2>
 
-              <div className="space-y-4 text-white/50 leading-relaxed mb-8">
+              <div className="space-y-5 text-white/55 leading-[1.7] mb-8">
                 <p>
                   S. Saktheeswaran is the Founder & Managing Director of Astra Nexora, specializing in
                   Digital Marketing, SEO Optimization, Website Development, and Brand Identity Creation.

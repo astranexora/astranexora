@@ -16,7 +16,7 @@ export default function Footer() {
 
       {/* CTA Banner */}
       <div className="relative border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-6 h-px bg-blue-500" />
@@ -49,7 +49,7 @@ export default function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">

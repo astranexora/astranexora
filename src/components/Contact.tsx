@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Instagram, Linkedin, Facebook, Send, ArrowRight, CheckCircle, MessageCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const socialLinks = [
   { icon: Instagram, label: 'Instagram', handle: '@astranexora2025', href: 'https://www.instagram.com/astranexora2025/', gradient: 'from-pink-500 to-orange-400' },
@@ -94,7 +93,7 @@ export default function Contact() {
     }`;
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden bg-black-900">
+    <section id="contact" className="relative py-28 md:py-36 overflow-hidden bg-black-900">
       <div className="absolute inset-0 aurora-bg opacity-30" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
@@ -118,12 +117,12 @@ export default function Contact() {
             <span>Get In Touch</span>
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
             Ready to Build Something
             <br />
             <span className="text-gradient-blue">Remarkable?</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-xl mx-auto">
+          <p className="text-white/45 text-lg max-w-xl mx-auto leading-relaxed">
             Tell us about your project and let's create something extraordinary together.
           </p>
         </motion.div>

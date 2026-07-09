@@ -5,10 +5,10 @@ import {
   Monitor, Globe, Layout, RefreshCw, TrendingUp, Share2,
   Mail, PenTool, Layers, User, Presentation, Zap,
   ArrowRight, ArrowLeft, CheckCircle, ChevronRight,
-  Star, BarChart2, Search, Target, Rocket, Shield,
-  Activity, Cpu, MousePointer, Award, Clock, TrendingDown,
+  Star, Search, Target, Rocket, Shield,
+  Activity, Cpu, Award, Clock, TrendingDown,
   MessageCircle, Heart, Eye, Play, FileText, Palette,
-  LineChart, Users, DollarSign, Percent, ArrowUpRight,
+  Users, DollarSign, Percent,
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';

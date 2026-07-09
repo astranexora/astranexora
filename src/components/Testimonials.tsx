@@ -105,7 +105,7 @@ export default function Testimonials() {
   const t = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative py-32 overflow-hidden bg-black-900">
+    <section id="testimonials" className="relative py-28 md:py-36 overflow-hidden bg-black-900">
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-3xl pointer-events-none"
@@ -113,13 +113,13 @@ export default function Testimonials() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-14 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
             <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
             <span>Client Voices</span>
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
             What Our Clients
             <br />
             <span className="text-gradient-blue">Say About Us</span>
@@ -155,7 +155,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <blockquote className="text-white/75 text-lg md:text-xl leading-relaxed mb-8 font-light">
+              <blockquote className="text-white/75 text-lg md:text-xl leading-[1.7] mb-8 font-light">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
 

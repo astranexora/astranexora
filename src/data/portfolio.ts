@@ -332,7 +332,7 @@ export const projects = [
     shortDesc: 'A cutting-edge digital agency website featuring 3D animations, immersive storytelling, and premium client showcases.',
     overview: 'Eclipse Digital Studio needed a website that reflects their innovative approach to digital experiences. We crafted an immersive website with stunning animations, interactive elements, and a bold visual identity that positions them as industry leaders.',
     tags: ['Immersive Website', '3D Animation', 'Premium Design'],
-    image: '/images/project-placeholder.webp',
+    image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
     icon: 'Sparkles',
     color: '#6366f1',
     featured: true,

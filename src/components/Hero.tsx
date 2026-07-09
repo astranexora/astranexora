@@ -166,13 +166,13 @@ export default function Hero() {
         style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.06), transparent)' }} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* LEFT: Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-blue border border-blue-500/20 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-blue border border-blue-500/20 mb-8">
               <Sparkles className="w-3.5 h-3.5 text-electric animate-pulse" />
               <span className="text-xs font-display font-semibold text-electric tracking-wider">ASTRA NEXORA</span>
               <span className="w-1.5 h-1.5 rounded-full bg-electric/60" />
@@ -180,7 +180,7 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-bold text-5xl md:text-6xl xl:text-7xl text-white leading-[1.05] mb-6">
+            <h1 className="font-display font-bold text-5xl md:text-6xl xl:text-7xl text-white leading-[1.08] mb-7 tracking-tight">
               Transforming
               <br />
               <span className="text-gradient-blue">Brands Into</span>
@@ -193,7 +193,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p
-              className={`text-white/50 text-lg max-w-lg leading-relaxed mb-10 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`text-white/50 text-lg max-w-xl leading-relaxed mb-10 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
               A premium digital marketing agency helping businesses build powerful digital
               identities through creativity, strategy and measurable growth.
@@ -214,14 +214,15 @@ export default function Hero() {
 
             {/* Stats row */}
             <div
-              className={`flex flex-wrap gap-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`flex flex-wrap gap-x-10 gap-y-6 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
               {[
                 { value: '150+', label: 'Projects Delivered' },
                 { value: '98%', label: 'Client Satisfaction' },
                 { value: '5+', label: 'Years Experience' },
-              ].map(stat => (
+              ].map((stat, i) => (
                 <div key={stat.label} className="relative">
+                  {i > 0 && <div className="absolute -left-5 top-1 bottom-1 w-px bg-white/8" />}
                   <div className="font-display font-bold text-3xl text-gradient-blue">{stat.value}</div>
                   <div className="text-xs text-white/35 mt-0.5 tracking-wide">{stat.label}</div>
                 </div>

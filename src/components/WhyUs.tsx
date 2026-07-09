@@ -110,7 +110,7 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
         </h3>
 
         {/* Desc */}
-        <p className="text-white/45 text-sm leading-relaxed">
+        <p className="text-white/50 text-sm leading-[1.7]">
           {reason.desc}
         </p>
       </div>
@@ -133,7 +133,7 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section className="relative py-32 overflow-hidden bg-black-950">
+    <section className="relative py-28 md:py-36 overflow-hidden bg-black-950">
       <div className="absolute inset-0 mesh-bg opacity-25" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.1), transparent)' }} />
@@ -146,10 +146,10 @@ export default function WhyUs() {
             <span>Why Astra Nexora</span>
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
             What Sets Us <span className="text-gradient-blue">Apart</span>
           </h2>
-          <p className="text-white/40 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/45 text-lg max-w-2xl mx-auto leading-relaxed">
             Six principles that define every engagement, every deliverable and every result.
           </p>
         </div>
