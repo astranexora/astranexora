@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ChevronDown, Sparkles, TrendingUp, Users, BarChart3, Globe, Zap, Star } from 'lucide-react';
+import { ArrowRight, ChevronDown, Sparkles, TrendingUp, Users, BarChart3, Globe, Zap, Star, Award } from 'lucide-react';
 
 interface Node {
   x: number; y: number; vx: number; vy: number;
@@ -25,6 +25,7 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [barProgress, setBarProgress] = useState([0, 0, 0]);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef = useRef<Node[]>([]);
@@ -47,6 +48,14 @@ export default function Hero() {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollProgress(window.scrollY / window.innerHeight);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -142,11 +151,24 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-white flex items-center">
       {/* Network canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 opacity-40 pointer-events-none" />
+      <canvas ref={canvasRef} className="absolute inset-0 opacity-40 pointer-events-none" style={{ transform: `translateY(${scrollProgress * 100}px)` }} />
 
       {/* Aurora BG */}
       <div className="absolute inset-0 aurora-bg" />
       <div className="absolute inset-0 dot-grid opacity-[0.4]" />
+
+      {/* Bold navy accent panel — right side */}
+      <div
+        className="absolute top-0 right-0 w-[42%] h-full navy-divider hidden lg:block"
+        style={{ opacity: 0.04 + scrollProgress * 0.02 }}
+      >
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-[20rem] font-display font-bold text-white/[0.03] select-none">AN</div>
+        </div>
+      </div>
+
+      {/* Navy diagonal strip */}
+      <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-brand-500 via-brand-600 to-brand-700 hidden lg:block" style={{ opacity: 0.6 }} />
 
       {/* Mouse reactive glow */}
       <div
@@ -164,10 +186,10 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 items-center">
 
-          {/* LEFT: Content */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {/* LEFT: Content — 7 cols */}
+          <div className={`lg:col-span-7 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-blue border border-brand-500/15 mb-8">
               <Sparkles className="w-3.5 h-3.5 text-brand-500 animate-pulse" />
@@ -177,7 +199,7 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-bold text-5xl md:text-6xl xl:text-7xl text-ink-900 leading-[1.08] mb-7 tracking-tight">
+            <h1 className="font-display font-bold text-5xl md:text-6xl xl:text-[5.5rem] text-ink-900 leading-[1.02] mb-7 tracking-tight">
               Transforming
               <br />
               <span className="text-gradient-blue">Brands Into</span>
@@ -209,10 +231,11 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Stats row */}
+            {/* Stats row — with navy accent line */}
             <div
-              className={`flex flex-wrap gap-x-10 gap-y-6 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`flex flex-wrap items-end gap-x-10 gap-y-6 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
+              <div className="w-1 h-12 bg-gradient-to-b from-brand-500 to-brand-600 rounded-full mr-2" />
               {[
                 { value: '150+', label: 'Projects Delivered' },
                 { value: '98%', label: 'Client Satisfaction' },
@@ -227,15 +250,19 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT: Dashboard Card */}
+          {/* RIGHT: Dashboard Card — 5 cols, overlapping */}
           <div
-            className={`relative transition-all duration-1200 delay-300 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-12 scale-95'}`}
+            className={`lg:col-span-5 relative transition-all duration-1200 delay-300 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-12 scale-95'}`}
           >
             {/* Central glow */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-72 h-72 rounded-full blur-3xl"
                 style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.12), rgba(0,207,255,0.04), transparent)' }} />
             </div>
+
+            {/* Navy accent block behind card */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-2xl bg-gradient-to-br from-brand-700 to-brand-900 -z-10 hidden lg:block" style={{ opacity: 0.08 }} />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full bg-brand-500/10 -z-10 hidden lg:block" />
 
             {/* Main dashboard card */}
             <div className="relative glass-strong rounded-3xl p-6 border border-brand-500/10 shadow-[0_0_60px_rgba(0,102,255,0.08)]">
@@ -345,6 +372,12 @@ export default function Hero() {
                 </div>
               );
             })}
+
+            {/* Award badge */}
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 glass-strong rounded-full px-5 py-2 border border-brand-500/20 shadow-lg flex items-center gap-2 hidden lg:flex">
+              <Award className="w-4 h-4 text-brand-500" />
+              <span className="text-xs font-display font-semibold text-ink-900">Top-Rated Agency 2025</span>
+            </div>
 
             {/* Rotating outer ring */}
             <div className="absolute -inset-8 rounded-full border border-brand-500/8 animate-spin-slow pointer-events-none" />

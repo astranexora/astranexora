@@ -28,7 +28,18 @@ export default function About() {
     <section id="about" className="relative py-28 md:py-36 overflow-hidden bg-cloud">
       <div className="absolute inset-0 aurora-bg-2 opacity-50" />
       <div className="absolute inset-0 dot-grid opacity-[0.06]" />
+
+      {/* Line-art subtle background pattern */}
+      <div className="absolute inset-0 line-art opacity-[0.04] pointer-events-none" />
+
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
+
+      {/* Editorial background number "01" */}
+      <div className="absolute top-10 right-4 md:right-10 select-none pointer-events-none">
+        <span className="editorial-num font-display font-black text-[200px] md:text-[320px] leading-none tracking-tighter text-brand-500/[0.04]">
+          01
+        </span>
+      </div>
 
       {/* Ambient orb */}
       <div className="absolute top-1/3 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none"
@@ -46,7 +57,7 @@ export default function About() {
             <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-7 leading-[1.1] tracking-tight">
               Digital Powerhouse
               <br />
-              <span className="text-gradient-blue">Built For Growth</span>
+              <span className="text-gradient-navy">Built For Growth</span>
             </h2>
             <div className="space-y-5 text-ink-500 leading-[1.7] mb-10">
               <p>
@@ -68,7 +79,7 @@ export default function About() {
               />
             </div>
 
-            {/* Stats 2x2 */}
+            {/* Stats 2x2 — card-stack layered depth */}
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Projects Delivered', value: '150+' },
@@ -78,10 +89,12 @@ export default function About() {
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`glass-blue rounded-2xl p-6 border border-ink-200 hover:border-brand-500/20 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+                  className={`card-stack relative glass-blue rounded-2xl p-6 border border-ink-200 hover:border-brand-500/20 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                   style={{ transitionDelay: `${400 + i * 80}ms` }}
                 >
-                  <div className="font-display font-bold text-3xl text-gradient-blue mb-1.5 group-hover:scale-105 transition-transform duration-300 inline-block">{stat.value}</div>
+                  {/* Layered depth shadow element */}
+                  <div className="absolute inset-0 rounded-2xl border border-brand-500/10 translate-x-1.5 translate-y-1.5 -z-10 bg-brand-500/[0.02]" />
+                  <div className="font-display font-bold text-3xl text-gradient-navy mb-1.5 group-hover:scale-105 transition-transform duration-300 inline-block">{stat.value}</div>
                   <div className="text-xs text-ink-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               ))}
@@ -89,9 +102,12 @@ export default function About() {
           </div>
 
           {/* Right: Expertise */}
-          <div className={`transition-all duration-1000 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+          <div className={`relative transition-all duration-1000 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+            {/* Navy accent panel behind expertise card — decorative offset */}
+            <div className="absolute inset-0 navy-divider rounded-3xl translate-x-4 translate-y-4 opacity-[0.06] pointer-events-none" />
+
             {/* Expertise bars */}
-            <div className="glass-blue rounded-3xl p-8 border border-ink-200">
+            <div className="relative glass-blue rounded-3xl p-8 border border-ink-200">
               <h3 className="font-display font-semibold text-ink-900 text-lg mb-7">Core Expertise</h3>
               <div className="space-y-6">
                 {expertise.map((skill, i) => (

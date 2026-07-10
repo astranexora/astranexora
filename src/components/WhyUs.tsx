@@ -73,7 +73,7 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative glass-blue rounded-2xl p-8 border border-ink-200 overflow-hidden transition-all duration-700 ${
+      className={`group relative glass-card rounded-2xl p-8 border border-ink-200 overflow-hidden transition-all duration-700 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{
@@ -86,6 +86,12 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
       {/* Hover glow bg */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-500/0 to-brand-500/0 group-hover:from-brand-500/6 group-hover:to-brand-500/4 transition-all duration-500 rounded-2xl" />
 
+      {/* Subtle navy glow on hover */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ boxShadow: '0 0 40px rgba(0,102,255,0.12), 0 0 80px rgba(0,61,153,0.06)' }}
+      />
+
       {/* Corner glow */}
       <div
         className="absolute -top-8 -right-8 w-24 h-24 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -97,6 +103,11 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
 
       {/* Bottom border sweep */}
       <div className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent w-0 group-hover:w-full transition-all duration-700" />
+
+      {/* Editorial number */}
+      <div className="absolute top-5 right-6 font-display font-black text-3xl leading-none text-brand-500/[0.08] group-hover:text-brand-500/[0.14] transition-colors duration-500 select-none">
+        {String(index + 1).padStart(2, '0')}
+      </div>
 
       <div className="relative z-10">
         {/* Icon */}
@@ -134,6 +145,10 @@ export default function WhyUs() {
 
   return (
     <section className="relative py-28 md:py-36 overflow-hidden bg-cloud">
+      {/* Bold navy gradient band at top — thin strip */}
+      <div className="absolute top-0 left-0 right-0 h-1.5 navy-divider z-20" />
+
+      {/* Decorative mesh-bg overlay */}
       <div className="absolute inset-0 mesh-bg opacity-25" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.1), transparent)' }} />
@@ -147,7 +162,7 @@ export default function WhyUs() {
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-brand-500" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
-            What Sets Us <span className="text-gradient-blue">Apart</span>
+            What Sets Us <span className="text-gradient-navy">Apart</span>
           </h2>
           <p className="text-ink-500 text-lg max-w-2xl mx-auto leading-relaxed">
             Six principles that define every engagement, every deliverable and every result.

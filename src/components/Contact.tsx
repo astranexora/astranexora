@@ -104,6 +104,12 @@ export default function Contact() {
       <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,140,255,0.06), transparent)' }} />
 
+      {/* Floating decorative elements */}
+      <div className="absolute top-1/4 left-[8%] w-3 h-3 rounded-full bg-brand-500/20 blur-sm animate-pulse pointer-events-none" />
+      <div className="absolute top-2/3 left-[5%] w-2 h-2 rounded-full bg-brand-400/30 blur-sm pointer-events-none" />
+      <div className="absolute top-1/3 right-[6%] w-4 h-4 rounded-full border border-brand-500/20 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-[10%] w-2.5 h-2.5 rounded-full bg-brand-500/15 blur-sm animate-pulse pointer-events-none" />
+
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -120,7 +126,7 @@ export default function Contact() {
           <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
             Ready to Build Something
             <br />
-            <span className="text-gradient-blue">Remarkable?</span>
+            <span className="text-gradient-navy">Remarkable?</span>
           </h2>
           <p className="text-ink-500 text-lg max-w-xl mx-auto leading-relaxed">
             Tell us about your project and let's create something extraordinary together.
@@ -128,84 +134,101 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left: Contact Info */}
+          {/* Left: Navy gradient panel + Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={visible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-5"
+            className="relative"
           >
-            {/* Email card */}
-            <a
-              href="mailto:info.astranexora@gmail.com"
-              className="flex items-center gap-5 glass-blue rounded-2xl p-5 border border-brand-500/15 hover:border-brand-500/30 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(0,102,255,0.08)]"
-            >
-              <div className="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500/20 group-hover:shadow-[0_0_16px_rgba(0,102,255,0.2)] transition-all duration-300">
-                <Mail className="w-5 h-5 text-brand-500" />
-              </div>
-              <div>
-                <div className="text-xs text-ink-400 uppercase tracking-widest mb-0.5">Email Us</div>
-                <span className="font-display font-semibold text-ink-900 group-hover:text-brand-500 transition-colors duration-300">
-                  info.astranexora@gmail.com
-                </span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-ink-300 group-hover:text-ink-500 ml-auto transition-all duration-300 group-hover:translate-x-1" />
-            </a>
+            {/* Navy gradient panel — split layout background */}
+            <div className="absolute inset-0 navy-divider rounded-3xl opacity-[0.04] -z-10" />
 
-            {/* WhatsApp card */}
-            <a
-              href="https://wa.me/918838417707"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-5 glass rounded-xl p-4 border border-ink-200 hover:border-green-500/20 transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(34,197,94,0.2)] transition-shadow duration-300">
-                <MessageCircle className="w-4 h-4 text-green-600" />
+            {/* Bold "Let's Talk" statement */}
+            <div className="mb-6">
+              <div className="font-display font-black text-5xl md:text-6xl leading-[0.95] tracking-tight mb-3">
+                <span className="text-gradient-navy">Let's</span>
+                <br />
+                <span className="text-ink-900">Talk.</span>
               </div>
-              <div>
-                <div className="text-sm font-display font-semibold text-ink-900">WhatsApp</div>
-                <div className="text-xs text-ink-400">Quick response</div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-ink-300 group-hover:text-green-600/50 ml-auto transition-all duration-300 group-hover:translate-x-1" />
-            </a>
-
-            {/* Social links */}
-            <div>
-              <h3 className="font-display font-semibold text-ink-700 text-xs uppercase tracking-widest mb-4">Connect With Us</h3>
-              <div className="space-y-3">
-                {socialLinks.map(social => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 glass rounded-xl p-4 border border-ink-200 hover:border-brand-500/20 hover:bg-brand-500/5 transition-all duration-300 group"
-                  >
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${social.gradient} flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(0,102,255,0.2)] transition-shadow duration-300`}>
-                      <social.icon className="w-4 h-4 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-display font-semibold text-ink-900">{social.label}</div>
-                      <div className="text-xs text-ink-400">{social.handle}</div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-ink-300 group-hover:text-ink-500 ml-auto transition-all duration-300 group-hover:translate-x-1" />
-                  </a>
-                ))}
-              </div>
+              <p className="text-ink-500 text-sm leading-relaxed max-w-sm">
+                Every great partnership starts with a conversation. Reach out — we respond within 24 hours.
+              </p>
             </div>
 
-            {/* Available badge */}
-            <div className="glass rounded-2xl p-5 border border-ink-200">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="relative">
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                  <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-60" />
+            <div className="space-y-5">
+              {/* Email card */}
+              <a
+                href="mailto:info.astranexora@gmail.com"
+                className="flex items-center gap-5 glass-blue rounded-2xl p-5 border border-brand-500/15 hover:border-brand-500/30 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(0,102,255,0.08)]"
+              >
+                <div className="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500/20 group-hover:shadow-[0_0_16px_rgba(0,102,255,0.2)] transition-all duration-300">
+                  <Mail className="w-5 h-5 text-brand-500" />
                 </div>
-                <span className="text-sm font-display font-semibold text-ink-900">Currently Accepting Projects</span>
+                <div>
+                  <div className="text-xs text-ink-400 uppercase tracking-widest mb-0.5">Email Us</div>
+                  <span className="font-display font-semibold text-ink-900 group-hover:text-brand-500 transition-colors duration-300">
+                    info.astranexora@gmail.com
+                  </span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-ink-300 group-hover:text-ink-500 ml-auto transition-all duration-300 group-hover:translate-x-1" />
+              </a>
+
+              {/* WhatsApp card */}
+              <a
+                href="https://wa.me/918838417707"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-5 glass rounded-xl p-4 border border-ink-200 hover:border-green-500/20 transition-all duration-300 group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(34,197,94,0.2)] transition-shadow duration-300">
+                  <MessageCircle className="w-4 h-4 text-green-600" />
+                </div>
+                <div>
+                  <div className="text-sm font-display font-semibold text-ink-900">WhatsApp</div>
+                  <div className="text-xs text-ink-400">Quick response</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-ink-300 group-hover:text-green-600/50 ml-auto transition-all duration-300 group-hover:translate-x-1" />
+              </a>
+
+              {/* Social links */}
+              <div>
+                <h3 className="font-display font-semibold text-ink-700 text-xs uppercase tracking-widest mb-4">Connect With Us</h3>
+                <div className="space-y-3">
+                  {socialLinks.map(social => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 glass rounded-xl p-4 border border-ink-200 hover:border-brand-500/20 hover:bg-brand-500/5 transition-all duration-300 group"
+                    >
+                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${social.gradient} flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(0,102,255,0.2)] transition-shadow duration-300`}>
+                        <social.icon className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-display font-semibold text-ink-900">{social.label}</div>
+                        <div className="text-xs text-ink-400">{social.handle}</div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-ink-300 group-hover:text-ink-500 ml-auto transition-all duration-300 group-hover:translate-x-1" />
+                    </a>
+                  ))}
+                </div>
               </div>
-              <p className="text-sm text-ink-500 leading-relaxed">
-                We're available for new projects. Typical response time is within 24 hours.
-              </p>
+
+              {/* Available badge */}
+              <div className="glass rounded-2xl p-5 border border-ink-200">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="relative">
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
+                    <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-60" />
+                  </div>
+                  <span className="text-sm font-display font-semibold text-ink-900">Currently Accepting Projects</span>
+                </div>
+                <p className="text-sm text-ink-500 leading-relaxed">
+                  We're available for new projects. Typical response time is within 24 hours.
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -215,10 +238,14 @@ export default function Contact() {
             animate={visible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative glass-blue rounded-3xl p-8 border border-brand-500/15 shadow-[0_0_80px_rgba(0,102,255,0.06)] overflow-hidden">
+            <div className="relative glass-strong rounded-3xl p-8 border border-brand-500/15 shadow-[0_0_80px_rgba(0,102,255,0.06)] overflow-hidden">
               {/* Corner glow */}
               <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-3xl pointer-events-none"
                 style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.1), transparent)' }} />
+
+              {/* Subtle navy glow behind form card */}
+              <div className="absolute inset-0 rounded-3xl pointer-events-none"
+                style={{ boxShadow: 'inset 0 0 60px rgba(0,102,255,0.04)' }} />
 
               <AnimatePresence mode="wait">
                 {submitted ? (

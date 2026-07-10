@@ -54,6 +54,17 @@ export default function FAQ() {
   return (
     <section id="faq" className="relative py-28 md:py-36 overflow-hidden bg-cloud">
       <div className="absolute inset-0 mesh-bg opacity-20" />
+
+      {/* Line-art subtle background pattern */}
+      <div className="absolute inset-0 line-art opacity-[0.03] pointer-events-none" />
+
+      {/* Editorial background number */}
+      <div className="absolute top-8 left-4 md:left-10 select-none pointer-events-none">
+        <span className="editorial-num font-display font-black text-[180px] md:text-[280px] leading-none tracking-tighter text-brand-500/[0.04]">
+          ?
+        </span>
+      </div>
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.06), transparent)' }} />
 
@@ -67,7 +78,7 @@ export default function FAQ() {
           <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
             Frequently Asked
             <br />
-            <span className="text-gradient-blue">Questions</span>
+            <span className="text-gradient-navy">Questions</span>
           </h2>
           <p className="text-ink-500 leading-relaxed">Everything you need to know before we start building together.</p>
         </div>
@@ -76,11 +87,16 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`faq-item rounded-2xl overflow-hidden transition-all duration-700 ${
+              className={`faq-item relative glass-card rounded-2xl overflow-hidden transition-all duration-700 ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              } ${openIndex === i ? 'glass-blue' : 'glass'}`}
+              } ${openIndex === i ? 'border border-brand-500/20' : 'border border-ink-200'}`}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
+              {/* Navy accent strip on left side when open */}
+              {openIndex === i && (
+                <div className="absolute top-0 left-0 bottom-0 w-1 navy-divider rounded-l-2xl" />
+              )}
+
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-6 text-left"

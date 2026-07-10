@@ -45,25 +45,35 @@ export default function Stats() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-mist">
+    <section className="relative py-24 md:py-32 overflow-hidden navy-divider">
       {/* Ambient glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[700px] h-[300px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(ellipse, rgba(0,60,200,0.12), rgba(0,207,255,0.05), transparent)' }} />
+          style={{ background: 'radial-gradient(ellipse, rgba(0,150,255,0.18), rgba(0,207,255,0.08), transparent)' }} />
       </div>
-      <div className="absolute inset-0 dot-grid opacity-[0.05]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
+
+      {/* Dot pattern overlay — white dots on navy */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.4,
+        }}
+      />
+
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-400/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-400/20 to-transparent" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
-            <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
-            <span>By The Numbers</span>
-            <span className="w-8 h-px bg-gradient-to-l from-transparent to-brand-500" />
+            <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-400" />
+            <span className="text-white/70">By The Numbers</span>
+            <span className="w-8 h-px bg-gradient-to-l from-transparent to-brand-400" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 tracking-tight">
-            Results That <span className="text-gradient-blue">Speak</span>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-white tracking-tight">
+            Results That <span className="text-gradient-navy glow-navy">Speak</span>
           </h2>
         </div>
 
@@ -72,23 +82,27 @@ export default function Stats() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`group relative text-center p-7 glass-blue rounded-2xl border border-ink-200 overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-brand-500/20 hover:shadow-[0_16px_40px_rgba(0,102,255,0.1)] ${
+              className={`group relative text-center p-7 rounded-2xl border border-white/10 overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-brand-400/30 hover:shadow-[0_16px_40px_rgba(0,102,255,0.2)] ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              style={{
+                transitionDelay: `${i * 100}ms`,
+                background: 'rgba(255,255,255,0.03)',
+                backdropFilter: 'blur(8px)',
+              }}
             >
               {/* Top accent line */}
               <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-400`} />
 
               {/* Inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-500/0 to-brand-500/0 group-hover:from-brand-500/5 group-hover:to-transparent transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-b from-brand-500/0 to-brand-500/0 group-hover:from-brand-400/10 group-hover:to-transparent transition-all duration-500" />
 
               <div className="relative z-10">
-                <div className={`font-display font-bold text-3xl md:text-4xl mb-2 bg-gradient-to-br ${stat.gradient} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 inline-block`}>
+                <div className={`font-display font-bold text-4xl md:text-5xl mb-2 bg-gradient-to-br ${stat.gradient} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300 inline-block glow-navy`}>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} active={visible} />
                 </div>
-                <div className="font-display font-semibold text-ink-900 text-xs mb-1.5 leading-tight">{stat.label}</div>
-                <div className="text-[10px] text-ink-400 leading-relaxed">{stat.desc}</div>
+                <div className="font-display font-semibold text-white text-xs mb-1.5 leading-tight">{stat.label}</div>
+                <div className="text-[10px] text-white/50 leading-relaxed">{stat.desc}</div>
               </div>
             </div>
           ))}

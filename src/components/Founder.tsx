@@ -263,7 +263,7 @@ export default function Founder() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const center = rect.top + rect.height / 2;
-      setScrollY((window.innerHeight / 2 - center) * 0.08);
+      setScrollY((window.innerHeight / 2 - center) * 0.06);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
@@ -285,7 +285,7 @@ export default function Founder() {
 
   return (
     <>
-      <section id="founder" className="relative py-28 md:py-36 overflow-hidden bg-mist">
+      <section id="founder" className="relative py-24 md:py-32 overflow-hidden bg-mist">
         {/* BG effects */}
         <div className="absolute inset-0 aurora-bg opacity-40" />
         <div className="absolute inset-0 dot-grid opacity-[0.06]" />
@@ -321,14 +321,19 @@ export default function Founder() {
           style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.06), transparent)' }} />
 
         <div ref={ref} className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-14 xl:gap-20 items-center">
-            {/* LEFT: Photo with parallax */}
+          {/* Editorial layout — overlapping photo with navy panel */}
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+
+            {/* LEFT: Photo with overlapping navy panel — 5 cols */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={visible ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="lg:col-span-5 relative"
             >
+              {/* Navy accent panel behind photo */}
+              <div className="absolute -top-6 -left-6 w-full h-full rounded-3xl navy-divider -z-10 hidden lg:block" />
+
               {/* Outer rotating rings */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="w-[360px] h-[360px] rounded-full border border-brand-500/15 animate-spin-slow" />
@@ -398,11 +403,12 @@ export default function Founder() {
               </div>
             </motion.div>
 
-            {/* RIGHT: Info with staggered reveals */}
+            {/* RIGHT: Info — 7 cols */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate={visible ? 'visible' : 'hidden'}
+              className="lg:col-span-7"
             >
               <motion.div variants={itemVariants} className="section-label mb-6">
                 <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
@@ -432,7 +438,7 @@ export default function Founder() {
                 </p>
               </motion.div>
 
-              {/* Expertise highlights */}
+              {/* Expertise highlights — overlapping cards */}
               <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                 {[
                   { icon: Code2, label: 'WordPress' },
