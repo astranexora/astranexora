@@ -5,6 +5,7 @@ import About from '../components/About';
 import WhyUs from '../components/WhyUs';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
+import VideoShowcase from '../components/VideoShowcase';
 import Founder from '../components/Founder';
 import Stats from '../components/Stats';
 import Testimonials from '../components/Testimonials';
@@ -26,6 +27,7 @@ export default function HomePage() {
       <WhyUs />
       <Services />
       <Portfolio />
+      <VideoShowcase />
       <Founder />
       <Stats />
       <Testimonials />
