@@ -36,7 +36,7 @@ export default function CursorGlow() {
         top: `${mousePosition.y - 100}px`,
         width: '200px',
         height: '200px',
-        background: 'radial-gradient(circle, rgba(0, 102, 255, 0.07) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(0, 102, 255, 0.04) 0%, transparent 70%)',
       }}
     />
   );

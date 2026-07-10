@@ -54,27 +54,27 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
     }, 4000);
   };
 
-  const ic = "w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm outline-none focus:border-blue-500/50 focus:bg-blue-500/[0.03] transition-all duration-300";
+  const ic = "w-full bg-cloud border border-ink-200 rounded-xl px-4 py-3 text-ink-900 placeholder-ink-300 text-sm outline-none focus:border-brand-500/50 focus:bg-white transition-all duration-300";
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}
-            className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md" />
+            className="fixed inset-0 z-[100] bg-ink-900/40 backdrop-blur-md" />
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="fixed inset-4 md:inset-8 lg:inset-16 z-[101] overflow-hidden rounded-3xl shadow-2xl"
-            style={{ background: 'rgba(6,6,9,0.95)', border: '1px solid rgba(255,255,255,0.1)' }}
+            style={{ background: 'rgba(255,255,255,0.98)', border: '1px solid rgba(0,102,255,0.12)' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-purple-600/5" />
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl" />
+            <div className="absolute inset-0 aurora-bg opacity-60" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/8 rounded-full blur-3xl" />
             <button onClick={onClose}
-              className="absolute top-6 right-6 z-20 w-10 h-10 rounded-xl flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300"
-              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              className="absolute top-6 right-6 z-20 w-10 h-10 rounded-xl flex items-center justify-center text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-all duration-300"
+              style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.08)' }}>
               <X className="w-5 h-5" />
             </button>
 
@@ -82,19 +82,19 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
               {submitted ? (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                   className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-20 h-20 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6 shadow-[0_0_40px_rgba(34,197,94,0.3)]">
-                    <svg className="w-10 h-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-20 h-20 rounded-2xl bg-green-100 flex items-center justify-center mb-6 shadow-[0_0_40px_rgba(34,197,94,0.15)]">
+                    <svg className="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="font-display font-bold text-3xl text-white mb-4">Thank You!</h3>
-                  <p className="text-white/50 max-w-md leading-relaxed mb-6">
+                  <h3 className="font-display font-bold text-3xl text-ink-900 mb-4">Thank You!</h3>
+                  <p className="text-ink-500 max-w-md leading-relaxed mb-6">
                     Thank you for contacting Astra Nexora. Our team will review your requirements and reach out within 24 hours via your preferred contact method.
                   </p>
                   <a href="https://wa.me/918838417707?text=Hello%20Astra%20Nexora%2C%20I%20submitted%20the%20project%20form%20and%20would%20like%20to%20discuss%20further."
                     target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-6 py-3 rounded-xl text-green-400 border border-green-500/30 hover:bg-green-500/10 transition-all duration-300"
-                    style={{ background: 'rgba(34,197,94,0.1)' }}>
+                    className="inline-flex items-center gap-3 px-6 py-3 rounded-xl text-green-700 border border-green-200 hover:bg-green-50 transition-all duration-300"
+                    style={{ background: 'rgba(34,197,94,0.08)' }}>
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.291 9.291 0 01-4.718-1.289l-.339-.201-3.51.92 1.072-3.419-.223-.351a9.234 9.234 0 01-1.414-4.927c0-5.098 4.153-9.243 9.262-9.243 2.468 0 4.789 1.02 6.534 2.87a9.214 9.214 0 012.705 6.548c-.003 5.097-4.157 9.242-9.266 9.242m7.849-17.017C18.152 1.682 15.667.5 12.996.5c-5.193 0-9.418 4.216-9.418 9.397 0 1.654.435 3.272 1.26 4.709L.5 23.5l5.07-1.327a9.436 9.436 0 004.504 1.145h.004c5.194 0 9.42-4.216 9.42-9.398 0-2.509-.981-4.868-2.762-6.635"/>
                     </svg>
@@ -104,15 +104,15 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
               ) : (
                 <>
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 mb-6"
-                      style={{ background: 'rgba(0,40,120,0.15)' }}>
-                      <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                      <span className="text-xs font-display font-semibold text-blue-400">START YOUR PROJECT</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-500/20 mb-6"
+                      style={{ background: 'rgba(0,102,255,0.06)' }}>
+                      <Sparkles className="w-3.5 h-3.5 text-brand-500" />
+                      <span className="text-xs font-display font-semibold text-brand-500">START YOUR PROJECT</span>
                     </div>
-                    <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-4">
+                    <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-4">
                       Let's Build Something <span className="text-gradient-blue">Great</span>
                     </h2>
-                    <p className="text-white/40 max-w-xl mx-auto">Fill out the form and our team will get back to you within 24 hours.</p>
+                    <p className="text-ink-500 max-w-xl mx-auto">Fill out the form and our team will get back to you within 24 hours.</p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-5">
@@ -125,7 +125,7 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
                         { label: 'Website URL (Optional)', key: 'website', type: 'url', placeholder: 'https://yourwebsite.com', required: false },
                       ].map(field => (
                         <div key={field.key}>
-                          <label className="block text-xs text-white/40 uppercase tracking-widest mb-2 font-display">{field.label}</label>
+                          <label className="block text-xs text-ink-400 uppercase tracking-widest mb-2 font-display">{field.label}</label>
                           <input type={field.type} required={field.required}
                             value={(formData as any)[field.key]}
                             onChange={e => setFormData({ ...formData, [field.key]: e.target.value })}
@@ -135,16 +135,16 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
                     </div>
 
                     <div>
-                      <label className="block text-xs text-white/40 uppercase tracking-widest mb-2 font-display">Service Required *</label>
+                      <label className="block text-xs text-ink-400 uppercase tracking-widest mb-2 font-display">Service Required *</label>
                       <select required value={formData.service} onChange={e => setFormData({ ...formData, service: e.target.value })}
                         className={`${ic} appearance-none cursor-pointer`}>
-                        <option value="" className="bg-[#0a0a1a]">Select a service</option>
-                        {services.map(s => <option key={s.value} value={s.value} className="bg-[#0a0a1a]">{s.label}</option>)}
+                        <option value="">Select a service</option>
+                        {services.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs text-white/40 uppercase tracking-widest mb-2 font-display">Project Details *</label>
+                      <label className="block text-xs text-ink-400 uppercase tracking-widest mb-2 font-display">Project Details *</label>
                       <textarea required rows={4} value={formData.projectDetails}
                         onChange={e => setFormData({ ...formData, projectDetails: e.target.value })}
                         placeholder="Tell us about your project, goals, and requirements..."
@@ -153,23 +153,23 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
 
                     <div className="grid md:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-xs text-white/40 uppercase tracking-widest mb-2 font-display">Preferred Contact *</label>
+                        <label className="block text-xs text-ink-400 uppercase tracking-widest mb-2 font-display">Preferred Contact *</label>
                         <select required value={formData.contactMethod} onChange={e => setFormData({ ...formData, contactMethod: e.target.value })}
                           className={`${ic} appearance-none cursor-pointer`}>
-                          <option value="" className="bg-[#0a0a1a]">Select method</option>
-                          <option value="whatsapp" className="bg-[#0a0a1a]">WhatsApp</option>
-                          <option value="email" className="bg-[#0a0a1a]">Email</option>
+                          <option value="">Select method</option>
+                          <option value="whatsapp">WhatsApp</option>
+                          <option value="email">Email</option>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-xs text-white/40 uppercase tracking-widest mb-2 font-display">Best Time To Contact *</label>
+                        <label className="block text-xs text-ink-400 uppercase tracking-widest mb-2 font-display">Best Time To Contact *</label>
                         <select required value={formData.bestTime} onChange={e => setFormData({ ...formData, bestTime: e.target.value })}
                           className={`${ic} appearance-none cursor-pointer`}>
-                          <option value="" className="bg-[#0a0a1a]">Select time</option>
-                          <option value="morning" className="bg-[#0a0a1a]">Morning (9AM–12PM)</option>
-                          <option value="afternoon" className="bg-[#0a0a1a]">Afternoon (12PM–5PM)</option>
-                          <option value="evening" className="bg-[#0a0a1a]">Evening (5PM–8PM)</option>
-                          <option value="anytime" className="bg-[#0a0a1a]">Anytime</option>
+                          <option value="">Select time</option>
+                          <option value="morning">Morning (9AM–12PM)</option>
+                          <option value="afternoon">Afternoon (12PM–5PM)</option>
+                          <option value="evening">Evening (5PM–8PM)</option>
+                          <option value="anytime">Anytime</option>
                         </select>
                       </div>
                     </div>
@@ -179,7 +179,7 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
                         className="btn-primary px-12 py-4 text-base inline-flex items-center gap-3 disabled:opacity-50">
                         {loading ? (
                           <><motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                            className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full" />Sending...</>
+                            className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full" />Sending...</>
                         ) : (
                           <>Submit Request <ArrowRight className="w-5 h-5" /></>
                         )}

@@ -17,7 +17,7 @@ export default function ParticleField() {
       left: Math.random() * 100,
       top: Math.random() * 100,
       size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.3 + 0.1,
+      opacity: Math.random() * 0.08 + 0.04,
       duration: Math.random() * 6 + 4,
     }));
     setParticles(newParticles);
@@ -28,7 +28,7 @@ export default function ParticleField() {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full bg-gradient-to-b from-blue-400 to-blue-500 animate-float"
+          className="absolute rounded-full bg-gradient-to-b from-brand-500 to-brand-600 animate-float"
           style={{
             left: `${particle.left}%`,
             top: `${particle.top}%`,

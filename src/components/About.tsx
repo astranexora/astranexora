@@ -25,10 +25,10 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative py-28 md:py-36 overflow-hidden bg-black-900">
+    <section id="about" className="relative py-28 md:py-36 overflow-hidden bg-cloud">
       <div className="absolute inset-0 aurora-bg-2 opacity-50" />
       <div className="absolute inset-0 dot-grid opacity-[0.06]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
 
       {/* Ambient orb */}
       <div className="absolute top-1/3 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none"
@@ -40,15 +40,15 @@ export default function About() {
           {/* Left: Story */}
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
             <div className="section-label mb-6">
-              <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
+              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
               <span>About Astra Nexora</span>
             </div>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-7 leading-[1.1] tracking-tight">
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-7 leading-[1.1] tracking-tight">
               Digital Powerhouse
               <br />
               <span className="text-gradient-blue">Built For Growth</span>
             </h2>
-            <div className="space-y-5 text-white/50 leading-[1.7] mb-10">
+            <div className="space-y-5 text-ink-500 leading-[1.7] mb-10">
               <p>
                 Astra Nexora is a modern digital marketing agency helping businesses, startups and creators build
                 powerful digital identities through branding, website development, SEO optimization, content
@@ -61,9 +61,9 @@ export default function About() {
             </div>
 
             {/* Animated line */}
-            <div className="relative h-px bg-white/5 mb-10">
+            <div className="relative h-px bg-ink-100 mb-10">
               <div
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-electric to-blue-500 transition-all duration-[1500ms] ease-out"
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-[1500ms] ease-out"
                 style={{ width: visible ? '100%' : '0%' }}
               />
             </div>
@@ -78,11 +78,11 @@ export default function About() {
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`glass-blue rounded-2xl p-6 border border-blue-500/10 hover:border-blue-500/25 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+                  className={`glass-blue rounded-2xl p-6 border border-ink-200 hover:border-brand-500/20 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                   style={{ transitionDelay: `${400 + i * 80}ms` }}
                 >
                   <div className="font-display font-bold text-3xl text-gradient-blue mb-1.5 group-hover:scale-105 transition-transform duration-300 inline-block">{stat.value}</div>
-                  <div className="text-xs text-white/35 uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-xs text-ink-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -91,8 +91,8 @@ export default function About() {
           {/* Right: Expertise */}
           <div className={`transition-all duration-1000 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
             {/* Expertise bars */}
-            <div className="glass-blue rounded-3xl p-8 border border-blue-500/10">
-              <h3 className="font-display font-semibold text-white text-lg mb-7">Core Expertise</h3>
+            <div className="glass-blue rounded-3xl p-8 border border-ink-200">
+              <h3 className="font-display font-semibold text-ink-900 text-lg mb-7">Core Expertise</h3>
               <div className="space-y-6">
                 {expertise.map((skill, i) => (
                   <div
@@ -101,10 +101,10 @@ export default function About() {
                     style={{ transitionDelay: `${300 + i * 80}ms` }}
                   >
                     <div className="flex justify-between text-xs mb-2">
-                      <span className="text-white/55 font-medium">{skill.label}</span>
+                      <span className="text-ink-700 font-medium">{skill.label}</span>
                       <span className="font-display font-bold" style={{ color: skill.color }}>{skill.level}%</span>
                     </div>
-                    <div className="h-1.5 rounded-full bg-white/[0.04] overflow-hidden">
+                    <div className="h-1.5 rounded-full bg-ink-100 overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all duration-[1500ms] ease-out"
                         style={{

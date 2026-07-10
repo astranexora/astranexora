@@ -52,24 +52,24 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section id="faq" className="relative py-28 md:py-36 overflow-hidden bg-black-950">
+    <section id="faq" className="relative py-28 md:py-36 overflow-hidden bg-cloud">
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.08), transparent)' }} />
+        style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.06), transparent)' }} />
 
       <div ref={ref} className="max-w-4xl mx-auto px-6">
         <div className={`text-center mb-14 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
-            <span className="w-6 h-px bg-electric" />
+            <span className="w-6 h-px bg-brand-500" />
             <span>FAQ</span>
-            <span className="w-6 h-px bg-electric" />
+            <span className="w-6 h-px bg-brand-500" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
             Frequently Asked
             <br />
             <span className="text-gradient-blue">Questions</span>
           </h2>
-          <p className="text-white/45 leading-relaxed">Everything you need to know before we start building together.</p>
+          <p className="text-ink-500 leading-relaxed">Everything you need to know before we start building together.</p>
         </div>
 
         <div className="space-y-3">
@@ -86,16 +86,16 @@ export default function FAQ() {
                 className="w-full flex items-center justify-between p-6 text-left"
               >
                 <span className={`font-display font-semibold text-sm md:text-base pr-4 transition-colors duration-300 ${
-                  openIndex === i ? 'text-white' : 'text-white/70'
+                  openIndex === i ? 'text-ink-900' : 'text-ink-700'
                 }`}>
                   {faq.q}
                 </span>
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  openIndex === i ? 'bg-blue-500 rotate-0' : 'bg-white/5 rotate-0'
+                  openIndex === i ? 'bg-brand-500 rotate-0' : 'bg-ink-100 rotate-0'
                 }`}>
                   {openIndex === i
                     ? <Minus className="w-4 h-4 text-white" />
-                    : <Plus className="w-4 h-4 text-white/60" />
+                    : <Plus className="w-4 h-4 text-ink-500" />
                   }
                 </div>
               </button>
@@ -104,7 +104,7 @@ export default function FAQ() {
                 className="overflow-hidden transition-all duration-500 ease-in-out"
                 style={{ maxHeight: openIndex === i ? '400px' : '0px' }}
               >
-                <div className="px-6 pb-6 text-white/55 text-sm leading-[1.7] border-t border-white/5 pt-4">
+                <div className="px-6 pb-6 text-ink-500 text-sm leading-[1.7] border-t border-ink-200 pt-4">
                   {faq.a}
                 </div>
               </div>

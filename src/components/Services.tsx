@@ -44,7 +44,7 @@ function ServiceCard({ service, index, visible }: { service: typeof services[0];
       to={`/services/${service.id}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative glass-blue rounded-2xl p-7 border border-blue-500/10 overflow-hidden flex flex-col transition-all duration-700 hover:border-blue-500/25 ${
+      className={`group relative glass-blue rounded-2xl p-7 border border-brand-500/15 overflow-hidden flex flex-col transition-all duration-700 hover:border-brand-500/20 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{
@@ -57,7 +57,7 @@ function ServiceCard({ service, index, visible }: { service: typeof services[0];
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
         style={{
-          background: 'radial-gradient(circle 80px at var(--gx, 50%) var(--gy, 50%), rgba(0,102,255,0.12), transparent)',
+          background: 'radial-gradient(circle 80px at var(--gx, 50%) var(--gy, 50%), rgba(0,102,255,0.1), transparent)',
         }}
       />
 
@@ -68,25 +68,25 @@ function ServiceCard({ service, index, visible }: { service: typeof services[0];
       <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-electric to-transparent w-0 group-hover:w-full transition-all duration-700" />
 
       {/* Glow orb on hover */}
-      <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full blur-2xl bg-blue-500/0 group-hover:bg-blue-500/15 transition-all duration-700" />
+      <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full blur-2xl bg-brand-500/0 group-hover:bg-brand-500/10 transition-all duration-700" />
 
       <div className="relative z-10 flex flex-col flex-1">
         {/* Icon */}
         <div className="relative w-12 h-12 mb-6">
-          <div className="absolute inset-0 rounded-xl bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors duration-300" />
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/0 group-hover:from-blue-500/10 to-transparent transition-all duration-500" />
+          <div className="absolute inset-0 rounded-xl bg-brand-500/8 group-hover:bg-brand-500/10 transition-colors duration-300" />
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-500/0 group-hover:from-brand-500/10 to-transparent transition-all duration-500" />
           <div className="relative w-full h-full rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             <Icon className="w-5 h-5 text-electric" />
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-semibold text-white text-base mb-2.5 group-hover:text-electric transition-colors duration-300 leading-snug">
+        <h3 className="font-display font-semibold text-ink-900 text-base mb-2.5 group-hover:text-electric transition-colors duration-300 leading-snug">
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-white/40 text-sm leading-relaxed mb-6 flex-1">
+        <p className="text-ink-500 text-sm leading-relaxed mb-6 flex-1">
           {service.description.length > 95
             ? service.description.slice(0, 92) + '...'
             : service.description}
@@ -116,13 +116,13 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" className="relative py-32 overflow-hidden bg-black-900">
+    <section id="services" className="relative py-32 overflow-hidden bg-mist">
       <div className="absolute inset-0 aurora-bg opacity-40" />
       <div className="absolute inset-0 mesh-bg opacity-40" />
 
       {/* Top ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-48 blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,60,180,0.15), transparent)' }} />
+        style={{ background: 'radial-gradient(ellipse, rgba(0,60,180,0.1), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -132,10 +132,10 @@ export default function Services() {
             <span>Our Services</span>
             <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5">
             Premium Digital <span className="text-gradient-blue">Solutions</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-ink-500 text-lg max-w-2xl mx-auto leading-relaxed">
             End-to-end digital services designed to build, grow and dominate your online presence.
           </p>
         </div>

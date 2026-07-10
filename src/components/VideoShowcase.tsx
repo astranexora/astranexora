@@ -78,10 +78,10 @@ function ResponsiveIframe({ video, autoplay = false }: { video: VideoItem; autop
   return (
     <div className="absolute inset-0">
       {!loaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black-950">
+        <div className="absolute inset-0 flex items-center justify-center bg-mist">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 rounded-full border-2 border-blue-500/30 border-t-electric animate-spin" />
-            <span className="text-[10px] text-white/30 font-display tracking-wider">Loading...</span>
+            <div className="w-10 h-10 rounded-full border-2 border-brand-500/15 border-t-electric animate-spin" />
+            <span className="text-[10px] text-ink-400 font-display tracking-wider">Loading...</span>
           </div>
         </div>
       )}
@@ -144,24 +144,24 @@ function VideoLightbox({
           >
             <button
               onClick={onClose}
-              className="absolute -top-2 right-0 md:-top-12 md:right-0 z-20 w-10 h-10 rounded-xl glass-strong flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="absolute -top-2 right-0 md:-top-12 md:right-0 z-20 w-10 h-10 rounded-xl glass-strong flex items-center justify-center text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-all duration-300"
             >
               <X className="w-5 h-5" />
             </button>
             <button
               onClick={onPrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-14 z-20 w-10 h-10 rounded-xl glass-strong flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-14 z-20 w-10 h-10 rounded-xl glass-strong flex items-center justify-center text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-all duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={onNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-14 z-20 w-10 h-10 rounded-xl glass-strong flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-14 z-20 w-10 h-10 rounded-xl glass-strong flex items-center justify-center text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-all duration-300"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            <div className="relative w-full flex-1 rounded-2xl overflow-hidden glass-strong border border-white/10 shadow-2xl">
+            <div className="relative w-full flex-1 rounded-2xl overflow-hidden glass-strong border border-ink-200 shadow-2xl">
               <ResponsiveIframe video={video} autoplay />
             </div>
 
@@ -173,10 +173,10 @@ function VideoLightbox({
                 >
                   {video.category}
                 </span>
-                <h3 className="font-display font-bold text-white text-lg">{video.title}</h3>
-                <p className="text-white/40 text-sm mt-1 max-w-xl">{video.description}</p>
+                <h3 className="font-display font-bold text-ink-900 text-lg">{video.title}</h3>
+                <p className="text-ink-500 text-sm mt-1 max-w-xl">{video.description}</p>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl glass-blue border border-blue-500/20 flex-shrink-0">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-xl glass-blue border border-brand-500/20 flex-shrink-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
                 <span className="text-xs font-display font-semibold text-electric">{video.outcome}</span>
               </div>
@@ -223,7 +223,7 @@ function FeaturedCard({
     >
       <div
         ref={cardRef}
-        className="group relative rounded-3xl overflow-hidden glass-strong border border-blue-500/15 shadow-[0_0_80px_rgba(0,102,255,0.12)] card-sheen"
+        className="group relative rounded-3xl overflow-hidden glass-strong border border-brand-500/15 shadow-[0_0_80px_rgba(0,102,255,0.1)] card-sheen"
       >
         {/* Video area */}
         <div className="relative aspect-[21/9] w-full overflow-hidden">
@@ -247,24 +247,24 @@ function FeaturedCard({
                 }}
               />
               {/* Cinematic overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black-950/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cloud via-cloud/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-cloud/60 via-transparent to-transparent" />
 
               {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-full blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: `radial-gradient(circle, ${video.color}40, transparent)` }} />
-                  <div className="relative w-20 h-20 rounded-full glass-strong border border-white/25 flex items-center justify-center group-hover:scale-110 transition-transform duration-400 shadow-2xl">
-                    <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                  <div className="relative w-20 h-20 rounded-full glass-strong border border-ink-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-400 shadow-2xl">
+                    <Play className="w-8 h-8 text-ink-900 ml-1" fill="currentColor" />
                   </div>
                 </div>
               </div>
 
               {/* Featured badge */}
               <div className="absolute top-6 left-6 z-10 flex items-center gap-2">
-                <div className="px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/30 to-electric/20 border border-blue-400/30 backdrop-blur-md">
-                  <span className="text-xs font-display font-semibold text-white flex items-center gap-1.5">
+                <div className="px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-500/20 to-brand-600/10 border border-brand-500/20 backdrop-blur-md">
+                  <span className="text-xs font-display font-semibold text-ink-900 flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-electric" />
                     Featured Work
                   </span>
@@ -273,8 +273,8 @@ function FeaturedCard({
 
               {/* Fullscreen hint */}
               <div className="absolute top-6 right-6 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="w-9 h-9 rounded-xl glass-strong border border-white/15 flex items-center justify-center">
-                  <Maximize2 className="w-4 h-4 text-white/60" />
+                <div className="w-9 h-9 rounded-xl glass-strong border border-ink-200 flex items-center justify-center">
+                  <Maximize2 className="w-4 h-4 text-ink-500" />
                 </div>
               </div>
 
@@ -287,13 +287,13 @@ function FeaturedCard({
                   <span className="w-1 h-1 rounded-full" style={{ background: video.color }} />
                   {video.category}
                 </span>
-                <h3 className="font-display font-bold text-2xl md:text-4xl text-white mb-3 leading-tight tracking-tight">
+                <h3 className="font-display font-bold text-2xl md:text-4xl text-ink-900 mb-3 leading-tight tracking-tight">
                   {video.title}
                 </h3>
-                <p className="text-white/50 text-sm md:text-base max-w-xl leading-relaxed">
+                <p className="text-ink-500 text-sm md:text-base max-w-xl leading-relaxed">
                   {video.description}
                 </p>
-                <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-blue border border-blue-500/20">
+                <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-blue border border-brand-500/20">
                   <div className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
                   <span className="text-xs font-display font-semibold text-electric">{video.outcome}</span>
                 </div>
@@ -374,7 +374,7 @@ function BentoCard({
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="group relative w-full text-left glass rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all duration-500 card-sheen"
+        className="group relative w-full text-left glass rounded-2xl overflow-hidden border border-ink-200 hover:border-brand-500/20 transition-all duration-500 card-sheen"
         style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
       >
         {/* Mouse-follow glow */}
@@ -399,15 +399,15 @@ function BentoCard({
                   (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black-950 via-black-950/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cloud via-cloud/20 to-transparent" />
 
               {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{ background: `radial-gradient(circle, ${video.color}50, transparent)` }} />
-                  <div className="relative w-14 h-14 rounded-full glass-strong border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                    <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
+                  <div className="relative w-14 h-14 rounded-full glass-strong border border-ink-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                    <Play className="w-5 h-5 text-ink-900 ml-0.5" fill="currentColor" />
                   </div>
                 </div>
               </div>
@@ -428,10 +428,10 @@ function BentoCard({
 
         {/* Content */}
         <div className="relative p-5">
-          <h3 className="font-display font-semibold text-white text-base mb-2 group-hover:text-electric transition-colors duration-300 leading-snug">
+          <h3 className="font-display font-semibold text-ink-900 text-base mb-2 group-hover:text-electric transition-colors duration-300 leading-snug">
             {video.title}
           </h3>
-          <p className="text-white/40 text-xs leading-[1.7] line-clamp-2 mb-3">
+          <p className="text-ink-500 text-xs leading-[1.7] line-clamp-2 mb-3">
             {video.description}
           </p>
           <div className="flex items-center gap-2">
@@ -487,17 +487,17 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section id="videos" className="relative py-28 md:py-36 overflow-hidden bg-black-950">
+    <section id="videos" className="relative py-28 md:py-36 overflow-hidden bg-mist">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
 
       {/* Ambient glows */}
       <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.08), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.06), transparent)' }} />
       <div className="absolute bottom-1/4 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.06), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.05), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial header */}
@@ -513,13 +513,13 @@ export default function VideoShowcase() {
                 <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
                 <span>Creative Works</span>
               </div>
-              <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-white tracking-tight leading-[1.05]">
+              <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-ink-900 tracking-tight leading-[1.05]">
                 Video That
                 <br />
                 <span className="text-gradient-blue">Moves Brands Forward</span>
               </h2>
             </div>
-            <p className="text-white/45 text-base md:text-lg max-w-md leading-relaxed md:text-right">
+            <p className="text-ink-500 text-base md:text-lg max-w-md leading-relaxed md:text-right">
               A curated portfolio of cinematic video content — crafted to engage audiences, elevate perception, and drive measurable business outcomes.
             </p>
           </div>

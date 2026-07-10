@@ -4,9 +4,35 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Logo-derived deep blue
+        'brand': {
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#0066FF',
+          600: '#0052CC',
+          700: '#003D99',
+          800: '#002966',
+          900: '#001433',
+        },
         'electric': '#00CFFF',
-        'black-900': '#0A0A0F',
-        'black-950': '#060609',
+        'ink': {
+          900: '#0A0F1C',  // rich black for headings
+          800: '#1A1F2E',
+          700: '#2A3142',
+          600: '#4A5468',
+          500: '#6B7280',  // body text
+          400: '#9CA3AF',
+          300: '#D1D5DB',
+          200: '#E5E7EB',
+          100: '#F3F4F6',
+          50: '#F9FAFB',
+        },
+        'canvas': '#FFFFFF',
+        'cloud': '#F7F9FC',   // subtle off-white section bg
+        'mist': '#EEF2F8',     // card surface tint
       },
       fontFamily: {
         'display': ['"Space Grotesk"', 'sans-serif'],
@@ -23,7 +49,6 @@ export default {
         'marquee': 'marquee 40s linear infinite',
         'shimmer': 'shimmer 2.5s linear infinite',
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
-        'light-ray': 'lightRay 8s linear infinite',
         'fade-up': 'fadeUp 0.7s ease-out forwards',
         'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
         'slide-in-right': 'slideInRight 0.8s ease-out forwards',
@@ -49,14 +74,8 @@ export default {
           '100%': { backgroundPosition: '200% center' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(0,102,255,0.3), 0 0 40px rgba(0,102,255,0.1)' },
-          '50%': { boxShadow: '0 0 40px rgba(0,102,255,0.6), 0 0 80px rgba(0,102,255,0.2)' },
-        },
-        lightRay: {
-          '0%': { transform: 'rotate(0deg) translateX(0)', opacity: '0' },
-          '10%': { opacity: '1' },
-          '90%': { opacity: '1' },
-          '100%': { transform: 'rotate(360deg) translateX(0)', opacity: '0' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(0,102,255,0.15), 0 0 40px rgba(0,102,255,0.05)' },
+          '50%': { boxShadow: '0 0 30px rgba(0,102,255,0.25), 0 0 60px rgba(0,102,255,0.1)' },
         },
         fadeUp: {
           '0%': { opacity: '0', transform: 'translateY(24px)' },
@@ -69,10 +88,6 @@ export default {
         slideInRight: {
           '0%': { opacity: '0', transform: 'translateX(40px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        orbit: {
-          '0%': { transform: 'rotate(0deg) translateX(140px) rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg) translateX(140px) rotate(-360deg)' },
         },
         counterPing: {
           '0%': { transform: 'scale(1)' },

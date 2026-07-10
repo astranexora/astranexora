@@ -6,42 +6,42 @@ const reasons = [
     icon: Target,
     title: 'Strategy Before Execution',
     desc: 'We never jump to design without understanding your business. Every pixel serves a strategic purpose rooted in research and clear objectives.',
-    gradient: 'from-blue-600 to-blue-500',
+    gradient: 'from-brand-600 to-brand-500',
     glow: 'rgba(0,102,255,0.4)',
   },
   {
     icon: BarChart3,
     title: 'Obsessed With Results',
     desc: 'Beautiful design means nothing without measurable impact. We track, optimize and report on the metrics that matter to your bottom line.',
-    gradient: 'from-blue-500 to-electric',
+    gradient: 'from-brand-500 to-brand-600',
     glow: 'rgba(0,150,255,0.4)',
   },
   {
     icon: Lightbulb,
     title: 'Creative That Converts',
     desc: "Our creative work isn't just aesthetically premium — it's engineered to guide visitors toward action through persuasive design psychology.",
-    gradient: 'from-electric to-cyan-400',
+    gradient: 'from-brand-500 to-cyan-400',
     glow: 'rgba(0,207,255,0.4)',
   },
   {
     icon: Shield,
     title: 'Premium Quality Standard',
     desc: 'Every deliverable meets an exacting standard. No shortcuts, no templates, no compromises. The quality of your digital presence reflects your business.',
-    gradient: 'from-cyan-400 to-blue-500',
+    gradient: 'from-cyan-400 to-brand-500',
     glow: 'rgba(0,180,220,0.4)',
   },
   {
     icon: Users,
     title: 'True Partnership',
     desc: 'We become an extension of your team. Open communication, shared goals and genuine investment in your success — not just vendor-client transactions.',
-    gradient: 'from-blue-500 to-blue-700',
+    gradient: 'from-brand-500 to-brand-700',
     glow: 'rgba(0,80,200,0.4)',
   },
   {
     icon: Zap,
     title: 'Speed Without Sacrifice',
     desc: "Premium quality doesn't mean slow delivery. Our streamlined processes and experienced team deliver exceptional results on aggressive timelines.",
-    gradient: 'from-blue-700 to-electric',
+    gradient: 'from-brand-700 to-brand-600',
     glow: 'rgba(0,102,255,0.4)',
   },
 ];
@@ -73,7 +73,7 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative glass-blue rounded-2xl p-8 border border-blue-500/10 overflow-hidden transition-all duration-700 ${
+      className={`group relative glass-blue rounded-2xl p-8 border border-ink-200 overflow-hidden transition-all duration-700 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{
@@ -84,7 +84,7 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
       }}
     >
       {/* Hover glow bg */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-electric/0 group-hover:from-blue-500/6 group-hover:to-electric/4 transition-all duration-500 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/0 to-brand-500/0 group-hover:from-brand-500/6 group-hover:to-brand-500/4 transition-all duration-500 rounded-2xl" />
 
       {/* Corner glow */}
       <div
@@ -93,24 +93,24 @@ function ReasonCard({ reason, index, visible }: { reason: typeof reasons[0]; ind
       />
 
       {/* Top border sweep */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Bottom border sweep */}
-      <div className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent w-0 group-hover:w-full transition-all duration-700" />
+      <div className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent w-0 group-hover:w-full transition-all duration-700" />
 
       <div className="relative z-10">
         {/* Icon */}
-        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${reason.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.4)] transition-all duration-300`}>
+        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${reason.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.3)] transition-all duration-300`}>
           <reason.icon className="w-6 h-6 text-white" />
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-semibold text-white text-lg mb-3 group-hover:text-electric transition-colors duration-300 leading-tight">
+        <h3 className="font-display font-semibold text-ink-900 text-lg mb-3 group-hover:text-brand-500 transition-colors duration-300 leading-tight">
           {reason.title}
         </h3>
 
         {/* Desc */}
-        <p className="text-white/50 text-sm leading-[1.7]">
+        <p className="text-ink-500 text-sm leading-[1.7]">
           {reason.desc}
         </p>
       </div>
@@ -133,7 +133,7 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden bg-black-950">
+    <section className="relative py-28 md:py-36 overflow-hidden bg-cloud">
       <div className="absolute inset-0 mesh-bg opacity-25" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.1), transparent)' }} />
@@ -142,14 +142,14 @@ export default function WhyUs() {
         {/* Header */}
         <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
-            <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
+            <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
             <span>Why Astra Nexora</span>
-            <span className="w-8 h-px bg-gradient-to-l from-transparent to-electric" />
+            <span className="w-8 h-px bg-gradient-to-l from-transparent to-brand-500" />
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5 tracking-tight">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
             What Sets Us <span className="text-gradient-blue">Apart</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-ink-500 text-lg max-w-2xl mx-auto leading-relaxed">
             Six principles that define every engagement, every deliverable and every result.
           </p>
         </div>

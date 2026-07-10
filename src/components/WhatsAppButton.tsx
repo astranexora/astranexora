@@ -42,9 +42,9 @@ Please contact me regarding my project.`);
       <motion.div
         initial={{ opacity: 0, x: 10 }}
         animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : 10 }}
-        className="absolute right-full mr-3 px-4 py-2 rounded-xl glass border border-white/10 whitespace-nowrap"
+        className="absolute right-full mr-3 px-4 py-2 rounded-xl glass border border-ink-200 whitespace-nowrap"
       >
-        <span className="text-sm font-display font-medium text-white">Chat with us</span>
+        <span className="text-sm font-display font-medium text-ink-900">Chat with us</span>
       </motion.div>
 
       {/* Button */}
