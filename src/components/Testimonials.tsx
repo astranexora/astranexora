@@ -104,7 +104,7 @@ export default function Testimonials() {
   const t = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative py-24 md:py-32 overflow-hidden bg-cloud">
+    <section id="testimonials" className="relative py-20 md:py-28 overflow-hidden bg-cloud">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
@@ -113,7 +113,7 @@ export default function Testimonials() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header — asymmetric */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={visible ? { opacity: 1, y: 0 } : {}}

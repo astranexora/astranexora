@@ -52,7 +52,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section id="faq" className="relative py-28 md:py-36 overflow-hidden bg-cloud">
+    <section id="faq" className="relative py-20 md:py-28 overflow-hidden bg-cloud">
       <div className="absolute inset-0 mesh-bg opacity-20" />
 
       {/* Line-art subtle background pattern */}
@@ -69,7 +69,7 @@ export default function FAQ() {
         style={{ background: 'radial-gradient(ellipse, rgba(0,40,150,0.06), transparent)' }} />
 
       <div ref={ref} className="max-w-4xl mx-auto px-6">
-        <div className={`text-center mb-14 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-10 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
             <span className="w-6 h-px bg-brand-500" />
             <span>FAQ</span>

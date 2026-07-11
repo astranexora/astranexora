@@ -45,7 +45,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden navy-divider">
+    <section className="relative py-20 md:py-28 overflow-hidden navy-divider">
       {/* Ambient glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[700px] h-[300px] rounded-full blur-3xl"
@@ -66,7 +66,7 @@ export default function Stats() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-12 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
             <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-400" />
             <span className="text-white/70">By The Numbers</span>

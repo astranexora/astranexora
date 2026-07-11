@@ -25,7 +25,7 @@ export default function Portfolio() {
   const regular = filtered.filter(p => !(p as any).featured);
 
   return (
-    <section id="portfolio" className="relative py-24 md:py-32 overflow-hidden bg-cloud">
+    <section id="portfolio" className="relative py-20 md:py-28 overflow-hidden bg-cloud">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />

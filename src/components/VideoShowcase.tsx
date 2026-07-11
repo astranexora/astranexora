@@ -487,7 +487,7 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section id="videos" className="relative py-28 md:py-36 overflow-hidden bg-mist">
+    <section id="videos" className="relative py-20 md:py-28 overflow-hidden bg-mist">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
@@ -505,7 +505,7 @@ export default function VideoShowcase() {
           initial={{ opacity: 0, y: 30 }}
           animate={visible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-12"
         >
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>

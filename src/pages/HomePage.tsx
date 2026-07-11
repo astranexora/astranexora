@@ -16,7 +16,7 @@ import WhatsAppButton from '../components/WhatsAppButton';
 
 function NavyDivider({ label, num }: { label?: string; num?: string }) {
   return (
-    <div className="relative navy-divider py-6 md:py-8 overflow-hidden">
+    <div className="relative navy-divider py-4 md:py-5 overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
       </div>

@@ -25,7 +25,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative py-28 md:py-36 overflow-hidden bg-cloud">
+    <section id="about" className="relative py-20 md:py-28 overflow-hidden bg-cloud">
       <div className="absolute inset-0 aurora-bg-2 opacity-50" />
       <div className="absolute inset-0 dot-grid opacity-[0.06]" />
 

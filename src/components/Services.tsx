@@ -36,7 +36,7 @@ export default function Services() {
   });
 
   return (
-    <section id="services" className="relative py-24 md:py-32 overflow-hidden bg-mist">
+    <section id="services" className="relative py-20 md:py-28 overflow-hidden bg-mist">
       {/* Background */}
       <div className="absolute inset-0 aurora-bg opacity-30" />
       <div className="absolute inset-0 mesh-bg opacity-30" />
@@ -48,7 +48,7 @@ export default function Services() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header — asymmetric, left-aligned */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={visible ? { opacity: 1, y: 0 } : {}}

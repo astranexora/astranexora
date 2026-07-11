@@ -9,7 +9,7 @@ import CaseStudyPage from './pages/CaseStudyPage';
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="relative min-h-screen bg-black-950 text-white">
+      <div className="relative min-h-screen bg-white text-ink-700">
         <CursorGlow />
         <ParticleField />
         <Navbar />

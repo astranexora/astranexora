@@ -185,7 +185,7 @@ export default function Hero() {
         style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.04), transparent)' }} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
         <div className="grid lg:grid-cols-12 gap-8 xl:gap-12 items-center">
 
           {/* LEFT: Content — 7 cols */}
@@ -220,7 +220,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 mb-14 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+              className={`flex flex-col sm:flex-row gap-4 mb-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
                 Start Your Project
@@ -229,6 +229,25 @@ export default function Hero() {
               <a href="#services" className="btn-outline inline-flex items-center gap-2">
                 Explore Services
               </a>
+            </div>
+
+            {/* Trust badges */}
+            <div
+              className={`flex flex-wrap items-center gap-3 mb-10 transition-all duration-1000 delay-350 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            >
+              {[
+                { icon: Award, label: 'Top-Rated Agency 2025' },
+                { icon: Users, label: '150+ Clients Served' },
+                { icon: Zap, label: '48hr Response Time' },
+              ].map((badge, i) => {
+                const BIcon = badge.icon;
+                return (
+                  <div key={i} className="trust-badge">
+                    <BIcon className="w-3.5 h-3.5" />
+                    {badge.label}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Stats row — with navy accent line */}

@@ -144,7 +144,7 @@ export default function WhyUs() {
   }, []);
 
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden bg-cloud">
+    <section className="relative py-20 md:py-28 overflow-hidden bg-cloud">
       {/* Bold navy gradient band at top — thin strip */}
       <div className="absolute top-0 left-0 right-0 h-1.5 navy-divider z-20" />
 
@@ -155,7 +155,7 @@ export default function WhyUs() {
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-12 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
             <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
             <span>Why Astra Nexora</span>

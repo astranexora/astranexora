@@ -93,7 +93,7 @@ export default function Contact() {
     }`;
 
   return (
-    <section id="contact" className="relative py-28 md:py-36 overflow-hidden bg-mist">
+    <section id="contact" className="relative py-20 md:py-28 overflow-hidden bg-mist">
       <div className="absolute inset-0 aurora-bg opacity-30" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
@@ -116,7 +116,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={visible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <div className="section-label justify-center mb-4">
             <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />

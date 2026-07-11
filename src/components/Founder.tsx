@@ -78,7 +78,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                 </motion.div>
 
                 {/* Photo and Bio Grid */}
-                <div className="grid lg:grid-cols-2 gap-10 mb-16">
+                <div className="grid lg:grid-cols-2 gap-10 mb-12">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -154,7 +154,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="mb-16"
+                  className="mb-12"
                 >
                   <h3 className="font-display font-bold text-2xl text-ink-900 mb-6 text-center tracking-tight">Areas of Expertise</h3>
                   <div className="glass-blue rounded-3xl p-8 border border-brand-500/15">
@@ -194,7 +194,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="mb-16"
+                  className="mb-12"
                 >
                   <h3 className="font-display font-bold text-2xl text-ink-900 mb-6 text-center tracking-tight">Core Values</h3>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -285,7 +285,7 @@ export default function Founder() {
 
   return (
     <>
-      <section id="founder" className="relative py-24 md:py-32 overflow-hidden bg-mist">
+      <section id="founder" className="relative py-20 md:py-28 overflow-hidden bg-mist">
         {/* BG effects */}
         <div className="absolute inset-0 aurora-bg opacity-40" />
         <div className="absolute inset-0 dot-grid opacity-[0.06]" />
