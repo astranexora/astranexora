@@ -54,7 +54,7 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
     }, 4000);
   };
 
-  const ic = "w-full bg-cloud border border-ink-200 rounded-xl px-4 py-3 text-ink-900 placeholder-ink-300 text-sm outline-none focus:border-brand-500/50 focus:bg-white transition-all duration-300";
+  const ic = "w-full bg-cloud border border-ink-200 rounded-xl px-4 py-3 text-ink-900 placeholder-ink-300 text-sm outline-none focus:border-brand-900/50 focus:bg-white transition-all duration-300";
 
   return (
     <AnimatePresence>
@@ -68,10 +68,10 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="fixed inset-4 md:inset-8 lg:inset-16 z-[101] overflow-hidden rounded-3xl shadow-2xl"
-            style={{ background: 'rgba(255,255,255,0.98)', border: '1px solid rgba(0,102,255,0.12)' }}
+            style={{ background: 'rgba(255,255,255,0.98)', border: '1px solid rgba(15,27,61,0.12)' }}
           >
             <div className="absolute inset-0 aurora-bg opacity-60" />
-            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/8 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-900/8 rounded-full blur-3xl" />
             <button onClick={onClose}
               className="absolute top-6 right-6 z-20 w-10 h-10 rounded-xl flex items-center justify-center text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-all duration-300"
               style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.08)' }}>
@@ -104,13 +104,13 @@ function StartProjectModal({ isOpen, onClose }: StartProjectModalProps) {
               ) : (
                 <>
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-500/20 mb-6"
-                      style={{ background: 'rgba(0,102,255,0.06)' }}>
-                      <Sparkles className="w-3.5 h-3.5 text-brand-500" />
-                      <span className="text-xs font-display font-semibold text-brand-500">START YOUR PROJECT</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-900/20 mb-6"
+                      style={{ background: 'rgba(15,27,61,0.06)' }}>
+                      <Sparkles className="w-3.5 h-3.5 text-brand-900" />
+                      <span className="text-xs font-display font-semibold text-brand-900">START YOUR PROJECT</span>
                     </div>
                     <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-4">
-                      Let's Build Something <span className="text-gradient-blue">Great</span>
+                      Let's Build Something <span className="text-gradient-navy">Great</span>
                     </h2>
                     <p className="text-ink-500 max-w-xl mx-auto">Fill out the form and our team will get back to you within 24 hours.</p>
                   </div>
@@ -278,17 +278,15 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 }}
-                  className="relative px-4 py-2.5 text-sm font-medium rounded-xl transition-all duration-200"
+                  className={`nav-link relative px-4 py-2.5 rounded-xl transition-all duration-200 ${isActive ? 'text-brand-900' : ''}`}
                   style={{
-                    color: isActive ? '#0066FF' : '#374151',
+                    color: isActive ? '#0F1B3D' : undefined,
                   }}
-                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = '#0066FF'; (e.currentTarget as HTMLElement).style.background = 'rgba(0,102,255,0.05)'; }}
-                  onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = '#374151'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                 >
                   {link.label}
                   {isActive && (
                     <motion.span layoutId="activeNavUnderline"
-                      className="absolute bottom-0 left-0 right-0 mx-auto h-0.5 rounded-full bg-blue-500"
+                      className="absolute bottom-0 left-0 right-0 mx-auto h-0.5 rounded-full bg-brand-900"
                       style={{ width: '60%' }}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
@@ -347,9 +345,9 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}
                     className="flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200"
                     style={{ color: '#374151' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,102,255,0.05)'; (e.currentTarget as HTMLElement).style.color = '#0066FF'; }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(15,27,61,0.05)'; (e.currentTarget as HTMLElement).style.color = '#0F1B3D'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = '#374151'; }}>
-                    <span className="w-2 h-2 rounded-full bg-blue-500/40" />
+                    <span className="w-2 h-2 rounded-full bg-brand-900/40" />
                     <span className="font-medium text-sm">{link.label}</span>
                   </motion.a>
                 ))}
@@ -363,7 +361,7 @@ export default function Navbar() {
               </motion.button>
 
               <div className="absolute bottom-6 left-6 right-6 pt-4 border-t border-gray-100">
-                <a href="mailto:info.astranexora@gmail.com" className="text-sm text-gray-400 hover:text-blue-600 transition-colors">
+                <a href="mailto:info.astranexora@gmail.com" className="text-sm text-gray-400 hover:text-brand-900 transition-colors">
                   info.astranexora@gmail.com
                 </a>
               </div>

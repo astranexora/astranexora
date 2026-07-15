@@ -6,12 +6,12 @@ import {
 } from 'lucide-react';
 
 const skills = [
-  { icon: Code2, label: 'WordPress & Website Development', level: 90, color: '#0066FF' },
-  { icon: Bot, label: 'AI Tools & Automation', level: 88, color: '#0099FF' },
-  { icon: Search, label: 'SEO & Google Search Console', level: 92, color: '#00AAFF' },
-  { icon: BarChart3, label: 'Google Analytics', level: 85, color: '#00CFFF' },
-  { icon: Video, label: 'Video Editing', level: 82, color: '#00BBEE' },
-  { icon: Share2, label: 'Social Media Marketing', level: 90, color: '#0099DD' },
+  { icon: Code2, label: 'WordPress & Website Development', level: 90, color: '#0F1B3D' },
+  { icon: Bot, label: 'AI Tools & Automation', level: 88, color: '#1E2A47' },
+  { icon: Search, label: 'SEO & Google Search Console', level: 92, color: '#2A3859' },
+  { icon: BarChart3, label: 'Google Analytics', level: 85, color: '#3B4A78' },
+  { icon: Video, label: 'Video Editing', level: 82, color: '#5B6B9A' },
+  { icon: Share2, label: 'Social Media Marketing', level: 90, color: '#3B4A78' },
 ];
 
 const values = [
@@ -45,10 +45,10 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="fixed inset-4 md:inset-8 lg:inset-16 z-[101] overflow-hidden rounded-3xl glass-strong border border-ink-200 shadow-2xl"
-            style={{ background: 'rgba(255,255,255,0.98)', border: '1px solid rgba(0,102,255,0.12)' }}
+            style={{ background: 'rgba(255,255,255,0.98)', border: '1px solid rgba(15,27,61,0.12)' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-cyan-600/5" />
-            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-900/5 via-transparent to-brand-950/5" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-900/10 rounded-full blur-3xl" />
 
             <button
               onClick={onClose}
@@ -65,12 +65,12 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-center mb-12"
                 >
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-blue border border-brand-500/20 mb-6">
-                    <Sparkles className="w-3.5 h-3.5 text-brand-500" />
-                    <span className="text-xs font-display font-semibold text-brand-500">MEET THE FOUNDER</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-blue border border-brand-900/20 mb-6">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-900" />
+                    <span className="text-xs font-display font-semibold text-brand-900">MEET THE FOUNDER</span>
                   </div>
                   <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-4 tracking-tight">
-                    Meet <span className="text-gradient-blue">The Founder</span>
+                    Meet <span className="text-gradient-navy">The Founder</span>
                   </h2>
                   <p className="text-ink-500 max-w-xl mx-auto">
                     Vision, expertise, and values that drive Astra Nexora
@@ -95,7 +95,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                       <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 via-transparent to-transparent" />
                     </div>
 
-                    <div className="absolute -bottom-4 left-6 glass-blue rounded-xl px-5 py-3 border border-brand-500/20">
+                    <div className="absolute -bottom-4 left-6 glass-blue rounded-xl px-5 py-3 border border-brand-900/20">
                       <div className="text-lg font-display font-bold text-ink-900">S. Saktheeswaran</div>
                       <div className="text-xs text-ink-500">Founder & Managing Director</div>
                     </div>
@@ -124,15 +124,15 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
 
                     <div className="glass rounded-2xl p-5 border border-ink-200 space-y-3">
                       <div className="flex items-center gap-3">
-                        <GraduationCap className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                        <GraduationCap className="w-4 h-4 text-brand-900 flex-shrink-0" />
                         <span className="text-sm text-ink-700">BBA Graduate — Business Administration</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <MapPin className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                        <MapPin className="w-4 h-4 text-brand-900 flex-shrink-0" />
                         <span className="text-sm text-ink-700">Based in India</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <BookOpen className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                        <BookOpen className="w-4 h-4 text-brand-900 flex-shrink-0" />
                         <span className="text-sm text-ink-700">Experience in Administration & Operations</span>
                       </div>
                     </div>
@@ -157,7 +157,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                   className="mb-12"
                 >
                   <h3 className="font-display font-bold text-2xl text-ink-900 mb-6 text-center tracking-tight">Areas of Expertise</h3>
-                  <div className="glass-blue rounded-3xl p-8 border border-brand-500/15">
+                  <div className="glass-blue rounded-3xl p-8 border border-brand-900/15">
                     <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
                       {skills.map((skill, i) => {
                         const Icon = skill.icon;
@@ -169,7 +169,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                             transition={{ delay: 0.5 + i * 0.08 }}
                           >
                             <div className="flex items-center gap-2.5 mb-2">
-                              <Icon className="w-3.5 h-3.5 text-brand-500" />
+                              <Icon className="w-3.5 h-3.5 text-brand-900" />
                               <span className="text-xs text-ink-700 font-medium">{skill.label}</span>
                               <span className="ml-auto font-display font-bold text-xs" style={{ color: skill.color }}>{skill.level}%</span>
                             </div>
@@ -179,7 +179,7 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                                 initial={{ width: 0 }}
                                 animate={{ width: `${skill.level}%` }}
                                 transition={{ delay: 0.6 + i * 0.08, duration: 1, ease: 'easeOut' }}
-                                style={{ background: `linear-gradient(90deg, #0066FF, ${skill.color})`, boxShadow: `0 0 8px ${skill.color}30` }}
+                                style={{ background: `linear-gradient(90deg, #0F1B3D, ${skill.color})`, boxShadow: `0 0 8px rgba(15,27,61,0.15)` }}
                               />
                             </div>
                           </motion.div>
@@ -208,8 +208,8 @@ function FounderModal({ isOpen, onClose }: FounderModalProps) {
                           transition={{ delay: 0.6 + i * 0.08 }}
                           className="glass rounded-xl p-5 border border-ink-200 text-center"
                         >
-                          <div className="w-10 h-10 rounded-lg bg-brand-500/10 mx-auto mb-3 flex items-center justify-center">
-                            <Icon className="w-5 h-5 text-brand-500" />
+                          <div className="w-10 h-10 rounded-lg bg-brand-900 mx-auto mb-3 flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-white" />
                           </div>
                           <h4 className="font-display font-semibold text-ink-900 text-sm mb-2">{value.title}</h4>
                           <p className="text-ink-500 text-xs leading-[1.6]">{value.desc}</p>
@@ -289,14 +289,14 @@ export default function Founder() {
         {/* BG effects */}
         <div className="absolute inset-0 aurora-bg opacity-40" />
         <div className="absolute inset-0 dot-grid opacity-[0.06]" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900/15 to-transparent" />
 
         {/* Floating particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(12)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 rounded-full bg-brand-500/20"
+              className="absolute w-1 h-1 rounded-full bg-brand-900/20"
               initial={{
                 x: `${(i * 23 + 17) % 100}%`,
                 y: `${(i * 19 + 11) % 100}%`,
@@ -316,9 +316,9 @@ export default function Founder() {
 
         {/* Glow orbs */}
         <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full blur-3xl pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(0,60,200,0.1), transparent)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.1), transparent)' }} />
         <div className="absolute bottom-1/3 right-1/4 w-64 h-64 rounded-full blur-3xl pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.06), transparent)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(59,74,120,0.06), transparent)' }} />
 
         <div ref={ref} className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Editorial layout — overlapping photo with navy panel */}
@@ -336,14 +336,14 @@ export default function Founder() {
 
               {/* Outer rotating rings */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[360px] h-[360px] rounded-full border border-brand-500/15 animate-spin-slow" />
-                <div className="absolute w-[320px] h-[320px] rounded-full border border-brand-500/[0.08] animate-spin-reverse" />
-                <div className="absolute w-[280px] h-[280px] rounded-full border border-cyan-500/[0.06]" />
+                <div className="w-[360px] h-[360px] rounded-full border border-brand-900/15 animate-spin-slow" />
+                <div className="absolute w-[320px] h-[320px] rounded-full border border-brand-900/[0.08] animate-spin-reverse" />
+                <div className="absolute w-[280px] h-[280px] rounded-full border border-brand-500/[0.06]" />
               </div>
 
               {/* Ambient glow */}
               <div className="absolute inset-12 rounded-full blur-3xl pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.2), rgba(0,207,255,0.06), transparent)' }} />
+                style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.2), rgba(59,74,120,0.06), transparent)' }} />
 
               {/* Photo frame with parallax */}
               <div className="relative z-10 max-w-sm mx-auto">
@@ -351,8 +351,8 @@ export default function Founder() {
                   className="relative rounded-3xl overflow-hidden"
                   style={{
                     padding: '2px',
-                    background: 'linear-gradient(135deg, rgba(0,102,255,0.8), rgba(0,207,255,0.5), rgba(0,102,255,0.6))',
-                    boxShadow: '0 0 50px rgba(0,102,255,0.2), 0 0 100px rgba(0,207,255,0.08)',
+                    background: 'linear-gradient(135deg, rgba(15,27,61,0.8), rgba(10,10,15,0.5), rgba(15,27,61,0.6))',
+                    boxShadow: '0 0 50px rgba(15,27,61,0.15), 0 0 100px rgba(10,10,15,0.06)',
                     transform: `translateY(${scrollY}px)`,
                   }}
                 >
@@ -371,11 +371,11 @@ export default function Founder() {
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -top-4 -right-4 glass-blue rounded-xl px-4 py-2.5 border border-brand-500/20 shadow-lg"
+                  className="absolute -top-4 -right-4 glass-blue rounded-xl px-4 py-2.5 border border-brand-900/20 shadow-lg"
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-brand-500/10 flex items-center justify-center">
-                      <GraduationCap className="w-4 h-4 text-brand-500" />
+                    <div className="w-8 h-8 rounded-lg bg-brand-900 flex items-center justify-center">
+                      <GraduationCap className="w-4 h-4 text-white" />
                     </div>
                     <div>
                       <div className="font-display font-bold text-ink-900 text-sm">BBA Graduate</div>
@@ -388,11 +388,11 @@ export default function Founder() {
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                  className="absolute -bottom-4 -left-4 glass-blue rounded-xl px-4 py-2.5 border border-brand-500/20 shadow-lg"
+                  className="absolute -bottom-4 -left-4 glass-blue rounded-xl px-4 py-2.5 border border-brand-900/20 shadow-lg"
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-brand-500/10 flex items-center justify-center">
-                      <BarChart3 className="w-4 h-4 text-brand-500" />
+                    <div className="w-8 h-8 rounded-lg bg-brand-900 flex items-center justify-center">
+                      <BarChart3 className="w-4 h-4 text-white" />
                     </div>
                     <div>
                       <div className="font-display font-bold text-ink-900 text-sm">Digital Marketing</div>
@@ -411,7 +411,7 @@ export default function Founder() {
               className="lg:col-span-7"
             >
               <motion.div variants={itemVariants} className="section-label mb-6">
-                <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
+                <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-900" />
                 <span>Meet The Founder</span>
               </motion.div>
 
@@ -421,7 +421,7 @@ export default function Founder() {
               >
                 The Vision
                 <br />
-                <span className="text-gradient-blue">Behind Astra Nexora</span>
+                <span className="text-gradient-navy">Behind Astra Nexora</span>
               </motion.h2>
 
               <motion.div variants={itemVariants} className="space-y-5 text-ink-500 leading-[1.7] mb-8">
@@ -455,10 +455,10 @@ export default function Founder() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={visible ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 0.6 + i * 0.06, duration: 0.4 }}
-                      className="group flex items-center gap-2.5 glass rounded-xl px-3.5 py-3 border border-ink-200 hover:border-brand-500/20 hover:bg-brand-500/5 transition-all duration-300"
+                      className="group flex items-center gap-2.5 glass rounded-xl px-3.5 py-3 border border-ink-200 hover:border-brand-900/20 hover:bg-brand-900/5 transition-all duration-300"
                     >
-                      <div className="w-7 h-7 rounded-lg bg-brand-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500/20 group-hover:shadow-[0_0_12px_rgba(0,102,255,0.2)] transition-all duration-300">
-                        <Icon className="w-3.5 h-3.5 text-brand-500" />
+                      <div className="w-7 h-7 rounded-lg bg-brand-900 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-900/20 group-hover:shadow-[0_0_12px_rgba(15,27,61,0.2)] transition-all duration-300">
+                        <Icon className="w-3.5 h-3.5 text-white" />
                       </div>
                       <span className="text-xs text-ink-700 font-medium">{skill.label}</span>
                     </motion.div>

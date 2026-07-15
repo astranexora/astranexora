@@ -20,7 +20,7 @@ const videos: VideoItem[] = [
     category: 'Branding',
     description: 'A cinematic brand narrative crafted to communicate vision, values, and identity with emotional resonance and cinematic pacing.',
     outcome: 'Elevated brand perception',
-    color: '#0066FF',
+    color: '#0F1B3D',
   },
   {
     id: '8AMSSpQAUjg',
@@ -29,7 +29,7 @@ const videos: VideoItem[] = [
     category: 'Marketing',
     description: 'Strategic launch video designed to build anticipation and drive conversions across every digital channel.',
     outcome: '+180% launch engagement',
-    color: '#00CFFF',
+    color: '#3B4A78',
   },
   {
     id: 'M9cttP7peO8',
@@ -38,7 +38,7 @@ const videos: VideoItem[] = [
     category: 'Social Media',
     description: 'Short-form vertical content optimized for maximum reach and engagement across social platforms.',
     outcome: '+412% social reach',
-    color: '#0099FF',
+    color: '#3B4A78',
   },
   {
     id: 'ilGWN0c3_84',
@@ -47,7 +47,7 @@ const videos: VideoItem[] = [
     category: 'Business',
     description: 'Professional corporate video highlighting services, capabilities, and company culture with premium production.',
     outcome: 'Strengthened client trust',
-    color: '#00BBEE',
+    color: '#3B4A78',
   },
   {
     id: 'Jy9CYJqDtV0',
@@ -65,7 +65,7 @@ const videos: VideoItem[] = [
     category: 'Marketing',
     description: 'Dynamic promotional content engineered to capture attention and drive measurable action.',
     outcome: '+68% conversion lift',
-    color: '#00AAFF',
+    color: '#3B4A78',
   },
 ];
 
@@ -80,7 +80,7 @@ function ResponsiveIframe({ video, autoplay = false }: { video: VideoItem; autop
       {!loaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-mist">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 rounded-full border-2 border-brand-500/15 border-t-electric animate-spin" />
+            <div className="w-10 h-10 rounded-full border-2 border-brand-900/15 border-t-brand-900 animate-spin" />
             <span className="text-[10px] text-ink-400 font-display tracking-wider">Loading...</span>
           </div>
         </div>
@@ -176,9 +176,9 @@ function VideoLightbox({
                 <h3 className="font-display font-bold text-ink-900 text-lg">{video.title}</h3>
                 <p className="text-ink-500 text-sm mt-1 max-w-xl">{video.description}</p>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl glass-blue border border-brand-500/20 flex-shrink-0">
-                <div className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-                <span className="text-xs font-display font-semibold text-electric">{video.outcome}</span>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-xl glass-blue border border-brand-900/20 flex-shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-brand-900 animate-pulse" />
+                <span className="text-xs font-display font-semibold text-brand-900">{video.outcome}</span>
               </div>
             </div>
           </motion.div>
@@ -223,7 +223,7 @@ function FeaturedCard({
     >
       <div
         ref={cardRef}
-        className="group relative rounded-3xl overflow-hidden glass-strong border border-brand-500/15 shadow-[0_0_80px_rgba(0,102,255,0.1)] card-sheen"
+        className="group relative rounded-3xl overflow-hidden glass-strong border border-brand-900/15 shadow-[0_0_80px_rgba(15,27,61,0.1)] card-sheen"
       >
         {/* Video area */}
         <div className="relative aspect-[21/9] w-full overflow-hidden">
@@ -263,9 +263,9 @@ function FeaturedCard({
 
               {/* Featured badge */}
               <div className="absolute top-6 left-6 z-10 flex items-center gap-2">
-                <div className="px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-500/20 to-brand-600/10 border border-brand-500/20 backdrop-blur-md">
+                <div className="px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-900/20 to-brand-950/10 border border-brand-900/20 backdrop-blur-md">
                   <span className="text-xs font-display font-semibold text-ink-900 flex items-center gap-1.5">
-                    <Sparkles className="w-3 h-3 text-electric" />
+                    <Sparkles className="w-3 h-3 text-brand-900" />
                     Featured Work
                   </span>
                 </div>
@@ -293,9 +293,9 @@ function FeaturedCard({
                 <p className="text-ink-500 text-sm md:text-base max-w-xl leading-relaxed">
                   {video.description}
                 </p>
-                <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-blue border border-brand-500/20">
-                  <div className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-                  <span className="text-xs font-display font-semibold text-electric">{video.outcome}</span>
+                <div className="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-blue border border-brand-900/20">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-900 animate-pulse" />
+                  <span className="text-xs font-display font-semibold text-brand-900">{video.outcome}</span>
                 </div>
               </div>
             </button>
@@ -374,7 +374,7 @@ function BentoCard({
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="group relative w-full text-left glass rounded-2xl overflow-hidden border border-ink-200 hover:border-brand-500/20 transition-all duration-500 card-sheen"
+        className="group relative w-full text-left glass rounded-2xl overflow-hidden border border-ink-200 hover:border-brand-900/20 transition-all duration-500 card-sheen"
         style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
       >
         {/* Mouse-follow glow */}
@@ -428,7 +428,7 @@ function BentoCard({
 
         {/* Content */}
         <div className="relative p-5">
-          <h3 className="font-display font-semibold text-ink-900 text-base mb-2 group-hover:text-electric transition-colors duration-300 leading-snug">
+          <h3 className="font-display font-semibold text-ink-900 text-base mb-2 group-hover:text-brand-900 transition-colors duration-300 leading-snug">
             {video.title}
           </h3>
           <p className="text-ink-500 text-xs leading-[1.7] line-clamp-2 mb-3">
@@ -443,7 +443,7 @@ function BentoCard({
         </div>
 
         {/* Bottom glow line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </button>
     </motion.div>
   );
@@ -491,13 +491,13 @@ export default function VideoShowcase() {
       {/* Background */}
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900/15 to-transparent" />
 
       {/* Ambient glows */}
       <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.06), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.06), transparent)' }} />
       <div className="absolute bottom-1/4 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,207,255,0.05), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(59,74,120,0.05), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial header */}
@@ -510,13 +510,13 @@ export default function VideoShowcase() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <div className="section-label mb-5">
-                <span className="w-8 h-px bg-gradient-to-r from-transparent to-electric" />
+                <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-900" />
                 <span>Creative Works</span>
               </div>
               <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-ink-900 tracking-tight leading-[1.05]">
                 Video That
                 <br />
-                <span className="text-gradient-blue">Moves Brands Forward</span>
+                <span className="text-gradient-navy">Moves Brands Forward</span>
               </h2>
             </div>
             <p className="text-ink-500 text-base md:text-lg max-w-md leading-relaxed md:text-right">

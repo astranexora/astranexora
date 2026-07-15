@@ -60,7 +60,7 @@ export default function FAQ() {
 
       {/* Editorial background number */}
       <div className="absolute top-8 left-4 md:left-10 select-none pointer-events-none">
-        <span className="editorial-num font-display font-black text-[180px] md:text-[280px] leading-none tracking-tighter text-brand-500/[0.04]">
+        <span className="editorial-num font-display font-black text-[180px] md:text-[280px] leading-none tracking-tighter text-brand-900/[0.04]">
           ?
         </span>
       </div>
@@ -71,9 +71,9 @@ export default function FAQ() {
       <div ref={ref} className="max-w-4xl mx-auto px-6">
         <div className={`text-center mb-10 transition-all duration-800 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="section-label justify-center mb-4">
-            <span className="w-6 h-px bg-brand-500" />
+            <span className="w-6 h-px bg-brand-900" />
             <span>FAQ</span>
-            <span className="w-6 h-px bg-brand-500" />
+            <span className="w-6 h-px bg-brand-900" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
             Frequently Asked
@@ -89,7 +89,7 @@ export default function FAQ() {
               key={i}
               className={`faq-item relative glass-card rounded-2xl overflow-hidden transition-all duration-700 ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              } ${openIndex === i ? 'border border-brand-500/20' : 'border border-ink-200'}`}
+              } ${openIndex === i ? 'border border-brand-900/20' : 'border border-ink-200'}`}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               {/* Navy accent strip on left side when open */}
@@ -107,7 +107,7 @@ export default function FAQ() {
                   {faq.q}
                 </span>
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  openIndex === i ? 'bg-brand-500 rotate-0' : 'bg-ink-100 rotate-0'
+                  openIndex === i ? 'bg-brand-900 rotate-0' : 'bg-ink-100 rotate-0'
                 }`}>
                   {openIndex === i
                     ? <Minus className="w-4 h-4 text-white" />

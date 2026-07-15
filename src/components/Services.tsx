@@ -40,11 +40,11 @@ export default function Services() {
       {/* Background */}
       <div className="absolute inset-0 aurora-bg opacity-30" />
       <div className="absolute inset-0 mesh-bg opacity-30" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900/20 to-transparent" />
 
       {/* Top ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-48 blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,60,180,0.1), transparent)' }} />
+        style={{ background: 'radial-gradient(ellipse, rgba(15,27,61,0.1), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header — asymmetric, left-aligned */}
@@ -55,13 +55,13 @@ export default function Services() {
             transition={{ duration: 0.8 }}
           >
             <div className="section-label mb-5">
-              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
+              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-900" />
               <span>Our Services</span>
             </div>
             <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-ink-900 tracking-tight leading-[1.05]">
               Premium Digital
               <br />
-              <span className="text-gradient-blue">Solutions</span>
+              <span className="text-gradient-navy">Solutions</span>
             </h2>
           </motion.div>
           <motion.p
@@ -96,30 +96,30 @@ export default function Services() {
               >
                 <Link
                   to={`/services/${service.id}`}
-                  className="group relative h-full w-full glass-blue rounded-2xl border border-brand-500/10 overflow-hidden flex flex-col transition-all duration-500 hover:border-brand-500/25 hover:shadow-[0_8px_30px_rgba(0,102,255,0.08)] p-6"
+                  className="group relative h-full w-full glass-blue rounded-2xl border border-brand-900/10 overflow-hidden flex flex-col transition-all duration-500 hover:border-brand-900 hover:shadow-[0_8px_30px_rgba(15,27,61,0.08)] p-6"
                 >
                   {/* Editorial number */}
-                  <span className="absolute top-4 right-5 font-display font-bold text-5xl leading-none select-none"
-                    style={{ color: 'rgba(0,102,255,0.06)' }}>
+                  <span className="editorial-num absolute top-4 right-5 font-display font-bold text-5xl leading-none select-none"
+                    style={{ color: 'rgba(15,27,61,0.06)' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
 
                   {/* Mouse-following spot glow */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: 'radial-gradient(circle 120px at 50% 30%, rgba(0,102,255,0.08), transparent)' }} />
+                    style={{ background: 'radial-gradient(circle 120px at 50% 30%, rgba(15,27,61,0.08), transparent)' }} />
 
                   {/* Icon */}
                   <div className="relative w-11 h-11 mb-auto">
-                    <div className="absolute inset-0 rounded-xl bg-brand-500/8 group-hover:bg-brand-500/12 transition-colors duration-300" />
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-500/0 group-hover:from-brand-500/10 to-transparent transition-all duration-500" />
-                    <div className="relative w-full h-full rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-5 h-5 text-brand-500" />
+                    <div className="absolute inset-0 rounded-full bg-brand-900 group-hover:bg-brand-900 transition-colors duration-300" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-900/0 group-hover:from-brand-900/10 to-transparent transition-all duration-500" />
+                    <div className="relative w-full h-full rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="relative mt-auto">
-                    <h3 className="font-display font-semibold text-ink-900 text-base mb-2 group-hover:text-brand-500 transition-colors duration-300 leading-snug">
+                    <h3 className="font-display font-semibold text-ink-900 text-base mb-2 group-hover:text-brand-900 transition-colors duration-300 leading-snug">
                       {service.title}
                     </h3>
                     <p className={`text-ink-500 text-sm leading-relaxed ${size === 'tall' || size === 'wide' ? '' : 'line-clamp-2'}`}>
@@ -131,13 +131,13 @@ export default function Services() {
                     </p>
 
                     {/* Arrow CTA */}
-                    <div className="flex items-center gap-1.5 text-xs text-brand-500 font-display font-semibold mt-3 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0">
+                    <div className="flex items-center gap-1.5 text-xs text-brand-900 font-display font-semibold mt-3 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0">
                       Learn More <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
 
                   {/* Bottom border sweep */}
-                  <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-brand-500 to-transparent w-0 group-hover:w-full transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-brand-900 to-transparent w-0 group-hover:w-full transition-all duration-700" />
                 </Link>
               </motion.div>
             );

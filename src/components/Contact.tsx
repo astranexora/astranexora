@@ -4,8 +4,8 @@ import { Mail, Instagram, Linkedin, Facebook, Send, ArrowRight, CheckCircle, Mes
 
 const socialLinks = [
   { icon: Instagram, label: 'Instagram', handle: '@astranexora2025', href: 'https://www.instagram.com/astranexora2025/', gradient: 'from-pink-500 to-orange-400' },
-  { icon: Linkedin, label: 'LinkedIn', handle: 'Astra Nexora', href: 'https://www.linkedin.com/company/astra-nexora/', gradient: 'from-brand-600 to-brand-500' },
-  { icon: Facebook, label: 'Facebook', handle: 'Astra Nexora', href: 'https://www.facebook.com/share/18aqEXcEde/', gradient: 'from-brand-500 to-brand-600' },
+  { icon: Linkedin, label: 'LinkedIn', handle: 'Astra Nexora', href: 'https://www.linkedin.com/company/astra-nexora/', gradient: 'from-brand-950 to-brand-900' },
+  { icon: Facebook, label: 'Facebook', handle: 'Astra Nexora', href: 'https://www.facebook.com/share/18aqEXcEde/', gradient: 'from-brand-900 to-brand-950' },
 ];
 
 const services = [
@@ -88,7 +88,7 @@ export default function Contact() {
   const inputClass = (field: string) =>
     `w-full bg-white border rounded-xl px-4 py-3.5 text-ink-900 placeholder-ink-300 outline-none text-sm transition-all duration-300 ${
       focused === field
-        ? 'border-brand-500/50 bg-brand-500/5 shadow-[0_0_0_3px_rgba(0,102,255,0.1),0_0_20px_rgba(0,102,255,0.06)]'
+        ? 'border-brand-900/50 bg-brand-900/5 shadow-[0_0_0_3px_rgba(15,27,61,0.1),0_0_20px_rgba(15,27,61,0.06)]'
         : 'border-ink-200 hover:border-ink-200'
     }`;
 
@@ -96,19 +96,19 @@ export default function Contact() {
     <section id="contact" className="relative py-20 md:py-28 overflow-hidden bg-mist">
       <div className="absolute inset-0 aurora-bg opacity-30" />
       <div className="absolute inset-0 dot-grid opacity-[0.05]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900/15 to-transparent" />
 
       {/* Ambient orbs */}
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,60,180,0.08), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.08), transparent)' }} />
       <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,140,255,0.06), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.06), transparent)' }} />
 
       {/* Floating decorative elements */}
-      <div className="absolute top-1/4 left-[8%] w-3 h-3 rounded-full bg-brand-500/20 blur-sm animate-pulse pointer-events-none" />
+      <div className="absolute top-1/4 left-[8%] w-3 h-3 rounded-full bg-brand-900/20 blur-sm animate-pulse pointer-events-none" />
       <div className="absolute top-2/3 left-[5%] w-2 h-2 rounded-full bg-brand-400/30 blur-sm pointer-events-none" />
-      <div className="absolute top-1/3 right-[6%] w-4 h-4 rounded-full border border-brand-500/20 pointer-events-none" />
-      <div className="absolute bottom-1/4 right-[10%] w-2.5 h-2.5 rounded-full bg-brand-500/15 blur-sm animate-pulse pointer-events-none" />
+      <div className="absolute top-1/3 right-[6%] w-4 h-4 rounded-full border border-brand-900/20 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-[10%] w-2.5 h-2.5 rounded-full bg-brand-900/15 blur-sm animate-pulse pointer-events-none" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -119,9 +119,9 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <div className="section-label justify-center mb-4">
-            <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
+            <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-900" />
             <span>Get In Touch</span>
-            <span className="w-8 h-px bg-gradient-to-l from-transparent to-brand-500" />
+            <span className="w-8 h-px bg-gradient-to-l from-transparent to-brand-900" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-5 tracking-tight">
             Ready to Build Something
@@ -160,14 +160,14 @@ export default function Contact() {
               {/* Email card */}
               <a
                 href="mailto:info.astranexora@gmail.com"
-                className="flex items-center gap-5 glass-blue rounded-2xl p-5 border border-brand-500/15 hover:border-brand-500/30 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(0,102,255,0.08)]"
+                className="flex items-center gap-5 glass-blue rounded-2xl p-5 border border-brand-900/15 hover:border-brand-900/30 transition-all duration-300 group hover:shadow-[0_8px_30px_rgba(15,27,61,0.08)]"
               >
-                <div className="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500/20 group-hover:shadow-[0_0_16px_rgba(0,102,255,0.2)] transition-all duration-300">
-                  <Mail className="w-5 h-5 text-brand-500" />
+                <div className="w-12 h-12 rounded-xl bg-brand-900/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-900/20 group-hover:shadow-[0_0_16px_rgba(15,27,61,0.2)] transition-all duration-300">
+                  <Mail className="w-5 h-5 text-brand-900" />
                 </div>
                 <div>
                   <div className="text-xs text-ink-400 uppercase tracking-widest mb-0.5">Email Us</div>
-                  <span className="font-display font-semibold text-ink-900 group-hover:text-brand-500 transition-colors duration-300">
+                  <span className="font-display font-semibold text-ink-900 group-hover:text-brand-900 transition-colors duration-300">
                     info.astranexora@gmail.com
                   </span>
                 </div>
@@ -201,9 +201,9 @@ export default function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 glass rounded-xl p-4 border border-ink-200 hover:border-brand-500/20 hover:bg-brand-500/5 transition-all duration-300 group"
+                      className="flex items-center gap-4 glass rounded-xl p-4 border border-ink-200 hover:border-brand-900/20 hover:bg-brand-900/5 transition-all duration-300 group"
                     >
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${social.gradient} flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(0,102,255,0.2)] transition-shadow duration-300`}>
+                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${social.gradient} flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_14px_rgba(15,27,61,0.2)] transition-shadow duration-300`}>
                         <social.icon className="w-4 h-4 text-white" />
                       </div>
                       <div>
@@ -238,14 +238,14 @@ export default function Contact() {
             animate={visible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative glass-strong rounded-3xl p-8 border border-brand-500/15 shadow-[0_0_80px_rgba(0,102,255,0.06)] overflow-hidden">
+            <div className="relative glass-strong rounded-3xl p-8 border border-brand-900/15 shadow-[0_0_80px_rgba(15,27,61,0.06)] overflow-hidden">
               {/* Corner glow */}
               <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-3xl pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(0,102,255,0.1), transparent)' }} />
+                style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.1), transparent)' }} />
 
               {/* Subtle navy glow behind form card */}
               <div className="absolute inset-0 rounded-3xl pointer-events-none"
-                style={{ boxShadow: 'inset 0 0 60px rgba(0,102,255,0.04)' }} />
+                style={{ boxShadow: 'inset 0 0 60px rgba(15,27,61,0.04)' }} />
 
               <AnimatePresence mode="wait">
                 {submitted ? (

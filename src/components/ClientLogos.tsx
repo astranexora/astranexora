@@ -47,13 +47,13 @@ export default function ClientLogos() {
             return (
               <div
                 key={badge.label}
-                className={`group flex items-center gap-4 glass-blue rounded-2xl p-5 border border-ink-200 hover:border-brand-500/20 transition-all duration-500 ${
+                className={`group flex items-center gap-4 glass-blue rounded-2xl p-5 border border-ink-200 hover:border-brand-900/20 transition-all duration-500 ${
                   visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="w-11 h-11 rounded-xl bg-brand-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500/10 group-hover:shadow-[0_0_16px_rgba(0,102,255,0.2)] transition-all duration-300">
-                  <Icon className="w-5 h-5 text-brand-500" />
+                <div className="w-11 h-11 rounded-xl bg-brand-900/10 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-900/10 group-hover:shadow-[0_0_16px_rgba(15,27,61,0.2)] transition-all duration-300">
+                  <Icon className="w-5 h-5 text-brand-900" />
                 </div>
                 <div>
                   <div className="font-display font-bold text-sm text-ink-900 leading-tight">{badge.label}</div>
@@ -82,10 +82,10 @@ export default function ClientLogos() {
               {[...clients, ...clients].map((client, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 glass rounded-xl px-6 py-3.5 border border-ink-200 hover:border-brand-500/20 transition-all duration-300 flex-shrink-0"
+                  className="flex items-center gap-3 glass rounded-xl px-6 py-3.5 border border-ink-200 hover:border-brand-900/20 transition-all duration-300 flex-shrink-0"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500/10 to-brand-500/8 flex items-center justify-center border border-brand-500/15">
-                    <span className="font-display font-bold text-sm text-brand-500">
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-900/10 to-brand-900/8 flex items-center justify-center border border-brand-900/15">
+                    <span className="font-display font-bold text-sm text-brand-900">
                       {client.name.charAt(0)}
                     </span>
                   </div>

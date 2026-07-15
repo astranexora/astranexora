@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 
 const stats = [
-  { value: 150, suffix: '+', label: 'Projects Delivered', desc: 'Across diverse industries', gradient: 'from-brand-600 to-brand-500' },
-  { value: 98, suffix: '%', label: 'Client Satisfaction', desc: 'Consistently maintained', gradient: 'from-brand-500 to-brand-600' },
-  { value: 5, suffix: '+', label: 'Years Experience', desc: 'In digital excellence', gradient: 'from-brand-500 to-cyan-400' },
-  { value: 200, suffix: '+', label: 'SEO Keywords Ranked', desc: 'On page one results', gradient: 'from-cyan-400 to-brand-500' },
-  { value: 12, suffix: '+', label: 'Services Offered', desc: 'Comprehensive solutions', gradient: 'from-brand-500 to-brand-700' },
-  { value: 40, suffix: '+', label: 'Brands Elevated', desc: 'To new digital heights', gradient: 'from-brand-700 to-brand-600' },
+  { value: 150, suffix: '+', label: 'Projects Delivered', desc: 'Across diverse industries', gradient: 'from-brand-950 to-brand-900' },
+  { value: 98, suffix: '%', label: 'Client Satisfaction', desc: 'Consistently maintained', gradient: 'from-brand-900 to-brand-950' },
+  { value: 5, suffix: '+', label: 'Years Experience', desc: 'In digital excellence', gradient: 'from-brand-900 to-brand-500' },
+  { value: 200, suffix: '+', label: 'SEO Keywords Ranked', desc: 'On page one results', gradient: 'from-brand-500 to-brand-900' },
+  { value: 12, suffix: '+', label: 'Services Offered', desc: 'Comprehensive solutions', gradient: 'from-brand-900 to-brand-700' },
+  { value: 40, suffix: '+', label: 'Brands Elevated', desc: 'To new digital heights', gradient: 'from-brand-700 to-brand-950' },
 ];
 
 function AnimatedCounter({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {
@@ -49,7 +49,7 @@ export default function Stats() {
       {/* Ambient glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[700px] h-[300px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(ellipse, rgba(0,150,255,0.18), rgba(0,207,255,0.08), transparent)' }} />
+          style={{ background: 'radial-gradient(ellipse, rgba(0,150,255,0.18), rgba(59,74,120,0.08), transparent)' }} />
       </div>
 
       {/* Dot pattern overlay — white dots on navy */}
@@ -82,7 +82,7 @@ export default function Stats() {
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`group relative text-center p-7 rounded-2xl border border-white/10 overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-brand-400/30 hover:shadow-[0_16px_40px_rgba(0,102,255,0.2)] ${
+              className={`group relative text-center p-7 rounded-2xl border border-white/10 overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-brand-400/30 hover:shadow-[0_16px_40px_rgba(15,27,61,0.2)] ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{
@@ -95,14 +95,14 @@ export default function Stats() {
               <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-400`} />
 
               {/* Inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-500/0 to-brand-500/0 group-hover:from-brand-400/10 group-hover:to-transparent transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-b from-brand-900/0 to-brand-900/0 group-hover:from-brand-400/10 group-hover:to-transparent transition-all duration-500" />
 
               <div className="relative z-10">
                 <div className={`font-display font-bold text-4xl md:text-5xl mb-2 bg-gradient-to-br ${stat.gradient} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300 inline-block glow-navy`}>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} active={visible} />
                 </div>
                 <div className="font-display font-semibold text-white text-xs mb-1.5 leading-tight">{stat.label}</div>
-                <div className="text-[10px] text-white/50 leading-relaxed">{stat.desc}</div>
+                <div className="text-[10px] text-white/60 leading-relaxed">{stat.desc}</div>
               </div>
             </div>
           ))}

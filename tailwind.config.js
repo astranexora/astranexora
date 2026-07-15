@@ -4,39 +4,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Logo-derived deep blue
+        // Brand navy — deep navy blue from the logo
         'brand': {
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          200: '#BFDBFE',
-          300: '#93C5FD',
-          400: '#60A5FA',
-          500: '#0066FF',
-          600: '#0052CC',
-          700: '#003D99',
-          800: '#002966',
-          900: '#001433',
+          50: '#F0F2F8',
+          100: '#DCE0EE',
+          200: '#B9C0D6',
+          300: '#8A95B8',
+          400: '#5B6B9A',
+          500: '#3B4A78',  // muted steel-blue accent
+          600: '#2A3859',
+          700: '#1E2A47',
+          800: '#152040',
+          900: '#0F1B3D',  // primary navy
+          950: '#0A1228',
         },
-        'electric': '#00CFFF',
         'ink': {
-          900: '#0A0F1C',  // rich black for headings
-          800: '#1A1F2E',
-          700: '#2A3142',
-          600: '#4A5468',
-          500: '#6B7280',  // body text
-          400: '#9CA3AF',
-          300: '#D1D5DB',
-          200: '#E5E7EB',
-          100: '#F3F4F6',
-          50: '#F9FAFB',
+          900: '#0A0A0F',  // near-black for headings, footer
+          800: '#1A1A22',
+          700: '#2A2A35',
+          600: '#3A3A45',
+          500: '#4B5563',  // neutral gray for body text
+          400: '#6B7280',
+          300: '#9CA3AF',
+          200: '#D1D5DB',
+          100: '#E5E7EB',
+          50: '#F3F4F6',
         },
         'canvas': '#FFFFFF',
-        'cloud': '#F7F9FC',   // subtle off-white section bg
-        'mist': '#EEF2F8',     // card surface tint
+        'cloud': '#FFFFFF',   // pure white — no off-white backgrounds
+        'mist': '#FFFFFF',    // pure white
+        'gold': {
+          400: '#C9A961',
+          500: '#B8975A',
+          600: '#A6864E',
+        },
       },
       fontFamily: {
-        'display': ['"Space Grotesk"', 'sans-serif'],
+        'display': ['"Fraunces"', '"Playfair Display"', 'serif'],
         'body': ['"Inter"', 'sans-serif'],
+        'sans': ['"Inter"', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -74,8 +80,8 @@ export default {
           '100%': { backgroundPosition: '200% center' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(0,102,255,0.15), 0 0 40px rgba(0,102,255,0.05)' },
-          '50%': { boxShadow: '0 0 30px rgba(0,102,255,0.25), 0 0 60px rgba(0,102,255,0.1)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(15,27,61,0.15), 0 0 40px rgba(15,27,61,0.05)' },
+          '50%': { boxShadow: '0 0 30px rgba(15,27,61,0.25), 0 0 60px rgba(15,27,61,0.1)' },
         },
         fadeUp: {
           '0%': { opacity: '0', transform: 'translateY(24px)' },

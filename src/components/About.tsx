@@ -1,12 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 
 const expertise = [
-  { label: 'Digital Marketing', level: 95, color: '#0066FF' },
-  { label: 'SEO Optimization', level: 92, color: '#0088FF' },
-  { label: 'Website Development', level: 90, color: '#00AAFF' },
-  { label: 'WordPress & Wix', level: 87, color: '#00CFFF' },
-  { label: 'Brand Strategy', level: 93, color: '#00BBEE' },
-  { label: 'Content Creation', level: 88, color: '#0099DD' },
+  { label: 'Digital Marketing', level: 95, color: '#0F1B3D' },
+  { label: 'SEO Optimization', level: 92, color: '#0F1B3D' },
+  { label: 'Website Development', level: 90, color: '#0F1B3D' },
+  { label: 'WordPress & Wix', level: 87, color: '#3B4A78' },
+  { label: 'Brand Strategy', level: 93, color: '#0F1B3D' },
+  { label: 'Content Creation', level: 88, color: '#0F1B3D' },
 ];
 
 
@@ -32,18 +32,18 @@ export default function About() {
       {/* Line-art subtle background pattern */}
       <div className="absolute inset-0 line-art opacity-[0.04] pointer-events-none" />
 
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/15 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900/15 to-transparent" />
 
       {/* Editorial background number "01" */}
       <div className="absolute top-10 right-4 md:right-10 select-none pointer-events-none">
-        <span className="editorial-num font-display font-black text-[200px] md:text-[320px] leading-none tracking-tighter text-brand-500/[0.04]">
+        <span className="editorial-num font-display font-black text-[200px] md:text-[320px] leading-none tracking-tighter text-brand-900/[0.04]">
           01
         </span>
       </div>
 
       {/* Ambient orb */}
       <div className="absolute top-1/3 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,100,255,0.08), transparent)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(15,27,61,0.08), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-14 xl:gap-20 items-center">
@@ -51,7 +51,7 @@ export default function About() {
           {/* Left: Story */}
           <div className={`transition-all duration-1000 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
             <div className="section-label mb-6">
-              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
+              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-900" />
               <span>About Astra Nexora</span>
             </div>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-ink-900 mb-7 leading-[1.1] tracking-tight">
@@ -74,7 +74,7 @@ export default function About() {
             {/* Animated line */}
             <div className="relative h-px bg-ink-100 mb-10">
               <div
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-[1500ms] ease-out"
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-brand-900 to-brand-950 transition-all duration-[1500ms] ease-out"
                 style={{ width: visible ? '100%' : '0%' }}
               />
             </div>
@@ -83,17 +83,17 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Projects Delivered', value: '150+' },
-                { label: 'Industries Served', value: '20+' },
+                { label: 'Industries Served', value: '12+' },
                 { label: 'Client Satisfaction', value: '98%' },
                 { label: 'Years Experience', value: '5+' },
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`card-stack relative glass-blue rounded-2xl p-6 border border-ink-200 hover:border-brand-500/20 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+                  className={`card-stack relative glass-blue rounded-2xl p-6 border border-ink-200 hover:border-brand-900/20 hover:-translate-y-0.5 transition-all duration-500 group ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
                   style={{ transitionDelay: `${400 + i * 80}ms` }}
                 >
                   {/* Layered depth shadow element */}
-                  <div className="absolute inset-0 rounded-2xl border border-brand-500/10 translate-x-1.5 translate-y-1.5 -z-10 bg-brand-500/[0.02]" />
+                  <div className="absolute inset-0 rounded-2xl border border-brand-900/10 translate-x-1.5 translate-y-1.5 -z-10 bg-brand-900/[0.02]" />
                   <div className="font-display font-bold text-3xl text-gradient-navy mb-1.5 group-hover:scale-105 transition-transform duration-300 inline-block">{stat.value}</div>
                   <div className="text-xs text-ink-400 uppercase tracking-wider">{stat.label}</div>
                 </div>
@@ -125,7 +125,7 @@ export default function About() {
                         className="h-full rounded-full transition-all duration-[1500ms] ease-out"
                         style={{
                           width: visible ? `${skill.level}%` : '0%',
-                          background: `linear-gradient(90deg, #0066FF, ${skill.color})`,
+                          background: `linear-gradient(90deg, #0F1B3D, ${skill.color})`,
                           boxShadow: `0 0 8px ${skill.color}40`,
                           transitionDelay: `${300 + i * 80}ms`,
                         }}

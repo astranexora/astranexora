@@ -28,7 +28,7 @@ export default function ParticleField() {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute rounded-full bg-gradient-to-b from-brand-500 to-brand-600 animate-float"
+          className="absolute rounded-full bg-gradient-to-b from-brand-900 to-brand-950 animate-float"
           style={{
             left: `${particle.left}%`,
             top: `${particle.top}%`,

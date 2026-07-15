@@ -105,7 +105,7 @@ export default function CaseStudyPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {project.results.map(result => (
               <div key={result.metric} className="text-center">
-                <div className="font-display font-bold text-3xl md:text-4xl text-gradient-blue mb-1">{result.value}</div>
+                <div className="font-display font-bold text-3xl md:text-4xl text-gradient-navy mb-1">{result.value}</div>
                 <div className="text-sm text-ink-400">{result.metric}</div>
               </div>
             ))}
@@ -115,7 +115,7 @@ export default function CaseStudyPage() {
 
       <section className="py-20 bg-cloud">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-label mb-6"><span className="w-6 h-px bg-brand-500" /><span>Project Overview</span></div>
+          <div className="section-label mb-6"><span className="w-6 h-px bg-brand-900" /><span>Project Overview</span></div>
           <p className="text-ink-700 text-lg leading-relaxed">{project.overview}</p>
         </div>
       </section>
@@ -124,13 +124,13 @@ export default function CaseStudyPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <div className="section-label mb-6"><span className="w-6 h-px bg-brand-500" /><span>Objectives</span></div>
-              <h2 className="font-display font-bold text-3xl text-ink-900 mb-8">What We Set Out to <span className="text-gradient-blue">Achieve</span></h2>
+              <div className="section-label mb-6"><span className="w-6 h-px bg-brand-900" /><span>Objectives</span></div>
+              <h2 className="font-display font-bold text-3xl text-ink-900 mb-8">What We Set Out to <span className="text-gradient-navy">Achieve</span></h2>
               <div className="space-y-4">
                 {project.objectives.map((obj, i) => (
                   <div key={i} className="flex gap-4 items-start group">
-                    <div className="w-7 h-7 rounded-lg bg-brand-500/10 group-hover:bg-brand-500/20 flex items-center justify-center flex-shrink-0 transition-colors">
-                      <span className="text-xs font-bold text-brand-500">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="w-7 h-7 rounded-full bg-brand-900 group-hover:bg-brand-900/80 flex items-center justify-center flex-shrink-0 transition-colors">
+                      <span className="text-xs font-bold text-white">{String(i + 1).padStart(2, '0')}</span>
                     </div>
                     <p className="text-ink-700 text-sm leading-relaxed pt-1">{obj}</p>
                   </div>
@@ -138,13 +138,13 @@ export default function CaseStudyPage() {
               </div>
             </div>
             <div>
-              <div className="section-label mb-6"><span className="w-6 h-px bg-brand-500" /><span>Solutions</span></div>
-              <h2 className="font-display font-bold text-3xl text-ink-900 mb-8">How We <span className="text-gradient-blue">Delivered</span></h2>
+              <div className="section-label mb-6"><span className="w-6 h-px bg-brand-900" /><span>Solutions</span></div>
+              <h2 className="font-display font-bold text-3xl text-ink-900 mb-8">How We <span className="text-gradient-navy">Delivered</span></h2>
               <div className="space-y-3">
                 {project.solutions.map((sol, i) => (
                   <div key={i} className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full bg-brand-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+                    <div className="w-5 h-5 rounded-full bg-brand-900 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-white" />
                     </div>
                     <p className="text-ink-500 text-sm leading-relaxed">{sol}</p>
                   </div>
@@ -158,18 +158,18 @@ export default function CaseStudyPage() {
       <section className="py-20 bg-cloud">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
-            <div className="section-label justify-center mb-4"><span className="w-6 h-px bg-brand-500" /><span>Process</span><span className="w-6 h-px bg-brand-500" /></div>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-ink-900">Our <span className="text-gradient-blue">Approach</span></h2>
+            <div className="section-label justify-center mb-4"><span className="w-6 h-px bg-brand-900" /><span>Process</span><span className="w-6 h-px bg-brand-900" /></div>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-ink-900">Our <span className="text-gradient-navy">Approach</span></h2>
           </div>
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/50 via-brand-500/30 to-transparent hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-brand-900/50 via-brand-900/30 to-transparent hidden md:block" />
             <div className="space-y-6">
               {project.process.map((phase) => (
                 <div key={phase.phase} className="flex gap-8 items-start group">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl glass-blue flex items-center justify-center relative z-10 group-hover:border-brand-500/40 transition-all duration-300">
-                    <span className="font-display font-bold text-sm text-gradient-blue">{phase.phase}</span>
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-brand-900 flex items-center justify-center relative z-10 group-hover:border-brand-900/40 transition-all duration-300">
+                    <span className="font-display font-bold text-sm text-white">{phase.phase}</span>
                   </div>
-                  <div className="flex-1 glass rounded-2xl p-6 border border-ink-200 group-hover:border-brand-500/20 transition-all duration-300">
+                  <div className="flex-1 glass rounded-2xl p-6 border border-ink-200 group-hover:border-brand-900/20 transition-all duration-300">
                     <h3 className="font-display font-semibold text-ink-900 mb-2">{phase.title}</h3>
                     <p className="text-sm text-ink-500 leading-relaxed">{phase.desc}</p>
                   </div>
@@ -182,14 +182,14 @@ export default function CaseStudyPage() {
 
       <section className="py-20 bg-mist border-t border-ink-200">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="section-label mb-6"><span className="w-6 h-px bg-brand-500" /><span>Services Provided</span></div>
-          <h2 className="font-display font-bold text-3xl text-ink-900 mb-8">What We <span className="text-gradient-blue">Delivered</span></h2>
+          <div className="section-label mb-6"><span className="w-6 h-px bg-brand-900" /><span>Services Provided</span></div>
+          <h2 className="font-display font-bold text-3xl text-ink-900 mb-8">What We <span className="text-gradient-navy">Delivered</span></h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {project.tags.map((tag, i) => (
               <div
                 key={tag}
-                className="glass-blue rounded-xl p-4 text-center border border-brand-500/15 hover:border-brand-500/30 transition-all duration-300"
+                className="glass-blue rounded-xl p-4 text-center border border-brand-900/15 hover:border-brand-900/30 transition-all duration-300"
                 style={{ transitionDelay: `${i * 50}ms` }}
               >
                 <span className="text-sm text-ink-700 font-display font-medium">{tag}</span>
@@ -202,7 +202,7 @@ export default function CaseStudyPage() {
       <section className="py-20 bg-cloud relative overflow-hidden border-t border-ink-200">
         <div className="absolute inset-0 aurora-bg opacity-30" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-display font-bold text-4xl text-ink-900 mb-5">Ready to Build<br /><span className="text-gradient-blue">Something Great?</span></h2>
+          <h2 className="font-display font-bold text-4xl text-ink-900 mb-5">Ready to Build<br /><span className="text-gradient-navy">Something Great?</span></h2>
           <p className="text-ink-500 mb-8">Let's discuss how we can help your business with similar results.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/#contact" className="btn-primary"><span className="relative z-10 flex items-center gap-2">Start Your Project <ArrowRight className="w-4 h-4" /></span></a>

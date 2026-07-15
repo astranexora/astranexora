@@ -107,9 +107,9 @@ export default function Testimonials() {
     <section id="testimonials" className="relative py-20 md:py-28 overflow-hidden bg-cloud">
       {/* Background */}
       <div className="absolute inset-0 mesh-bg opacity-20" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-900/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,60,180,0.08), transparent)' }} />
+        style={{ background: 'radial-gradient(ellipse, rgba(15,27,61,0.08), transparent)' }} />
 
       <div ref={ref} className="max-w-7xl mx-auto px-6">
         {/* Header — asymmetric */}
@@ -120,13 +120,13 @@ export default function Testimonials() {
             transition={{ duration: 0.8 }}
           >
             <div className="section-label mb-5">
-              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-500" />
+              <span className="w-8 h-px bg-gradient-to-r from-transparent to-brand-900" />
               <span>Client Voices</span>
             </div>
             <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-ink-900 tracking-tight leading-[1.05]">
               What Our Clients
               <br />
-              <span className="text-gradient-blue">Say About Us</span>
+              <span className="text-gradient-navy">Say About Us</span>
             </h2>
           </motion.div>
           <motion.div
@@ -161,7 +161,7 @@ export default function Testimonials() {
               </div>
               {/* Large quote icon */}
               <div className="relative">
-                <Quote className="w-16 h-16 text-white/20" fill="currentColor" />
+                <Quote className="w-16 h-16 text-brand-900/20" fill="currentColor" />
               </div>
               {/* Avatar + name */}
               <div className="relative">
@@ -190,7 +190,7 @@ export default function Testimonials() {
                         <Star key={i} className="w-4 h-4 text-amber-400" fill="currentColor" />
                       ))}
                     </div>
-                    <div className="px-3 py-1 rounded-full glass-blue text-xs text-brand-500 font-display font-semibold border border-brand-500/20">
+                    <div className="px-3 py-1 rounded-full glass-blue text-xs text-brand-900 font-display font-semibold border border-brand-900/20">
                       {t.metric}
                     </div>
                   </div>
@@ -203,20 +203,20 @@ export default function Testimonials() {
                   {/* Nav */}
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-ink-400 font-display">
-                      <span className="text-brand-500 font-bold">{String(active + 1).padStart(2, '0')}</span>
+                      <span className="text-brand-900 font-bold">{String(active + 1).padStart(2, '0')}</span>
                       <span className="mx-1">/</span>
                       {String(testimonials.length).padStart(2, '0')}
                     </div>
                     <div className="flex gap-2">
                       <button
                         onClick={prev}
-                        className="w-10 h-10 rounded-xl glass-blue flex items-center justify-center text-ink-500 hover:text-brand-500 hover:border-brand-500/30 transition-all duration-200"
+                        className="w-10 h-10 rounded-xl glass-blue flex items-center justify-center text-ink-500 hover:text-brand-900 hover:border-brand-900/30 transition-all duration-200"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button
                         onClick={next}
-                        className="w-10 h-10 rounded-xl glass-blue flex items-center justify-center text-ink-500 hover:text-brand-500 hover:border-brand-500/30 transition-all duration-200"
+                        className="w-10 h-10 rounded-xl glass-blue flex items-center justify-center text-ink-500 hover:text-brand-900 hover:border-brand-900/30 transition-all duration-200"
                       >
                         <ChevronRight className="w-4 h-4" />
                       </button>
@@ -241,13 +241,13 @@ export default function Testimonials() {
               onClick={() => goTo(i)}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-xl border transition-all duration-300 ${
                 active === i
-                  ? 'border-brand-500/30 bg-brand-500/8 shadow-[0_0_12px_rgba(0,102,255,0.08)]'
+                  ? 'border-brand-900/30 bg-brand-900/8 shadow-[0_0_12px_rgba(15,27,61,0.08)]'
                   : 'border-ink-200 bg-white hover:border-ink-300'
               }`}
             >
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
                 active === i
-                  ? 'bg-gradient-to-br from-brand-500 to-brand-600 text-white shadow-[0_0_10px_rgba(0,102,255,0.2)]'
+                  ? 'bg-gradient-to-br from-brand-900 to-brand-950 text-white shadow-[0_0_10px_rgba(15,27,61,0.2)]'
                   : 'bg-ink-100 text-ink-500'
               }`}>
                 {t.avatar}
